@@ -5,6 +5,7 @@ import GenQueryAddition from './pages/GenQueryAddition'
 import ForumView from './pages/ForumView';
 
 
+
 function App() {
   return (
     <div className="App ">
@@ -16,10 +17,10 @@ function App() {
       {/* <PrivateQueryaddition /> */}
 
        {/* <InstructorHomepage /> */}
-       <ForumView />
-       {/* <GenQueryAddition />  */}
+       {/* <ForumView /> */}
+        {/* <GenQueryAddition />  */}
       {/* <PrivateQueryAddition /> */}
-      {/* <ForumView/> */}
+      <ForumView/>
        {/* <DashboardForumQuery/> */}
        {/* <NotifDashboard/> */}
      {/* <InstructorForumDasboard/> */}

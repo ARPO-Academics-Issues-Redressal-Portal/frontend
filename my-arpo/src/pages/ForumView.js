@@ -19,16 +19,17 @@ function ForumView() {
 
         {/* Mark it resolved/unresolved */}
         <div className='query-border'>
-          <div className="form-check form-switch" textAlign='right'>
+          
+          < SubjectDescription />
+          <div className="form-check form-switch d-flex justify-content-end" textAlign='right'>
             <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
             <label className="form-check-label" for="flexSwitchCheckDefault"><p class="text-left">Resolve</p></label>
           </div>
-          < SubjectDescription />
-
           {/* add button */}
           <button type="button" class="btn btn-primary">Edit</button>
           <br></br>
           <button type="button" class="btn btn-primary">Reply</button> 
+          
         </div>       
 
       </div>
