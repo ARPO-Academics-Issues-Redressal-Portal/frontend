@@ -32,7 +32,7 @@ export default class StudentDashboard extends Component {
             
             <div>
 
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light bg-white">
                     <div className="navbar-brand">
                         <img src={ARPO} width={150} height={150}/>
                     </div>
@@ -47,30 +47,30 @@ export default class StudentDashboard extends Component {
                     >
                         <span className="navbar-toggler-icon" />
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
+                    <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
-                            <li className="nav-item active">
-                                <a className="nav-link" href="#">
+                            <li className="nav-item">
+                                <a className="nav-link header-font" href="#">
                                     Home 
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
+                                <a className="nav-link header-font" href="#">
                                     Courses
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
+                                <a className="nav-link header-font" href="#">
                                     My Profile
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
+                                <a className="nav-link header-font" href="#">
                                     Admins
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
+                                <a className="nav-link header-font" href="#">
                                     Help
                                 </a>
                             </li>
@@ -80,7 +80,7 @@ export default class StudentDashboard extends Component {
                 </nav>
 
 
-                <div className='d-flex justify-content-around'>
+                <div className='d-flex justify-content-around mt-4'>
                     {
                         this.state.studentCards.map((data,id) => (
                             <Card title={data.title} desc={data.desc} key={id}/>

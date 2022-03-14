@@ -1,3 +1,7 @@
+body{
+  font-family: 'Voltaire' !important;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.header-font{
+  font-size: 20px;
+}
+
+.query-border{
+  border: 2px solid black;
+  border-radius: 50px;
+  margin: 20px;
+  
 }
