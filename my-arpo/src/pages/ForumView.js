@@ -28,14 +28,17 @@ function ForumView() {
             <label className="form-check-label" for="flexSwitchCheckDefault"><p class="text-left">Resolve</p></label>
           </div>
           {/* add button */}
-          <button type="button" class="btn btn-primary mb-1">Edit</button>
-          <br></br>
-          
-          <Popup trigger={<button type="button" class="btn btn-primary"> Reply </button>}
-            position="right center">
+          <button type="button" class="btn btn-primary">Edit</button>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <Popup trigger={<button type="button" class="btn btn-primary" wide='very'> Reply </button>}
+            position="right center" >
             {/* <div className='popup-size'> */}
             <ReplyDescription/> 
-            <button type="button" class="btn btn-primary">Post with Identity</button>
+            <button type="button" class="btn btn-primary mb-1">Post with Identity</button>
             <button type="button" class="btn btn-primary">Post Anonymously</button>
             {/* </div> */}
           </Popup> 

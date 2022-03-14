@@ -25,13 +25,13 @@ function App() {
        {/* <ForumView /> */}
         {/* <GenQueryAddition />  */}
       {/* <PrivateQueryAddition />  */}
-      {/* <ForumView/> */}
+      <ForumView/>
        {/* <DashboardForumQuery/> */}
         {/* <NotifDashboard/>  */}
       {/* <InstructorForumDasboard/>  */}
       {/* <AddNotification/> */}
       {/* <PrivateQuery/> */}
-      <HelpDesk/>
+      {/* <HelpDesk/> */}
     </div>
   );
 }

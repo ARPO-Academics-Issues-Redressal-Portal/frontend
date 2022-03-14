@@ -8,11 +8,13 @@ function PostNotification() {
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                 </div>
 
-                <div class="form-group mx-sm-3 mb-2">
-                    <label for="inputPassword2" class="sr-only border border-dark rounded">Query</label>
+                <div class="form-group mx-sm-3 mb-2" className="border-size rounded mb-1">
+                    <label for="inputPassword2" > Query_Subject
                     {/* <input type="password" class="form-control" id="inputPassword2" placeholder="Password" /> */}
+                    &nbsp;
+                    <button type="submit" class="btn btn-primary mb-2 mt-2"> Open</button>
 
-                    <button type="submit" class="btn btn-primary mb-2">open</button>
+                    </label>
                 </div>
             </div>
         </form>

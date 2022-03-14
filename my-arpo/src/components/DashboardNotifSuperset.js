@@ -4,7 +4,7 @@ import NotificationDashboard from './NotificationDashboard'
 function DashboardNotifSuperset() {
     return (
         <>
-            <div>Dashboard</div>
+            
             <NotificationDashboard />
             <NotificationDashboard />
             <NotificationDashboard />

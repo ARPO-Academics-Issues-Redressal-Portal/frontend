@@ -15,8 +15,7 @@ function InstructorForumDasboard() {
                 
                 {/* add button */}
                 
-                    <button type="button" class="btn btn-primary justify-content-end mr-3">Resolve selected </button>
-
+                    <button type="button" class="btn btn-primary justify-content-end mr-3">Resolve selected </button> &nbsp;
                     {/* add button */}
                     <button type="button" class="btn btn-primary justify-content-end">Reject selected </button>
 

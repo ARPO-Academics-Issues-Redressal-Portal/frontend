@@ -10,11 +10,12 @@ function NotificationDashboard() {
                     </label>
             </div> */}
            
-            <div class="form-group mx-sm-3 mb-2">
-                <label for="inputPassword2" class="sr-only border border-dark rounded">Notification</label>
+            <div class="form-group mx-sm-3 mb-2" className="border-size rounded mb-1">
+                <label for="inputPassword2" >
+                    Notification
                 {/* <input type="password" class="form-control" id="inputPassword2" placeholder="Notification Heading" /> */}
             
-                <button type="submit" class="btn btn-primary mb-2">Open</button>
+                <button type="submit" class="btn btn-primary mb-2 mt-2 mr-2 ml-2">Open</button></label>
                 </div>
         </form>
     )
