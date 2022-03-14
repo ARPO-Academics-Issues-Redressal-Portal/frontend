@@ -15,7 +15,7 @@ export default class GeneralHeader extends Component {
                   <ul className='navbar-nav'>
                     <li className="nav-item">
                         <a className="nav-link" href="#">
-                          <img src={Home} height={50}/>
+                          <img src={Home} height={40}/>
                            <div></div>
                             Return to Home 
                         </a>
