@@ -1,22 +1,29 @@
 import React from 'react'
 import SubjectDescription from '../components/SubjectDescription'
+import GeneralHeader from '../components/GeneralHeader'
+import GenQuery from '../assets/ARPO-logos/general_query.png'
 
 function AddNotification() {
-  return (<>
-    <div>Post Notification</div>
+    return (
 
-    {/* Anonymous toggle */}
-    {/* <div className="form-check form-switch" textAlign='right'>
-      <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
-      <label className="form-check-label" for="flexSwitchCheckDefault">Anonymous</label>
-    </div> */}
-    
-    < SubjectDescription />
+        <>
+            <div>
+                <GeneralHeader />
+            </div>
+            <div className='d-flex justify-content-center'>
+                <img src={GenQuery} width={75} height={75} />
+                <p className='m-0 pt-4'>Post Notification</p>
+            </div>
 
-    {/* add button */}
-    <button type="button" class="btn btn-primary">Post</button>
-  </>
-  )
+            <div className='query-border'>
+                < SubjectDescription />
+
+                {/* add button */}
+                <button type="button" class="btn btn-primary">Post</button>
+            </div>
+            </>
+
+    )
 }
 
 export default AddNotification

@@ -29,9 +29,9 @@ function App() {
        {/* <DashboardForumQuery/> */}
         {/* <NotifDashboard/>  */}
       {/* <InstructorForumDasboard/>  */}
-      {/* <AddNotification/> */}
+      <AddNotification/>
       {/* <PrivateQuery/> */}
-      <HelpDesk/>
+      {/* <HelpDesk/> */}
     </div>
   );
 }
