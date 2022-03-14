@@ -7,14 +7,14 @@ import PrivateQuery from './pages/PrivateQuery';
 import InstructorForumDasboard from './pages/InstructorForumDasboard';
 import InstructorHomepage from './pages/InstructorHomepage';
 import NotifDashboard from './pages/NotifDashboard';
-
-
+import AddNotification from './pages/AddNotification';
+import HelpDesk from './pages/HelpDesk';
 
 
 function App() {
   return (
     <div className="App ">
-      {/* <LoginPage /> */} 
+      {/* <LoginPage />  */}
       {/* <StudentDashboard /> */}
 
        {/* <InstructorHomepage /> */}
@@ -27,10 +27,11 @@ function App() {
       {/* <PrivateQueryAddition />  */}
       {/* <ForumView/> */}
        {/* <DashboardForumQuery/> */}
-        <NotifDashboard/> 
+        {/* <NotifDashboard/>  */}
       {/* <InstructorForumDasboard/>  */}
       {/* <AddNotification/> */}
       {/* <PrivateQuery/> */}
+      <HelpDesk/>
     </div>
   );
 }

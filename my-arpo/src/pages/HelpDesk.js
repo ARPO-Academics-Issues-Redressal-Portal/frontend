@@ -1,19 +1,35 @@
 import React from 'react'
+import SubjectDescription from '../components/SubjectDescription'
+import GeneralHeader from '../components/GeneralHeader'
+import GenQuery from '../assets/ARPO-logos/general_query.png'
 
 function HelpDesk() {
-  return (
-    <><div>
-        <h1>Help Desk</h1></div><div className="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Subject</label>
-          <input className="form-control" id="exampleFormControlInput1" placeholder="write the subject here" />
-      </div>
-      <div className="mb-3">
-                {/* <label for="exampleFormControlTextarea1" class="form-label">Description</label> */}
-                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Subject matter of the forum"></textarea>
-            </div>
-            <button type="button" class="btn btn-primary">Post</button></>
+    return (
 
-  )
+        <>
+            <div>
+                <GeneralHeader />
+            </div>
+            <div className='d-flex justify-content-center'>
+                <img src={GenQuery} width={75} height={75} />
+                <p className='m-0 pt-4'>Help Desk</p>
+            </div>
+
+            <div className='query-border'>
+                {/* Anonymous toggle */}
+                {/* <div className="form-check form-switch d-flex justify-content-end" textAlign='right'>
+                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+                    <label className="form-check-label" for="flexSwitchCheckDefault">Anonymous</label>
+                </div> */}
+                < SubjectDescription />
+
+                {/* add button */}
+                <button type="button" class="btn btn-primary">Post</button>
+            </div>
+            <div>Phone Numbers During Office Hours (1000 Hrs. To 1800 Hrs.): 4002, 4015, 4023</div>
+        </>
+
+    )
 }
 
 export default HelpDesk
