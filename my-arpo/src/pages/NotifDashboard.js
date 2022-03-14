@@ -1,12 +1,18 @@
 import React from 'react'
 import DashboardNotifSuperset from '../components/DashboardNotifSuperset'
+
+import GeneralHeader from '../components/GeneralHeader'
 function NotifDashboard() {
     return (
         <>
+            <div>
+      <GeneralHeader />
+    </div>
 
             <div>Notification Dashboard</div>
- 
-            <DashboardNotifSuperset />
+            <div className='query-border'>
+                <DashboardNotifSuperset />
+                </div>
         </>
 
     )

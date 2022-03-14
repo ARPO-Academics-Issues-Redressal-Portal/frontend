@@ -14,15 +14,17 @@ function GenQueryAddition() {
       <p className='m-0 pt-4'>Forum</p>
     </div>
 
-    {/* Anonymous toggle */}
-    <div className="form-check form-switch" textAlign='right'>
-      <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
-      <label className="form-check-label" for="flexSwitchCheckDefault">Anonymous</label>
-    </div>
-    < SubjectDescription />
+    <div className='query-border'>
+      {/* Anonymous toggle */}
+      <div className="form-check form-switch d-flex justify-content-end" textAlign='right'>
+        <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+        <label className="form-check-label" for="flexSwitchCheckDefault">Anonymous</label>
+      </div>
+      < SubjectDescription />
 
-    {/* add button */}
-    <button type="button" class="btn btn-primary">Add</button>
+      {/* add button */}
+      <button type="button" class="btn btn-primary">Add</button>
+    </div>
   </>
   )
 }

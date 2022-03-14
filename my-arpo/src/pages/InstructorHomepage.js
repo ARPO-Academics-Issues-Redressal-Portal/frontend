@@ -1,56 +1,95 @@
-import React from 'react'
-const heading = {
-    fontSize: '12px',
-    color: 'white'
-}
-// #rcorners {
-//     border-radius: '25px';
-//     background: #73AD21;
-//     padding: 20px; 
-//     width: 200px;
-//     height: 150px;  
-// }
+import React, { Component } from 'react'
+import Card from '../components/Card'
+import ARPO from '../assets/ARPO-logos/ARPO-logos_transparent.png'
 
-export default function InstructorHomepage(props) {
-    // let className = props.primary ? 'primary' : ''
-    return (
-        <>
-            {/* <div>InstructorHomepage</div> */}
-            {/* <div>
-                <img src="" class="img-fluid">Help</img>
-            </div> */}
 
-            <div class="container px-4 py-4 col-sm-100">
-                <div class="row gx-5">
-                    <div class="col">
-                        <div class="h-75 p-3 border rounded bg-info font-italic font-weight-bold ">Notifications</div>
+export default class InstructorHomepage extends Component {
+
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         studentCards : [
+             {
+                title : "Notification",
+                desc : "Some quick example text to build on the card title and make up the bulk of the card's content."
+
+             },
+             {
+                title : "Important Links",
+                desc : "Some quick example text to build on the card title and make up the bulk of the card's content."
+             },
+             {
+                title : "Institute News",
+                desc : "Some quick example text to build on the card title and make up the bulk of the card's content."
+             },             
+        ],
+      }
+    }
+
+    render() {
+        return (
+            
+            <div>
+
+                <nav className="navbar navbar-expand-lg navbar-light bg-light bg-white">
+                    <div className="navbar-brand">
+                        <img src={ARPO} width={150} height={150}/>
                     </div>
-                    <div class="col">
-                        <div class="h-75 p-3 border bg-green rounded bg-info ">
-                            Important Links
-
-                            <p>
-                                <div>
-                                    <h5 style={heading}>
-                                        DOAA Website
-                                        <br></br>
-                                        Pingala
-                                        {/* add links */}
-                                    </h5>
-                                </div>
-                            </p>
-                        </div>
-
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon" />
+                    </button>
+                    <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <a className="nav-link header-font" href="#">
+                                    Home 
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link header-font" href="#">
+                                    Courses
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link header-font" href="#">
+                                    My Profile
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link header-font" href="#">
+                                    Admins
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link header-font" href="#">
+                                    Help
+                                </a>
+                            </li>
+                        
+                        </ul>
                     </div>
-                    <div class="col">
-                        <div class="h-75 p-3 border bg-green rounded bg-info">Institute News</div>
-                    </div>
+                </nav>
+
+
+                <div className='d-flex justify-content-around mt-4'>
+                    {
+                        this.state.studentCards.map((data,id) => (
+                            <Card title={data.title} desc={data.desc} key={id}/>
+                        ))
+                    }
                 </div>
+                
             </div>
 
-        </>
-
-    )
+        )
+    }
 }
-
-

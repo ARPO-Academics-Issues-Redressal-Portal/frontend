@@ -3,28 +3,34 @@ import LoginPage from './pages/LoginPage';
 import StudentDashboard from './pages/StudentInterface/StudentDashboard'
 import GenQueryAddition from './pages/GenQueryAddition'
 import ForumView from './pages/ForumView';
+import PrivateQuery from './pages/PrivateQuery';
+import InstructorForumDasboard from './pages/InstructorForumDasboard';
+import InstructorHomepage from './pages/InstructorHomepage';
+import NotifDashboard from './pages/NotifDashboard';
+
 
 
 
 function App() {
   return (
     <div className="App ">
-      {/* <LoginPage /> */}
+      {/* <LoginPage /> */} 
       {/* <StudentDashboard /> */}
 
        {/* <InstructorHomepage /> */}
       {/*<GenQueryaddition /> */}
       {/* <PrivateQueryaddition /> */}
 
-       {/* <InstructorHomepage /> */}
+        {/* <InstructorHomepage />  */}
        {/* <ForumView /> */}
         {/* <GenQueryAddition />  */}
-      {/* <PrivateQueryAddition /> */}
-      <ForumView/>
+      {/* <PrivateQueryAddition />  */}
+      {/* <ForumView/> */}
        {/* <DashboardForumQuery/> */}
-       {/* <NotifDashboard/> */}
-     {/* <InstructorForumDasboard/> */}
+        <NotifDashboard/> 
+      {/* <InstructorForumDasboard/>  */}
       {/* <AddNotification/> */}
+      {/* <PrivateQuery/> */}
     </div>
   );
 }
