@@ -10,30 +10,44 @@ import NotifDashboard from './pages/NotifDashboard';
 import AddNotification from './pages/AddNotification';
 import HelpDesk from './pages/HelpDesk';
 
+// for routing
+import { Routes, Route } from 'react-router-dom'
+import NavBar from './components/NavBar'
+
 
 
 function App() {
-  return (
-    <div className="App ">
+  return (<>
+
+   
+
+    {/* <div className="App ">
       {/* <LoginPage />  */}
       {/* <StudentDashboard /> */}
 
-       {/* <InstructorHomepage /> */}
+        {/* <InstructorHomepage /> */}
       {/*<GenQueryaddition /> */}
     
 
         {/* <InstructorHomepage />  */}
-       {/* <ForumView /> */}
+       {/* <ForumView />  */}
         {/* <GenQueryAddition />  */}
   
-      {/* <ForumView/> */}
+       {/* <ForumView/>  */}
        {/* <DashboardForumQuery/> */}
         {/* <NotifDashboard/>  */}
-      <InstructorForumDasboard/> 
+      {/* <InstructorForumDasboard/>  */}
       {/* <AddNotification/> */}
       {/* <PrivateQuery/> */}
       {/* <HelpDesk/> */}
-    </div>
+    {/* </div> */} 
+    {/* regarding routing */}
+    <NavBar/>
+     <Routes> 
+      <Route path='/' elememt= {< InstructorHomepage />} />
+      <Route path='ForumView' elememt={<ForumView />} />
+    </Routes>
+    </>
   );
 }
 

@@ -16,3 +16,15 @@ code {
   background-color: wheat;
   height: 100vh;
 }
+
+nav {
+  background-color: lightgreen;
+  padding : 16px 32px;
+}
+nav a {
+  margin-right : 16px;
+}
+nav a.active {
+  text-decoration : none ;
+  font-weight: bold;
+}
