@@ -13,6 +13,7 @@ import HelpDesk from './pages/HelpDesk';
 // for routing
 import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import NoMatch from './components/NoMatch';
 
 
 
@@ -46,6 +47,8 @@ function App() {
      <Routes> 
       <Route path='/' elememt= {< InstructorHomepage />} />
       <Route path='ForumView' elememt={<ForumView />} />
+      <Route path='*' elememt={<NoMatch/>} />
+      
     </Routes>
     </>
   );
