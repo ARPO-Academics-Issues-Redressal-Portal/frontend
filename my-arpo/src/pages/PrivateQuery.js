@@ -7,7 +7,7 @@ function PrivateQuery() {
     return (
 
         <>
-            <div>General Query Addition</div>
+            <div>Private Query Addition</div>
             <div>
                 <GeneralHeader />
             </div>

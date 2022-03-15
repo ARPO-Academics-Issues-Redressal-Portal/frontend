@@ -11,6 +11,7 @@ import AddNotification from './pages/AddNotification';
 import HelpDesk from './pages/HelpDesk';
 
 
+
 function App() {
   return (
     <div className="App ">
@@ -19,16 +20,16 @@ function App() {
 
        {/* <InstructorHomepage /> */}
       {/*<GenQueryaddition /> */}
-      {/* <PrivateQueryaddition /> */}
+    
 
         {/* <InstructorHomepage />  */}
        {/* <ForumView /> */}
         {/* <GenQueryAddition />  */}
-      {/* <PrivateQueryAddition />  */}
-      <ForumView/>
+  
+      {/* <ForumView/> */}
        {/* <DashboardForumQuery/> */}
         {/* <NotifDashboard/>  */}
-      {/* <InstructorForumDasboard/>  */}
+      <InstructorForumDasboard/> 
       {/* <AddNotification/> */}
       {/* <PrivateQuery/> */}
       {/* <HelpDesk/> */}
