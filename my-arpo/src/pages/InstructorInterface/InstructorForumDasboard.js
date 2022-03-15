@@ -20,6 +20,8 @@ function InstructorForumDasboard() {
                     <button type="button" class="btn btn-primary justify-content-end">Reject selected </button>
 
                 <DashboardForumQuery />
+                <button type="button" class="btn btn-primary">Select All</button>
+                &nbsp;
                 <button type="button" class="btn btn-primary">Add New Post</button>
             </div>
         </>

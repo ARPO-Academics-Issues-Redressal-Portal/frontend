@@ -3,14 +3,14 @@ import DashboardForumQuery from '../components/DashboardForumQuery'
 import GeneralHeader from '../components/GeneralHeader'
 import GenQuery from '../assets/ARPO-logos/general_query.png'
 
-function InstructorForumDasboard() {
+function QueryDasboard() {
     return (
         <>
             
             <div>
                 <GeneralHeader />
             </div>
-            <div>InstructorForumDasboard</div>
+            <div>QueryDasboard</div>
             <div className='query-border'>
                 
                 {/* add button */}
@@ -29,4 +29,4 @@ function InstructorForumDasboard() {
     )
 }
 
-export default InstructorForumDasboard
+export default QueryDasboard

@@ -6,7 +6,7 @@ import GeneralHeader from '../components/GeneralHeader'
 import GenQuery from '../assets/ARPO-logos/general_query.png'
 import ReplyDescription from '../components/ReplyDescription';
 
-function ForumView() {
+function NotifView() {
   return (
     <>
       <div >
@@ -16,7 +16,7 @@ function ForumView() {
 
         <div className='d-flex justify-content-center'>
           <img src={GenQuery} width={75} height={75} />
-          <p className='m-0 pt-4'>Forum</p>
+          <p className='m-0 pt-4'>Notification</p>
         </div>
 
         <div className='query-border'>
@@ -49,4 +49,4 @@ function ForumView() {
   )
 }
 
-export default ForumView
+export default NotifView
