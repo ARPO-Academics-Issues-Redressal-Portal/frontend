@@ -63,6 +63,15 @@ body{
   width: 1480px;
   padding-right: 10px;
   padding-left: 10px;
-  /* height: 100px; */
   border: 1px solid black;
+}
+.forum-border{
+  border: 2px solid black;
+  margin: 30px;
+}
+
+.subject{
+  border-bottom: 2px solid black;
+  padding: 20px;
+  font-size: 25px;
 }
