@@ -50,27 +50,27 @@ export default class InstructorHomepage extends Component {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/instructor">
                                     Home 
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/instructor/courses">
                                     Courses
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/instructor/profile">
                                     My Profile
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/instructor/admins">
                                     Admins
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/instructor/help">
                                     Help
                                 </a>
                             </li>

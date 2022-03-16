@@ -1,16 +1,16 @@
 import React from 'react'
-import SubjectDescription from '../components/SubjectDescription'
-import GeneralHeader from '../components/GeneralHeader'
-import GenQuery from '../assets/ARPO-logos/general_query.png'
+import SubjectDescription from '../../components/SubjectDescription'
+import GeneralHeader from '../../components/GeneralHeader'
+import GenQuery from '../../assets/ARPO-logos/general_query.png'
 
 function PrivateQuery() {
     return (
 
         <>
-            <div>Private Query Addition</div>
             <div>
-                <GeneralHeader />
+                <GeneralHeader to='/instructor'/>
             </div>
+            <div>Private Query Addition</div>
             <div className='d-flex justify-content-center'>
                 <img src={GenQuery} width={75} height={75} />
                 <p className='m-0 pt-4'>Forum</p>

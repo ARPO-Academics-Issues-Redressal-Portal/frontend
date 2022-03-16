@@ -75,3 +75,12 @@ body{
   padding: 20px;
   font-size: 25px;
 }
+
+.course-card{
+  background-color: lightblue;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}

@@ -22,7 +22,7 @@ export default class Card1 extends Component {
 
                 
 
-                    <button type="button" class="btn btn-primary">Access</button>
+                    <button type="button" className="btn btn-primary">Access</button>
         
 
                 </div>

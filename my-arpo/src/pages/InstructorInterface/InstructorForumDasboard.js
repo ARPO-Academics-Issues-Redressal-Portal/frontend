@@ -1,14 +1,13 @@
 import React from 'react'
-import DashboardForumQuery from '../components/DashboardForumQuery'
-import GeneralHeader from '../components/GeneralHeader'
-import GenQuery from '../assets/ARPO-logos/general_query.png'
+import DashboardForumQuery from '../../components/DashboardForumQuery'
+import GeneralHeader from '../../components/GeneralHeader'
 
 function InstructorForumDasboard() {
     return (
         <>
             
             <div>
-                <GeneralHeader />
+                <GeneralHeader to="/instructor"/>
             </div>
             <div>InstructorForumDasboard</div>
             <div className='query-border'>
