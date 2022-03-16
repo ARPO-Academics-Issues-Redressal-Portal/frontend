@@ -32,6 +32,9 @@ export class LoginPage extends Component {
                 e.preventDefault()
                 console.log("Form submit")
                 console.log(this.props)
+                this.props.history.push('/student')
+                console.log(window)
+                window.location.reload()
               }}>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Email address</label>

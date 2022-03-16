@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router,Route,Switch,useHistory} from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
+import StudentCourses from './pages/StudentInterface/StudentCourses';
 import StudentDashboard from './pages/StudentInterface/StudentDashboard'
 
 export default function AppRoutes() {
@@ -15,6 +16,19 @@ export default function AppRoutes() {
 
         <Route exact path={'/student'}>   
           <StudentDashboard />       
+        </Route>
+
+        <Route exact path={'/student/courses'}>
+          <StudentCourses />          
+        </Route>
+
+        <Route exact path={'/student/profile'}>
+
+          
+        </Route>
+
+        <Route exact path={'/instructor'}>
+
         </Route>
 
       </Router>
