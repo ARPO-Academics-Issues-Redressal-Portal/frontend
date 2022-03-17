@@ -1,7 +1,7 @@
 import React from 'react'
-import SubjectDescription from '../../components/SubjectDescription'
-import GeneralHeader from '../../components/GeneralHeader'
-import GenQuery from '../../assets/ARPO-logos/general_query.png'
+import SubjectDescription from './SubjectDescription'
+import GeneralHeader from './GeneralHeader'
+import GenQuery from '../assets/ARPO-logos/general_query.png'
 
 function HelpDesk() {
     return (

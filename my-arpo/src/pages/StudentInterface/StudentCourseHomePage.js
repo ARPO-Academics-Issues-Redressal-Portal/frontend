@@ -2,55 +2,54 @@ import React, { Component } from 'react'
 import GeneralHeader from '../../components/GeneralHeader'
 
 
-export default class CoursesPage extends Component {
+export default class CoursesHomePage extends Component {
 
     constructor(props) {
         super(props)
 
         this.state = {
-            studentCards: [
+            courseCards: [
                 {
-                    title: "Course1",
-                    desc: "Inst1",
-                    id: 'course1'
+                    title: "Notification",
+                    path: "notifications"
 
                 },
                 {
-                    title: "Course2",
-                    desc: "Inst2",
-                    id:"course2"
+                    title: "General Forum",
+                    path: "generalforum"
                 },
                 {
-                    title: "Course3",
-                    desc: "Inst3",
-                    id:'course3'
+                    title: "Private Query",
+                    path: "privatequery"
+                },
+                {
+                    title: "My Course Profile",
+                    path: "courseprofile"
+
                 },
             ],
         }
     }
 
     render() {
+        let courseId = window.location.pathname.split('/')[3]
+        console.log(courseId)
         return (
 
             <div>
-                <GeneralHeader to={'/instructor'} />
+
+                <GeneralHeader to='/student' />
+
 
                 <div className='d-flex justify-content-around mt-4'>
                     {
-                        this.state.studentCards.map((data, id) => (
-                            // <Card1 title={data.title} desc={data.desc} key={id}/>
-
+                        this.state.courseCards.map((data, id) => (
                             <div className="card text-center" style={{ width: "20rem", backgroundColor: "rgb(48 187 176)", borderRadius: '50px' }} key={id}>
-
 
                                 <div className="card-body p-4 pr-5 pl-5">
 
-                                    <h5 className="card-title">{data.title}</h5>
-                                    <h5 className="card-text pt-3">
-                                        {data.desc}
-                                    </h5>
-
-                                    <a href={'/instructor/courses/' + data.id}>
+                                    <h5 className="card-title">{data.title}</h5>                  
+                                    <a href={"/instructor/courses/"+courseId+"/"+data.path}>
                                         <button type="button" className="btn btn-primary">Access</button>
                                     </a>
 

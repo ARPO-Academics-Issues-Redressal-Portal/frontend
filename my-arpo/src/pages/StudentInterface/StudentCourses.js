@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ARPO from '../../assets/ARPO-logos/ARPO-logos_transparent.png'
 import GeneralHeader from '../../components/GeneralHeader'
 
 export default class StudentCourses extends Component {
@@ -8,21 +7,44 @@ export default class StudentCourses extends Component {
     super(props)
   
     this.state = {
-       courses:['CS253','ESC101','MTH101','PHY101','HSS101']
+       courses:[
+         {
+           courseName : 'CS253',
+           path : '/CS253'            
+         },
+         {
+           courseName : 'ESC101',
+           path : '/ESC101'            
+         },
+         {
+           courseName : 'MTH101',
+           path : '/MTH101'            
+         },
+         {
+           courseName : 'PHY101',
+           path : '/PHY101'            
+         },
+         {
+           courseName : 'HSS101',
+           path : '/HSS101'            
+         },
+        ]
     }
   }
 
   render() {
     return (
       <div>
-          <GeneralHeader />
+          <GeneralHeader to="/student"/>
 
           <div className='d-flex justify-content-center flex-wrap m-5'>
             {
               this.state.courses.map((course)=>(
-                  <div key={course} className='course-card d-flex flex-column'>
-                    <div className='mt-3 mb-4'> Course : {course} </div>
-                    <button className='btn btn-primary'>Access</button>
+                  <div key={course.courseName} className='course-card d-flex flex-column'>
+                    <div className='mt-3 mb-4'> Course : {course.courseName} </div>
+                    <a href={'/student/courses' + course.path}>
+                        <button type="button" className="btn btn-primary">Access</button>
+                    </a>
                   </div>
               ))
             }

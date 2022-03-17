@@ -50,7 +50,7 @@ export default class StudentDashboard extends Component {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/student">
                                     Home 
                                 </a>
                             </li>
@@ -60,17 +60,17 @@ export default class StudentDashboard extends Component {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/student/profile">
                                     My Profile
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/student/admins">
                                     Admins
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/stduent/help">
                                     Help
                                 </a>
                             </li>
