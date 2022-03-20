@@ -3,6 +3,9 @@ import {BrowserRouter as Router,Route,useHistory} from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import InstructorRoutes from './Routes/InstructorRoutes';
 import StudentRoutes from './Routes/StudentRoutes';
+import AdminsRoutes from './Routes/AdminsRoutes';
+import TA_Routes from './Routes/TA_Routes';
+import TechnicalStaffRoutes from './Routes/TechnicalStaffRoutes';
 
 export default function AppRoutes() {
 
@@ -16,9 +19,10 @@ export default function AppRoutes() {
 
         <StudentRoutes />
         <InstructorRoutes />
-
+        <AdminsRoutes />
+        <TA_Routes />
+        <TechnicalStaffRoutes />
         
-
       </Router>
     </div>
   )

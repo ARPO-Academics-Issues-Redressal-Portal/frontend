@@ -1,6 +1,6 @@
 import React from 'react'
 import Table from '../../components/Table';
-import GeneralHeader from '../components/GeneralHeader';
+import GeneralHeader from '../../components/GeneralHeader';
 
 function Participants() {
   return (<>

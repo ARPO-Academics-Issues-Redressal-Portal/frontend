@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Card1 from '../components/Card1'
-import ARPO from '../assets/ARPO-logos/ARPO-logos_transparent.png'
-import GenQuery from '../assets/ARPO-logos/Home.png'
-import Manage from '../assets/ARPO-logos/Manage.jpg'
+import Card1 from '../../components/Card1'
+import ARPO from '../../assets/ARPO-logos/ARPO-logos_transparent.png'
+import GenQuery from '../../assets/ARPO-logos/Home.png'
+import Manage from '../../assets/ARPO-logos/Manage.jpg'
 
 
 export default class CoursesHomePage extends Component {

@@ -1,7 +1,7 @@
 import React from 'react'
-import DashboardNotifSuperset from '../components/DashboardNotifSuperset'
+import DashboardNotifSuperset from '../../components/DashboardNotifSuperset'
 
-import GeneralHeader from '../components/GeneralHeader'
+import GeneralHeader from '../../components/GeneralHeader'
 function NotifDashboard() {
     return (
         <>

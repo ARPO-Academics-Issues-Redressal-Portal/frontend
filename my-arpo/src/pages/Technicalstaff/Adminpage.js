@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Card from '../components/Card'
-import ARPO from '../assets/ARPO-logos/ARPO-logos_transparent.png'
+import Card from '../../components/Card'
+import ARPO from '../../assets/ARPO-logos/ARPO-logos_transparent.png'
 
 
 export default class Adminpage extends Component {
@@ -50,23 +50,23 @@ export default class Adminpage extends Component {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/technical-staff">
                                     Home 
                                 </a>
                             </li>
                         
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/technical-staff/profile">
                                     My Profile
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/technical-staff/manage">
                                     Manage
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/technical-staff/help">
                                     Help
                                 </a>
                             </li>

@@ -14,16 +14,17 @@ export default class ManagePage extends Component {
             studentCards: [
                 {
                     title: "Post Notification",
-
+                    path: "postNotifications"
 
                 },
                 {
                     title: "View Profile",
+                    path: "viewProfile"
 
                 },
                 {
                     title: "Query",
-
+                    path: "query"
                 },
 
             ],
@@ -53,7 +54,7 @@ export default class ManagePage extends Component {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#" >
+                                <a className="nav-link header-font" href="/admins" >
                                     <img src={GenQuery} width={60} height={60} />
                                     <div className="mt-3">Home</div>
                                     
@@ -77,14 +78,33 @@ export default class ManagePage extends Component {
                     </div>
                 </nav>
 
-
                 <div className='d-flex justify-content-around mt-4'>
                     {
                         this.state.studentCards.map((data, id) => (
-                            <Card1 title={data.title} key={id} />
+                            <div className="card text-center" style={{ width: "20rem", backgroundColor: "rgb(48 187 176)", borderRadius: '50px' }} key={id}>
+
+                                <div className="card-body p-4 pr-5 pl-5">
+
+                                    <h5 className="card-title">{data.title}</h5>                  
+                                    <a href={"/admins/manage/"+data.path}>
+                                        <button type="button" className="btn btn-primary">Access</button>
+                                    </a>
+
+                                </div>
+
+                            </div>
                         ))
                     }
                 </div>
+
+                {/* <div className='d-flex justify-content-around mt-4'>
+                    {
+                        this.state.studentCards.map((data, id) => (
+                            <Card1 title={data.title} key={id} />
+                            
+                        ))
+                    }
+                </div> */}
 
             </div>
 

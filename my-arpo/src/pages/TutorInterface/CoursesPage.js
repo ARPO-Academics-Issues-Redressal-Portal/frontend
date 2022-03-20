@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Card1 from '../components/Card1'
-import ARPO from '../assets/ARPO-logos/ARPO-logos_transparent.png'
+import Card1 from '../../components/Card1'
+import ARPO from '../../assets/ARPO-logos/ARPO-logos_transparent.png'
 
 
 export default class CoursesPage extends Component {
@@ -50,7 +50,7 @@ export default class CoursesPage extends Component {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/tutor">
                                     Home 
                                 </a>
                             </li>

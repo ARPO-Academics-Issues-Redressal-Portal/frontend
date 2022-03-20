@@ -1,9 +1,11 @@
 import React from 'react';
+import GeneralHeader from '../../components/GeneralHeader'
 
 function Profile() {
     return (
         <>
             <div>
+                <GeneralHeader to="/student"/>
                 <h1>Profile</h1>
                 <h2>Details</h2>
                 <p>Name:</p>

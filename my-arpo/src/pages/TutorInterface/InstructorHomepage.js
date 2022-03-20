@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Card from '../components/Card'
-import ARPO from '../assets/ARPO-logos/ARPO-logos_transparent.png'
+import Card from '../../components/Card'
+import ARPO from '../../assets/ARPO-logos/ARPO-logos_transparent.png'
 
 
 export default class InstructorHomepage extends Component {
@@ -50,27 +50,27 @@ export default class InstructorHomepage extends Component {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/tutor">
                                     Home 
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/tutor/courses">
                                     Courses
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/tutor/profile">
                                     My Profile
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/tutor/admins">
                                     Admins
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="#">
+                                <a className="nav-link header-font" href="/tutor/help">
                                     Help
                                 </a>
                             </li>
