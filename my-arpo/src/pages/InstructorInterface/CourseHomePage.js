@@ -36,7 +36,8 @@ export default class CoursesHomePage extends Component {
     }
 
     render() {
-        let courseId = window.location.pathname.split('/')[3]
+        let pathsArr = window.location.pathname.split('/')
+        let courseId = pathsArr[pathsArr.length -1]
         console.log(courseId)
         return (
 

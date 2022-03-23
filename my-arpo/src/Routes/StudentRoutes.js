@@ -5,16 +5,17 @@ import StudentDashboard from '../pages/StudentInterface/StudentDashboard'
 import StudentProfile from '../pages/StudentInterface/StudentProfile'
 import StudentCourseHomePage from '../pages/StudentInterface/StudentCourseHomePage'
 import HelpDesk from '../components/HelpDesk'
+import GeneralForum from '../pages/GeneralForum'
 
-export default function StudentRoutes() {
+export default function StudentRoutes(props) {
   return (
-    <div>
+    <>
         <Route exact path={'/student'}>   
           <StudentDashboard />       
         </Route>
 
         <Route exact path={'/student/courses'}>
-          <StudentCourses />          
+          <StudentCourses profileId={props.profileId}/>          
         </Route>
 
         <Route exact path={'/student/profile'}>
@@ -32,7 +33,11 @@ export default function StudentRoutes() {
         <Route exact path={'/student/courses/:courseId'}>
           <StudentCourseHomePage />          
         </Route>
+
+        <Route exact path={'/student/courses/:courseid/generalforum'}>
+          <GeneralForum />
+        </Route>
         
-    </div>
+    </>
   )
 }

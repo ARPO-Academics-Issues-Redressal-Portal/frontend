@@ -13,7 +13,6 @@ export default class CoursesPage extends Component {
                     title: "Course1",
                     desc: "Inst1",
                     id: 'course1'
-
                 },
                 {
                     title: "Course2",
@@ -38,7 +37,6 @@ export default class CoursesPage extends Component {
                 <div className='d-flex justify-content-around mt-4'>
                     {
                         this.state.studentCards.map((data, id) => (
-                            // <Card1 title={data.title} desc={data.desc} key={id}/>
 
                             <div className="card text-center" style={{ width: "20rem", backgroundColor: "rgb(48 187 176)", borderRadius: '50px' }} key={id}>
 

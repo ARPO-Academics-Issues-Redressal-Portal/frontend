@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import GeneralHeader from '../../components/GeneralHeader'
+import { CoursesApi } from '../../apis/Apis'
 
 export default class StudentCourses extends Component {
 
@@ -32,6 +33,29 @@ export default class StudentCourses extends Component {
     }
   }
 
+
+fnGetCourses = async ()=>{
+    // let res = await CoursesApi(this.props.profileId);
+    let res = await CoursesApi(123);
+    console.log(res.data)
+
+    let coursesReceived = Array();
+    let arr = res.data
+    for (let i =0 ;i<arr.length;i++){
+      let temp = {}
+      temp["courseName"] = arr[i].course
+      temp["role"] = arr[i].role
+      temp["path"] = "/" + arr[i].course
+      coursesReceived.push(temp)
+    }
+    this.setState({courses:coursesReceived})
+    console.log(coursesReceived)
+}
+
+componentDidMount(){
+    this.fnGetCourses();
+}
+
   render() {
     return (
       <div>
@@ -42,6 +66,7 @@ export default class StudentCourses extends Component {
               this.state.courses.map((course)=>(
                   <div key={course.courseName} className='course-card d-flex flex-column'>
                     <div className='mt-3 mb-4'> Course : {course.courseName} </div>
+                    <div className='mt-3 mb-4'> Role : {course.role} </div>
                     <a href={'/student/courses' + course.path}>
                         <button type="button" className="btn btn-primary">Access</button>
                     </a>

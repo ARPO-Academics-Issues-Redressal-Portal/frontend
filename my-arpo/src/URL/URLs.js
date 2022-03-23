@@ -1,5 +1,9 @@
+export const backEndServer = 'http://localhost:2530/';
 
-const profileId = "student"
+
+export let paths = {
+    dashboard : "/dashboard/"
+}
 
 const student = {
     profile : {

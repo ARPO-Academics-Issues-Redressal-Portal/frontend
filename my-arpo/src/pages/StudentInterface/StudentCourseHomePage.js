@@ -32,7 +32,8 @@ export default class CoursesHomePage extends Component {
     }
 
     render() {
-        let courseId = window.location.pathname.split('/')[3]
+        let pathsArr = window.location.pathname.split('/')
+        let courseId = pathsArr[pathsArr.length -1]
         console.log(courseId)
         return (
 
@@ -49,7 +50,7 @@ export default class CoursesHomePage extends Component {
                                 <div className="card-body p-4 pr-5 pl-5">
 
                                     <h5 className="card-title">{data.title}</h5>                  
-                                    <a href={"/instructor/courses/"+courseId+"/"+data.path}>
+                                    <a href={"/student/courses/"+courseId+"/"+data.path}>
                                         <button type="button" className="btn btn-primary">Access</button>
                                     </a>
 
