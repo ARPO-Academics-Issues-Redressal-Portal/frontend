@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const backEndServer = 'http://localhost:2530/';
+export const backEndServer = 'http://localhost:8080/';
 export async function LoginApi(login,password){
     let url = backEndServer+"profile/profileByloginAndPassword"
 
@@ -34,7 +34,7 @@ export async function  CourseAnnouncementsApi(courseName){
     let url = backEndServer+"announcement/courses"
 
     let params = {
-        course : courseName 
+        courseName : courseName 
     }
     let res = await axios.get(url,{params})
     return res;

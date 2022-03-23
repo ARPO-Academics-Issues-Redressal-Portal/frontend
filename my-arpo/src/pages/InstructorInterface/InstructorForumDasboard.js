@@ -3,6 +3,7 @@ import DashboardForumQuery from '../../components/DashboardForumQuery'
 import GeneralHeader from '../../components/GeneralHeader'
 
 function InstructorForumDasboard() {
+    
     return (
         <>
             
