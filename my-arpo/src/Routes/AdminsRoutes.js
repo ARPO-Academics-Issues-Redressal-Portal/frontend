@@ -10,7 +10,7 @@ import HelpDesk from '../components/HelpDesk';
 export default function () {
   return (
     <>
-        <Route exact path={'/admins'}>
+        {/* <Route exact path={'/admins'}>
           <Adminpage />
         </Route>
 
@@ -36,7 +36,7 @@ export default function () {
 
         <Route exact path={'/admins/manage/viewProfile'}>
           <Profile />
-        </Route>
+        </Route> */}
     </>
   )
 }

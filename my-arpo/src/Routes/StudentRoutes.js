@@ -1,7 +1,5 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
-import StudentCourses from '../pages/StudentInterface/StudentCourses'
-import StudentDashboard from '../pages/StudentInterface/StudentDashboard'
 import StudentProfile from '../pages/StudentInterface/StudentProfile'
 import StudentCourseHomePage from '../pages/StudentInterface/StudentCourseHomePage'
 import NotifDashboard from '../pages/StudentInterface/NotifDashboard'
@@ -16,15 +14,7 @@ export default function StudentRoutes(props) {
   let profileId = sessionStorage.getItem("profileId")
   return (
     <>
-        <Route exact path={'/student'}>   
-          <StudentDashboard />       
-        </Route>
-
-        <Route exact path={'/student/courses'}>
-          <StudentCourses profileId={props.profileId}/>          
-        </Route>
-
-        <Route exact path={'/student/profile'}>
+        {/* <Route exact path={'/student/profile'}>
             <StudentProfile />
         </Route>
 
@@ -58,7 +48,7 @@ export default function StudentRoutes(props) {
         
         <Route exact path={'/student/courses/:courseid/courseProfile'}>
           <Profile />
-        </Route>        
+        </Route>         */}
     </>
   )
 }

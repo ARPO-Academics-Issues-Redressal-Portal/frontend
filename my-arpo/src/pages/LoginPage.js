@@ -32,7 +32,7 @@ export class LoginPage extends Component {
     sessionStorage.setItem("profileId",profileId)
     this.props.setToken()
 
-    this.props.history.replace("/"+profileId+"/home")
+    this.props.history.replace("/home")
     console.log(window)
     window.location.reload()
     this.props.setloggedIN(true)  

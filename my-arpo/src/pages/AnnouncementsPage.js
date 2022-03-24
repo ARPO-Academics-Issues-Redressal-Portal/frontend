@@ -1,9 +1,9 @@
 import React, { useState,useEffect  } from 'react'
-import GeneralHeader from '../../components/GeneralHeader'
-import { CourseAnnouncementsApi } from '../../apis/Apis'
-import Modal from '../../components/Modal'
+import GeneralHeader from '../components/GeneralHeader'
+import { CourseAnnouncementsApi } from '../apis/Apis'
+import Modal from '../components/Modal'
 
-export default function StudentCourseAnnouncements() {
+export default function AnnouncementsPage() {
 
     const [basicModal, setBasicModal] = useState(false);
     const [modalBody, setmodalBody] = useState("")
@@ -18,18 +18,7 @@ export default function StudentCourseAnnouncements() {
 
         let res = await CourseAnnouncementsApi(courseName);
         console.log(res.data)
-
-        // let courseAnnouncements = Array();
-        // let arr = res.data
-        // for (let i = 0; i < arr.length; i++) {
-        //     let temp = {}
-        //     temp["heading"] = arr[i].Heading
-        //     temp["Description"] = arr[i].Description
-        //     temp["TimeStamp"] = arr[i].date_time
-        //     courseAnnouncements.push(temp)
-        // }
         setannouncements(res.data)
-        // console.log(courseAnnouncements)
     }
 
     useEffect(() => {
@@ -47,7 +36,7 @@ export default function StudentCourseAnnouncements() {
                 modalTitle={modalTitle}
             />
             <div>
-                <GeneralHeader to='/student' />
+                <GeneralHeader to='/home' />
             </div>
             <h2 className='text-center m-0'>Announcements</h2>
 

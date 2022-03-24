@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import GeneralHeader from '../../components/GeneralHeader'
 
 
-export default class CoursesHomePage extends Component {
+export default class InstructorCoursesHomePage extends Component {
 
     constructor(props) {
         super(props)
@@ -10,25 +10,25 @@ export default class CoursesHomePage extends Component {
         this.state = {
             courseCards: [
                 {
-                    title: "Notification",
-                    path: "notifications"
+                    title: "Announcements",
+                    path: "/announcements"
 
                 },
                 {
                     title: "General Forum",
-                    path: "generalforum"
+                    path: "/generalforum"
                 },
                 {
                     title: "Private Query",
-                    path: "privatequery"
+                    path: "/privatequery"
                 },
                 {
                     title: "Participants List",
-                    path: "participantslist"
+                    path: "/participantslist"
                 },
                 {
                     title: "Student's Course View",
-                    path: "courseView"
+                    path: "/courseView"
 
                 },
             ],
@@ -36,9 +36,8 @@ export default class CoursesHomePage extends Component {
     }
 
     render() {
-        let pathsArr = window.location.pathname.split('/')
-        let courseId = pathsArr[pathsArr.length -1]
-        console.log(courseId)
+        let url = window.location.pathname
+        
         return (
 
             <div>
@@ -47,13 +46,13 @@ export default class CoursesHomePage extends Component {
 
                 <div className='d-flex justify-content-around mt-4'>
                     {
-                        this.state.courseCards.map((data, id) => (
+                        this.state.courseCards.map((element, id) => (
                             <div className="card text-center" style={{ width: "20rem", backgroundColor: "rgb(48 187 176)", borderRadius: '50px' }} key={id}>
 
                                 <div className="card-body p-4 pr-5 pl-5">
 
-                                    <h5 className="card-title">{data.title}</h5>                  
-                                    <a href={"/instructor/courses/"+courseId+"/"+data.path}>
+                                    <h5 className="card-title">{element.title}</h5>                  
+                                    <a href={url+Element.path}>
                                         <button type="button" className="btn btn-primary">Access</button>
                                     </a>
 

@@ -93,7 +93,7 @@ export default class StudentDashboard extends Component {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="/student">
+                                <a className="nav-link header-font" href="/home">
                                     <div className='text-center'>
                                         <img src={Home} width={30} height={30} />
                                         <p className='m-0 text-center' style={{ fontSize: '12px' }}>Home</p>
@@ -101,7 +101,7 @@ export default class StudentDashboard extends Component {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="/student/courses">
+                                <a className="nav-link header-font" href="/courses">
                                     <div className='text-center'>
                                         <img src={Home} width={30} height={30} />
                                         <p className='m-0 text-center' style={{ fontSize: '12px' }}>Courses</p>
@@ -109,7 +109,7 @@ export default class StudentDashboard extends Component {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="/student/profile">
+                                <a className="nav-link header-font" href="/profile">
                                     <div className='text-center'>
                                         <img src={Profile} width={30} height={30} />
                                         <p className='m-0' style={{ fontSize: '12px' }}>My Profile</p>
@@ -117,7 +117,7 @@ export default class StudentDashboard extends Component {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="/student/admins">
+                                <a className="nav-link header-font" href="/admins">
                                     <div className='text-center'>
                                         <img src={Admins} width={30} height={30} />
                                         <p className='m-0 text-center' style={{ fontSize: '12px' }}>Admins</p>
@@ -125,7 +125,7 @@ export default class StudentDashboard extends Component {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="/stduent/help">
+                                <a className="nav-link header-font" href="/help">
                                     <div className='text-center'>
                                         <img src={Help} width={30} height={30} />
                                         <p className='m-0 text-center' style={{ fontSize: '12px' }}>Help</p>

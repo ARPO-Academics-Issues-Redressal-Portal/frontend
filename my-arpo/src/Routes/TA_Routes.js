@@ -14,7 +14,7 @@ import Profile from '../pages/TutorInterface/Profile';
 export default function () {
   return (
     <>
-        <Route exact path={'/tutor'}>
+        {/* <Route exact path={'/tutor'}>
           <InstructorHomepage />
         </Route>
 
@@ -54,7 +54,7 @@ export default function () {
 
         <Route exact path={'/tutor/courses/:courseid/courseView'}>
           <CourseHomePage />
-        </Route>
+        </Route> */}
 
     </>
   )

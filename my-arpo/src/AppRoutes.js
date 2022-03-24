@@ -7,6 +7,11 @@ import AdminsRoutes from './Routes/AdminsRoutes';
 import TA_Routes from './Routes/TA_Routes';
 import TechnicalStaffRoutes from './Routes/TechnicalStaffRoutes';
 import HomePage from './pages/HomePage'
+import HelpDesk from './components/HelpDesk';
+import CoursesPage from './pages/CoursesPage';
+import CourseHomePage from './pages/CourseHomePage';
+import AnnouncementsPage from './pages/AnnouncementsPage';
+import GeneralForum from './pages/GeneralForum';
 
 function setToken() {
   sessionStorage.setItem('token', JSON.stringify(true));
@@ -37,16 +42,42 @@ export default function AppRoutes() {
       </Router>
     )
   }
+  console.log(sessionStorage.getItem("profileId"))
   return (
 
     <Router>
       <Route exact path={"/"}>
-        <Redirect to={sessionStorage.getItem("profileId") + "/home"} />
+        <Redirect to={"/home"} />
       </Route>
 
-      <Route exact path={sessionStorage.getItem("profileId") + "/home"}>
+      <Route exact path={"/home"}>
         <HomePage />        
       </Route>
+
+      <Route exact path={"/courses"}>
+        <CoursesPage />
+      </Route>
+
+      <Route exact path={"/admins"}>
+        <HelpDesk />
+      </Route>
+
+      <Route exact path={"/help"}>
+        <HelpDesk />
+      </Route>
+
+      <Route exact path={"/courses/:role/:course"}>
+          <CourseHomePage />
+      </Route>
+
+      <Route exact path={"/courses/:role/:course/announcements"}>
+          <AnnouncementsPage />
+      </Route>
+
+      <Route exact path={"/courses/:role/:course/generalforum"}>
+          <GeneralForum />
+      </Route>
+
 
       <StudentRoutes />
       <InstructorRoutes />

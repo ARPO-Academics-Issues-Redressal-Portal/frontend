@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import GeneralHeader from '../../components/GeneralHeader'
 
 
-export default class CoursesHomePage extends Component {
+export default class StudentCourseHomePage extends Component {
 
     constructor(props) {
         super(props)
@@ -11,20 +11,20 @@ export default class CoursesHomePage extends Component {
             courseCards: [
                 {
                     title: "Announcements",
-                    path: "announcements"
+                    path: "/announcements"
 
                 },
                 {
                     title: "General Forum",
-                    path: "generalForum"
+                    path: "/generalForum"
                 },
                 {
                     title: "Private Query",
-                    path: "privateQuery"
+                    path: "/privateQuery"
                 },
                 {
                     title: "My Course Profile",
-                    path: "courseProfile"
+                    path: "/courseProfile"
 
                 },
             ],
@@ -32,9 +32,9 @@ export default class CoursesHomePage extends Component {
     }
 
     render() {
-        let pathsArr = window.location.pathname.split('/')
-        let courseId = pathsArr[pathsArr.length -1]
-        console.log(courseId)
+        let url = window.location.pathname
+        console.log(url)
+        
         return (
 
             <div>
@@ -44,13 +44,13 @@ export default class CoursesHomePage extends Component {
 
                 <div className='d-flex justify-content-around mt-4'>
                     {
-                        this.state.courseCards.map((data, id) => (
+                        this.state.courseCards.map((element, id) => (
                             <div className="card text-center" style={{ width: "20rem", backgroundColor: "rgb(48 187 176)", borderRadius: '50px' }} key={id}>
 
                                 <div className="card-body p-4 pr-5 pl-5">
 
-                                    <h5 className="card-title">{data.title}</h5>                  
-                                    <a href={"/student/courses/"+courseId+"/"+data.path}>
+                                    <h5 className="card-title">{element.title}</h5>                  
+                                    <a href={url+element.path}>
                                         <button type="button" className="btn btn-primary">Access</button>
                                     </a>
 
