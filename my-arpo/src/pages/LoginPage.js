@@ -27,12 +27,13 @@ export class LoginPage extends Component {
       alert("Invalid Username or password")
       return
     }
-
-    this.props.setprofileId(res.data.profile_id)
+    sessionStorage.setItem("profileId",res.data.profile_id)
+    this.props.setToken()
 
     this.props.history.push('/student')
     console.log(window)
     window.location.reload()
+    this.props.setloggedIN(true)  
   }
 
 

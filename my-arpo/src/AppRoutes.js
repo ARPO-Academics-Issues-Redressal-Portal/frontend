@@ -7,24 +7,34 @@ import AdminsRoutes from './Routes/AdminsRoutes';
 import TA_Routes from './Routes/TA_Routes';
 import TechnicalStaffRoutes from './Routes/TechnicalStaffRoutes';
 
+function setToken() {
+  sessionStorage.setItem('token', JSON.stringify(true));
+}
+
+function getToken() {
+  const tokenString = sessionStorage.getItem('token');
+  const userToken = JSON.parse(tokenString);
+  console.log(userToken)
+  return userToken?true:false
+}
+
 export default function AppRoutes() {
-
-  const [profileId, setprofileId] = useState("")
-
   let history = useHistory();
+  const islog = getToken()
+  const [loggedIN, setloggedIN] = useState(false)
+  console.log(islog)
+
+  if(!islog){
+      return <LoginPage history = {history} setToken = {setToken} setloggedIN={setloggedIN}/>  
+  }
   return (
     <div>
       <Router>
-        <Route  exact path='/'>
-          <LoginPage history = {history} setprofileId = {setprofileId}/>          
-        </Route> 
-
-        <StudentRoutes profileId = {profileId}/>
-        <InstructorRoutes profileId = {profileId}/>
-        <AdminsRoutes profileId = {profileId}/>
-        <TA_Routes profileId = {profileId}/>
-        <TechnicalStaffRoutes profileId = {profileId} />
-        
+        <StudentRoutes />
+        <InstructorRoutes />
+        <AdminsRoutes />
+        <TA_Routes />
+        <TechnicalStaffRoutes />        
       </Router>
     </div>
   )
