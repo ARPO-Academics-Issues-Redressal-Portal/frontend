@@ -1,93 +1,67 @@
-import React, { Component } from 'react'
+import React, { useState,useEffect } from 'react'
 import GeneralHeader from '../components/GeneralHeader'
 import { ForumsApi } from '../apis/Apis'
-import {
-    MDBContainer,
-    MDBBtn,
-    MDBModal,
-    MDBModalBody,
-    MDBModalHeader,
-    MDBModalFooter
-} from 'mdbreact';
+import Modal from '../components/Modal'
 
-export default class GeneralForum extends Component {
+export default function GeneralForum() {
+    const [basicModal, setBasicModal] = useState(false);
+    const [forums, setforums] = useState([])
+    const [modalBody, setmodalBody] = useState("")
+    const [modalTitle, setmodalTitle] = useState("")
 
-    constructor(props) {
-        super(props)
+    const toggleShow = () => setBasicModal(!basicModal);
 
-        this.state = {
-            forums: [{ titel: "xyz" }],
-            abc: [],
-            openModal: false,
-            modalHeading: "Modal",
-            modalBody: "Modal Body",
-        }
-    }
+    useEffect(() => {
+      fnGetForums()
+    }, [])
 
-    fnGetForums = async () => {
+    const fnGetForums = async () => {
         let res = await ForumsApi();
         let arr = res.data;
         console.log(res)
-        this.setState({ forums: arr })
+        setforums(arr)
     }
 
-    componentDidMount() {
-        this.fnGetForums()
-    }
-
-    toggle = () => {
-        this.setState({ openModal: !this.state.openModal })
-    }
-
-    render() {
-        return (
-            <>      
-                <MDBContainer>
-                <MDBModal isOpen={true} toggle={this.toggle}>
-                    <MDBModalHeader toggle={this.toggle}>MDBModal title</MDBModalHeader>
-                    <MDBModalBody>
-                        (...)
-                    </MDBModalBody>
-                    <MDBModalFooter>
-                        <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
-                        <MDBBtn color="primary">Save changes</MDBBtn>
-                    </MDBModalFooter>
-                </MDBModal>
-                </MDBContainer> 
-
+    return (
+        <>
+            <Modal 
+                basicModal={basicModal} 
+                setBasicModal={setBasicModal} 
+                toggleShow={toggleShow}
+                modalBody={modalBody}
+                modalTitle={modalTitle}
+            />
+            <div>
                 <div>
-                    <div>
-                        <GeneralHeader />
-                    </div>
-                    <h2 className='text-center m-0'>General Forum Dasboard</h2>
+                    <GeneralHeader />
+                </div>
+                <h2 className='text-center m-0'>General Forum Dashboard</h2>
 
-                    <div className='forum-border' >
+                <div className='forum-border' >
 
-                        {
-                            this.state.forums.map((forum, index) => (
-                                <div className='query-border d-flex align-items-center' key={index}>
-                                    <h4 className='m-0'>{forum.title}</h4>
-                                    <button
-                                        className='btn btn-primary'
-                                        style={{ marginLeft: 'auto' }}
-                                        onClick={() => {
-                                            this.setState({
-                                                modalHeading: forum.titel,
-                                                modalBody: forum.description
-                                            })
-                                            // this.toggle()
-                                        }}
-                                    >Open</button>
-                                </div>
-                            ))
-                        }
-
-                    </div>
-
+                    {
+                        forums.map((forum, index) => (
+                            <div className='query-border d-flex align-items-center' key={index}>
+                                <h4 className='m-0'>{forum.title}</h4>
+                                <button
+                                    className='btn btn-primary'
+                                    style={{ marginLeft: 'auto' }}
+                                    onClick={() => {
+                                        console.log("hello")
+                                        setmodalBody(forum.description)
+                                        setmodalTitle(forum.title)
+                                        toggleShow()
+                                    }}
+                                >Open</button>
+                            </div>
+                        ))
+                    }
 
                 </div>
-            </>
 
-        )
-    }
+
+            </div>
+        </>
+    )
 }
+

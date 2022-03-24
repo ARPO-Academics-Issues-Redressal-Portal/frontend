@@ -9,8 +9,11 @@ import PrivateQuery from '../pages/StudentInterface/PrivateQuery'
 import Profile from '../pages/StudentInterface/Profile';
 import HelpDesk from '../components/HelpDesk'
 import GeneralForum from '../pages/GeneralForum'
+import StudentCourseAnnouncements from '../pages/StudentInterface/StudentCourseAnnouncements'
 
 export default function StudentRoutes(props) {
+
+  let profileId = sessionStorage.getItem("profileId")
   return (
     <>
         <Route exact path={'/student'}>   
@@ -43,6 +46,10 @@ export default function StudentRoutes(props) {
 
         <Route exact path={'/student/courses/:courseid/generalForum'}>
           <GeneralForum />
+        </Route>
+
+        <Route exact path={'/student/courses/:courseid/announcements'}>
+          <StudentCourseAnnouncements />
         </Route>
         
         <Route exact path={'/student/courses/:courseid/privateQuery'}>

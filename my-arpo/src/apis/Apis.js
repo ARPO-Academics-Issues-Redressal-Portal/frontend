@@ -1,8 +1,9 @@
 import axios from 'axios'
 
-export const backEndServer = 'http://localhost:1111/';
+export const backEndServer = 'http://localhost:8080/';
+
 export async function LoginApi(login,password){
-    let url = backEndServer+"profile/profileByloginAndPassword"
+    let url = backEndServer+"profile/profileByLoginAndPassword"
 
     let params = {
         login_id : login,

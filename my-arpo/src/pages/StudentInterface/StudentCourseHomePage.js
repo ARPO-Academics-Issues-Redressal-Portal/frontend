@@ -10,8 +10,8 @@ export default class CoursesHomePage extends Component {
         this.state = {
             courseCards: [
                 {
-                    title: "Notification",
-                    path: "notifications"
+                    title: "Announcements",
+                    path: "announcements"
 
                 },
                 {

@@ -27,10 +27,12 @@ export class LoginPage extends Component {
       alert("Invalid Username or password")
       return
     }
-    sessionStorage.setItem("profileId",res.data.profile_id)
+
+    let profileId = res.data.profile_id
+    sessionStorage.setItem("profileId",profileId)
     this.props.setToken()
 
-    this.props.history.push('/student')
+    this.props.history.replace("/"+profileId+"/home")
     console.log(window)
     window.location.reload()
     this.props.setloggedIN(true)  
