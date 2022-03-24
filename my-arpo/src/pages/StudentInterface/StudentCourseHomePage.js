@@ -16,15 +16,15 @@ export default class CoursesHomePage extends Component {
                 },
                 {
                     title: "General Forum",
-                    path: "generalforum"
+                    path: "generalForum"
                 },
                 {
                     title: "Private Query",
-                    path: "privatequery"
+                    path: "privateQuery"
                 },
                 {
                     title: "My Course Profile",
-                    path: "courseprofile"
+                    path: "courseProfile"
 
                 },
             ],

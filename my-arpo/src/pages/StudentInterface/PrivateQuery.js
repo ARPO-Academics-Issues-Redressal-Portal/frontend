@@ -3,38 +3,11 @@ import SubjectDescription from '../../components/SubjectDescription'
 import GeneralHeader from '../../components/GeneralHeader'
 import GenQuery from '../../assets/ARPO-logos/general_query.png'
 import { Component } from 'react'
-import { PrivateQueryByCourseAndProfileIdApi } from '../../apis/Apis'
 
 
 
 export default class PrivateQuery extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            pQueries:[]
-        }
-    }
-
-    fnGetpQueries= async (courseName,profileId) => {
-        let res = await PrivateQueryByCourseAndProfileIdApi(courseName,profileId);
-        let temppQueries = Array();
-        let arr = res.data
-        console.log("Hello")
-        for (let i = 0; i < arr.length; i++) {
-            let temp = {}
-            temp["heading"] = arr[i].heading
-            temp["description"] = arr[i].description
-            temp["date_time"] = arr[i].date_time
-            temppQueries.push(temp)
-        }
-        console.log(temppQueries);
-        this.setState({pQueries:temppQueries})
-
-    }
-    componentDidMount(){
-        this.fnGetpQueries('CS253A');
-    }
+    
     render(){
         return (
 
@@ -58,7 +31,7 @@ export default class PrivateQuery extends Component {
                         <label for="exampleFormControlInput1" class="form-label">To</label>
                         <input className="form-control" id="exampleFormControlInput1" placeholder="write the recipient" />
                     </div>
-                    < SubjectDescription data={this.state.pQueries} />
+                    < SubjectDescription />
 
                     {/* add button */}
                     <button type="button" class="btn btn-primary">Add</button>

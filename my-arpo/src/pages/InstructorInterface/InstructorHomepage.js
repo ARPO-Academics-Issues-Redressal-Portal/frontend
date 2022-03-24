@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Card from '../../components/Card'
 import ARPO from '../../assets/ARPO-logos/ARPO-logos_transparent.png'
+import { NotificationApi } from '../../apis/Apis'
 
 
 export default class InstructorHomepage extends Component {
@@ -25,6 +26,27 @@ export default class InstructorHomepage extends Component {
              },             
         ],
       }
+    }
+    
+    fnGetNotifs = async ()=>{
+        // let res = await NotifsApi(this.props.profileId);
+        let res = await NotificationApi();
+        console.log(res.data)
+    
+        let NotifsReceived = Array();
+        let arr = res.data
+        for (let i =0 ;i<arr.length;i++){
+          let temp = {}
+          temp["heading"] = arr[i].course
+          temp["description"] = arr[i].role
+          NotifsReceived.push(temp)
+        }
+        this.setState({Notifs:NotifsReceived})
+        console.log(NotifsReceived)
+    }
+    
+    componentDidMount(){
+        this.fnGetNotifs();
     }
 
     render() {

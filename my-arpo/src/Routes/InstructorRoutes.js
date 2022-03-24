@@ -5,7 +5,7 @@ import CoursesPage from '../pages/InstructorInterface/CoursesPage'
 import CourseHomePage from '../pages/InstructorInterface/CourseHomePage'
 import NotifDashboard from '../pages/InstructorInterface/NotifDashboard';
 import InstructorForumDasboard from '../pages/InstructorInterface/InstructorForumDasboard';
-import PrivateQuery from '../pages/InstructorInterface/PrivateQuery';
+import QueryView from '../pages/InstructorInterface/QueryView';
 import Participants from '../pages/InstructorInterface/Participants';
 import HelpDesk from '../components/HelpDesk';
 import Profile from '../pages/InstructorInterface/Profile';
@@ -45,7 +45,7 @@ export default function () {
         </Route>
 
         <Route exact path={'/instructor/courses/:courseid/privatequery'}>
-          <PrivateQuery />
+          <QueryView />
         </Route>
 
         <Route exact path={'/instructor/courses/:courseid/participantslist'}>

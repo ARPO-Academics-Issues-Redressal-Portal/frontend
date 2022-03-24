@@ -109,7 +109,7 @@ export default class StudentDashboard extends Component {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link header-font" href="/stduent/help">
+                                <a className="nav-link header-font" href="/student/help">
                                     Help
                                 </a>
                             </li>

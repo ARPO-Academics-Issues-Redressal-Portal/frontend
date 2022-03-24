@@ -1,10 +1,10 @@
 import React from 'react'
 // import Popup from 'reactjs-popup';
 // import 'reactjs-popup/dist/index.css';
-import SubjectDescription from '../components/ForumViewDescription'
-import GeneralHeader from '../components/GeneralHeader'
-import GenQuery from '../assets/ARPO-logos/general_query.png'
-import ReplyDescription from '../components/ReplyDescription';
+import SubjectDescription from '../../components/ForumViewDescription'
+import GeneralHeader from '../../components/GeneralHeader'
+import GenQuery from '../../assets/ARPO-logos/general_query.png'
+import ReplyDescription from '../../components/ReplyDescription';
 
 function QueryView() {
   return (

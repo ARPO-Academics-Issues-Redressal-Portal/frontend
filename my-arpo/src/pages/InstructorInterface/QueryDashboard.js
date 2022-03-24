@@ -1,7 +1,7 @@
 import React from 'react'
-import DashboardForumQuery from '../components/DashboardForumQuery'
-import GeneralHeader from '../components/GeneralHeader'
-import GenQuery from '../assets/ARPO-logos/general_query.png'
+import DashboardForumQuery from '../../components/DashboardForumQuery'
+import GeneralHeader from '../../components/GeneralHeader'
+import GenQuery from '../../assets/ARPO-logos/general_query.png'
 
 function QueryDasboard() {
     return (

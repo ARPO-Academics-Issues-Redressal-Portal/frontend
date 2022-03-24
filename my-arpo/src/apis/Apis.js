@@ -34,17 +34,49 @@ export async function  CourseAnnouncementsApi(courseName){
     let url = backEndServer+"announcement/courses"
 
     let params = {
-        course : courseName 
+        courseName : courseName 
     }
     let res = await axios.get(url,{params})
     return res;
 }
 
-export async function ForumsApi(){
+export async function ForumsApi(courseName){
     let url = backEndServer+"forum"
+    let params = {
+        courseName : courseName 
+    }
     let res = await axios.get(url)
     return res;
 }
+
+export async function ForumsResponseApi(forumUuid){
+    let url = backEndServer+"forum"
+    let params = {
+        forumUuid : forumUuid 
+    }
+    let res = await axios.get(url)
+    return res;
+}
+
+export async function PrivateQueryByCourseAndProfileIdApi(courseName,profileId){
+    let url = backEndServer+"forum"
+    let params = {
+        courseName : courseName,
+        profileId : profileId 
+    }
+    let res = await axios.get(url)
+    return res;
+}
+
+// export async function  CourseParticipantsApi(courseName){
+//     let url = backEndServer+"participants/courses"
+
+//     let params = {
+//         courseName : courseName 
+//     }
+//     let res = await axios.get(url,{params})
+//     return res;
+// }
 
 // export async function  NewsApi(courseName){
 //     let url = backEndServer+"announcement/courses"
