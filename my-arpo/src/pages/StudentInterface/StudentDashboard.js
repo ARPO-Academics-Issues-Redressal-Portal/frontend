@@ -68,7 +68,7 @@ export default class StudentDashboard extends Component {
 
     render() {
         return (
-
+            
             <div>
 
                 <nav className="navbar navbar-expand-lg navbar-light bg-light bg-white">
@@ -185,7 +185,7 @@ export default class StudentDashboard extends Component {
                 </div>
 
             </div>
-
+        
         )
     }
 }
