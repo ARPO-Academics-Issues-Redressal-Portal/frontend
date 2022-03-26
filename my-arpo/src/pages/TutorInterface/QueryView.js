@@ -1,7 +1,7 @@
 import React from 'react'
 // import Popup from 'reactjs-popup';
 // import 'reactjs-popup/dist/index.css';
-import SubjectDescription from '../components/ForumViewDescription'
+import ForumViewDescription from '../components/ForumViewDescription'
 import GeneralHeader from '../components/GeneralHeader'
 import GenQuery from '../assets/ARPO-logos/general_query.png'
 import ReplyDescription from '../components/ReplyDescription';
@@ -24,7 +24,7 @@ function QueryView() {
             <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
             <label className="form-check-label" for="flexSwitchCheckDefault"><p class="text-left">Resolve</p></label>
           </div> */}
-          < SubjectDescription />
+          < ForumViewDescription />
 
           {/* add button */}
           <button type="button" class="btn btn-primary">Edit</button>

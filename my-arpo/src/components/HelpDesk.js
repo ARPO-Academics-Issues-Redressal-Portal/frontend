@@ -26,7 +26,7 @@ function HelpDesk() {
                 {/* add button */}
                 <button type="button" class="btn btn-primary">Post</button>
             </div>
-            <div>Phone Numbers During Office Hours (1000 Hrs. To 1800 Hrs.): 4002, 4015, 4023</div>
+            <div className="text-center">Phone Numbers During Office Hours (1000 Hrs. To 1800 Hrs.): 4002, 4015, 4023</div>
         </>
 
     )
