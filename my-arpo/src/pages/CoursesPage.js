@@ -40,8 +40,8 @@ export default class StudentCourses extends Component {
 
 
 fnGetCourses = async ()=>{
-    // let res = await CoursesApi(this.props.profileId);
-    let res = await CoursesApi(123);
+    let profileId = sessionStorage.getItem("profileId")
+    let res = await CoursesApi(profileId);
     console.log(res.data)
 
     let coursesReceived = Array();

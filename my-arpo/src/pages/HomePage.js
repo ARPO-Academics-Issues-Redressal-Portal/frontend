@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import ARPO from '../assets/ARPO-logos/ARPO-logos_transparent.png'
 import Home from '../assets/ARPO-logos/Home.png'
-import Courses from '../assets/ARPO-logos/Courses.jpg'
-import Profile from '../assets/ARPO-logos/Profile_icon.png'
+import Courses from '../assets/ARPO-logos/courses.png'
+import Profile from '../assets/ARPO-logos/profile.png'
 import Admins from '../assets/ARPO-logos/Admins.png'
 import Help from '../assets/ARPO-logos/Help.png'
+import Manage from '../assets/ARPO-logos/Manage.jpg'
 import { NotificationApi } from '../apis/Apis'
 
 
@@ -71,6 +72,8 @@ export default class StudentDashboard extends Component {
     }
 
     render() {
+        let isAdmin = sessionStorage.getItem("isAdmin")
+        let isTS = sessionStorage.getItem("isTS")
         return (
 
             <div>
@@ -100,14 +103,17 @@ export default class StudentDashboard extends Component {
                                     </div>
                                 </a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link header-font" href="/courses">
-                                    <div className='text-center'>
-                                        <img src={Home} width={30} height={30} />
-                                        <p className='m-0 text-center' style={{ fontSize: '12px' }}>Courses</p>
-                                    </div>
-                                </a>
-                            </li>
+                            {
+                                !isAdmin && !isTS && (
+                                    <li className="nav-item">
+                                        <a className="nav-link header-font" href="/courses">
+                                            <div className='text-center'>
+                                                <img src={Courses} width={31} height={31} />
+                                                <p className='m-0 text-center' style={{ fontSize: '12px' }}>Courses</p>
+                                            </div>
+                                        </a>
+                                    </li>)
+                            }
                             <li className="nav-item">
                                 <a className="nav-link header-font" href="/profile">
                                     <div className='text-center'>
@@ -116,22 +122,36 @@ export default class StudentDashboard extends Component {
                                     </div>
                                 </a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link header-font" href="/admins">
-                                    <div className='text-center'>
-                                        <img src={Admins} width={30} height={30} />
-                                        <p className='m-0 text-center' style={{ fontSize: '12px' }}>Admins</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link header-font" href="/help">
-                                    <div className='text-center'>
-                                        <img src={Help} width={30} height={30} />
-                                        <p className='m-0 text-center' style={{ fontSize: '12px' }}>Help</p>
-                                    </div>
-                                </a>
-                            </li>
+                            {
+                                !isAdmin && !isTS && (<li className="nav-item">
+                                    <a className="nav-link header-font" href="/admins">
+                                        <div className='text-center'>
+                                            <img src={Admins} width={30} height={30} />
+                                            <p className='m-0 text-center' style={{ fontSize: '12px' }}>Admins</p>
+                                        </div>
+                                    </a>
+                                </li>)
+                            }
+                            {
+                                (isAdmin || isTS) && (<li className="nav-item">
+                                    <a className="nav-link header-font" href="/admins">
+                                        <div className='text-center'>
+                                            <img src={Manage} width={30} height={30} />
+                                            <p className='m-0 text-center' style={{ fontSize: '12px' }}>Manage</p>
+                                        </div>
+                                    </a>
+                                </li>)
+                            }
+                            {
+                                !isTS && (<li className="nav-item">
+                                    <a className="nav-link header-font" href="/help">
+                                        <div className='text-center'>
+                                            <img src={Help} width={30} height={30} />
+                                            <p className='m-0 text-center' style={{ fontSize: '12px' }}>Help</p>
+                                        </div>
+                                    </a>
+                                </li>)
+                            }
 
                         </ul>
                     </div>

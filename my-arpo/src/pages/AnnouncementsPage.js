@@ -1,7 +1,8 @@
-import React, { useState,useEffect  } from 'react'
+import React, { useState, useEffect } from 'react'
 import GeneralHeader from '../components/GeneralHeader'
 import { CourseAnnouncementsApi } from '../apis/Apis'
 import Modal from '../components/Modal'
+import { useParams } from 'react-router-dom';
 
 export default function AnnouncementsPage() {
 
@@ -25,12 +26,13 @@ export default function AnnouncementsPage() {
         fnGetCourseAnnouncements()
     }, [])
 
+    const { role } = useParams()
 
     return (
-        <>  
-            <Modal 
-                basicModal={basicModal} 
-                setBasicModal={setBasicModal} 
+        <>
+            <Modal
+                basicModal={basicModal}
+                setBasicModal={setBasicModal}
                 toggleShow={toggleShow}
                 modalBody={modalBody}
                 modalTitle={modalTitle}
@@ -38,7 +40,26 @@ export default function AnnouncementsPage() {
             <div>
                 <GeneralHeader to='/home' />
             </div>
-            <h2 className='text-center m-0'>Announcements</h2>
+            {
+                role === "student" && (
+                    <h2 className='text-center m-0'>Announcements</h2>
+                )
+            }
+            {
+                (role === "instructor" || role === "ta") && (
+                    <div className='forum-border d-flex justify-content-between' style={{ padding: '10px' }}>
+                        <div>
+                            <h2 className='text-center m-0 align-self-start'>Queries Dashboard</h2>
+                        </div>
+
+                        <div>
+                            <button type="button" className="btn btn-success" style={{ marginRight: '10px' }}>Add Announcement </button>
+                        </div>
+                    </div>
+                )
+            }
+
+
 
             <div className='forum-border'>
                 {

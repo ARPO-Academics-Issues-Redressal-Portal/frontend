@@ -40,7 +40,7 @@ export default class PrivateQuery extends Component {
 
             <>
                 <div>
-                    <GeneralHeader to='/instructor'/>
+                    <GeneralHeader to='/home'/>
                 </div>
                 <div>Private Query Addition</div>
                 <div className='d-flex justify-content-center'>

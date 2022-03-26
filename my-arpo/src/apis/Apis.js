@@ -42,20 +42,20 @@ export async function  CourseAnnouncementsApi(courseName){
 }
 
 export async function ForumsApi(courseName){
-    let url = backEndServer+"forum"
+    let url = backEndServer+"forum/forumByCourse"
     let params = {
         courseName : courseName 
     }
-    let res = await axios.get(url)
+    let res = await axios.get(url,{params})
     return res;
 }
 
 export async function ForumsResponseApi(forumUuid){
-    let url = backEndServer+"forum"
+    let url = backEndServer+"forumResponse/forumResponseByForumUUID"
     let params = {
         forumUuid : forumUuid 
     }
-    let res = await axios.get(url)
+    let res = await axios.get(url,{params})
     return res;
 }
 

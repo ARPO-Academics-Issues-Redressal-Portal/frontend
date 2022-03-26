@@ -12,6 +12,7 @@ import CoursesPage from './pages/CoursesPage';
 import CourseHomePage from './pages/CourseHomePage';
 import AnnouncementsPage from './pages/AnnouncementsPage';
 import GeneralForum from './pages/GeneralForum';
+import PrivateQueries from './pages/PrivateQueries';
 
 function setToken() {
   sessionStorage.setItem('token', JSON.stringify(true));
@@ -78,12 +79,21 @@ export default function AppRoutes() {
           <GeneralForum />
       </Route>
 
+      <Route exact path={"/courses/:role/:course/privatequery"}>
+          <PrivateQueries />
+      </Route>
+
+      <Route exact path={"/courses/:role/:course/generalforum/:forumId"}>
+          <GeneralForum />
+      </Route>
+
 
       <StudentRoutes />
       <InstructorRoutes />
       <AdminsRoutes />
       <TA_Routes />
       <TechnicalStaffRoutes />
+      
     </Router>
 
   )

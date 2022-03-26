@@ -29,7 +29,15 @@ export class LoginPage extends Component {
     }
 
     let profileId = res.data.profile_id
+    let isAdmin = res.data.isAdmin;
+    let isTS = res.data.isTS
     sessionStorage.setItem("profileId",profileId)
+
+    if(isAdmin===1)
+      sessionStorage.setItem("isAdmin",true)
+    if(isTS===1)
+      sessionStorage.setItem("isTS",true)
+      
     this.props.setToken()
 
     this.props.history.replace("/home")

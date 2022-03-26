@@ -1,14 +1,6 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
-import InstructorHomepage from '../pages/TutorInterface/InstructorHomepage';
-import CoursesPage from '../pages/TutorInterface/CoursesPage'
-import CourseHomePage from '../pages/TutorInterface/CourseHomePage'
-import NotifDashboard from '../pages/TutorInterface/NotifDashboard';
-import InstructorForumDasboard from '../pages/TutorInterface/InstructorForumDasboard';
-import PrivateQuery from '../pages/TutorInterface/PrivateQuery';
-import Participants from '../pages/TutorInterface/Participants';
-import HelpDesk from '../components/HelpDesk';
-import Profile from '../pages/TutorInterface/Profile';
+
 
 
 export default function () {

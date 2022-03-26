@@ -1,13 +1,5 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
-import StudentProfile from '../pages/StudentInterface/StudentProfile'
-import StudentCourseHomePage from '../pages/StudentInterface/StudentCourseHomePage'
-import NotifDashboard from '../pages/StudentInterface/NotifDashboard'
-import PrivateQuery from '../pages/StudentInterface/PrivateQuery'
-import Profile from '../pages/StudentInterface/Profile';
-import HelpDesk from '../components/HelpDesk'
-import GeneralForum from '../pages/GeneralForum'
-import StudentCourseAnnouncements from '../pages/StudentInterface/StudentCourseAnnouncements'
 
 export default function StudentRoutes(props) {
 
