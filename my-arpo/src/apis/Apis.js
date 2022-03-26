@@ -50,6 +50,15 @@ export async function ForumsApi(courseName){
     return res;
 }
 
+export async function ForumPostApi(courseName){
+    let url = backEndServer+"announcement/add"
+    let params = {
+        courseName : courseName 
+    }
+    let res = await axios.get(url,{params})
+    return res;
+}
+
 export async function ForumsResponseApi(forumUuid){
     let url = backEndServer+"forumResponse/forumResponseByForumUUID"
     let params = {

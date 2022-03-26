@@ -37,6 +37,12 @@ export default function GeneralForum() {
 
     const [addPost, setaddPost] = useState(false)
     const toggleAddPost = ()=> setaddPost(!addPost)
+    const [subject, setsubject] = useState("")
+    const [postBody, setpostBody] = useState("")
+    const fnPostForum = async ()=>{
+
+        //let res = await 
+    }
 
     return (
         <>
@@ -53,6 +59,10 @@ export default function GeneralForum() {
                 setaddPost={setaddPost}
                 toggleAddPost={toggleAddPost}
                 heading={"Add Forum"}
+                setsubject={setsubject}
+                setpostBody={setpostBody}
+                subject={subject}
+                postBody={postBody}
             />
 
             <div>
@@ -70,6 +80,8 @@ export default function GeneralForum() {
                             type="button"
                             className="btn btn-success"
                             onClick={() => {
+                                setsubject('')
+                                setpostBody('')
                                 toggleAddPost()
                             }}
                             style={{ marginRight: '10px' }}
