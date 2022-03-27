@@ -6,6 +6,7 @@ import Profile from '../assets/ARPO-logos/profile.png'
 import Admins from '../assets/ARPO-logos/Admins.png'
 import Help from '../assets/ARPO-logos/Help.png'
 import Manage from '../assets/ARPO-logos/Manage.jpg'
+import logOut from '../assets/ARPO-logos/logout-icon.png'
 import { NotificationApi } from '../apis/Apis'
 
 
@@ -152,7 +153,17 @@ export default class StudentDashboard extends Component {
                                     </a>
                                 </li>)
                             }
-
+                            <li className="nav-item">
+                                <a className="nav-link header-font" href="/login" onClick={()=>{
+                                    sessionStorage.clear()
+                                    window.location.reload()
+                                }}>
+                                    <div className='text-center'>
+                                        <img src={logOut} width={30} height={30} />
+                                        <p className='m-0' style={{ fontSize: '12px' }}>LogOut</p>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

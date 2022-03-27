@@ -53,7 +53,11 @@ export default function AnnouncementsPage() {
                         </div>
 
                         <div>
-                            <button type="button" className="btn btn-success" style={{ marginRight: '10px' }}>Add Announcement </button>
+                            <button 
+                                type="button" 
+                                className="btn btn-success" 
+                                style={{ marginRight: '10px' }}
+                            >Add Announcement </button>
                         </div>
                     </div>
                 )
