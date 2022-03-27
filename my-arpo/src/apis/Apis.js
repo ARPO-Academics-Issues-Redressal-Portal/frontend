@@ -69,12 +69,31 @@ export async function ForumsResponseApi(forumUuid){
 }
 
 export async function PrivateQueryByCourseAndProfileIdApi(courseName,profileId){
-    let url = backEndServer+"forum"
+    let url = backEndServer+"privateQuery/queryByProfileIdAndCourse"
     let params = {
         courseName : courseName,
-        profileId : profileId 
+        profile_id : profileId 
     }
-    let res = await axios.get(url)
+    let res = await axios.get(url, {params})
+    return res;
+}
+
+
+export async function PrivateQueryByCourseNameApi(courseName){
+    let url = backEndServer+"privateQuery/queryByCourse"
+    let params = {
+        courseName : courseName 
+    }
+    let res = await axios.get(url, {params})
+    return res;
+}
+
+export async function PrivateQueryResponseApi(queryUuid){
+    let url = backEndServer+"privateQueryResponse/privateQueryResponseByQueryUUID"
+    let params = {
+        queryUuid : queryUuid
+    }
+    let res = await axios.get(url, {params})
     return res;
 }
 
