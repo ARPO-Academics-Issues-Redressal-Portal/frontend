@@ -53,11 +53,11 @@ export class LoginPage extends Component {
       <div className='d-flex flex-column align-items-center bg-log'>
 
         <div className='d-flex justify-content-center align-self-stretch'>
-          <img src={ARPO} width={200} height={200} className="mr-3" />
-          <img src={IITK} width={100} height={100} className="align-self-center" />
+          <img src={ARPO} width={200} height={200} style={{marginRight:'100px'}} />
+          <img src={IITK} width={100} height={100} className="align-self-center" style={{marginLeft:'100px'}}/>
         </div>
 
-        <div>
+        <div className='login--container'>
           <h1 className='m-0 text-center'>SIGN IN</h1>
 
           <form onSubmit={(e) => {
@@ -98,7 +98,3 @@ export class LoginPage extends Component {
 }
 
 export default LoginPage
-
-function Temp (){
-  
-}
