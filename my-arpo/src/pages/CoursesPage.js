@@ -68,8 +68,8 @@ componentDidMount(){
 
           <div className='d-flex justify-content-center flex-wrap m-5'>
             {
-              this.state.courses.map((course)=>(
-                  <div key={course.courseName} className='course-card d-flex flex-column'>
+              this.state.courses.map((course,id)=>(
+                  <div key={course.courseName+id} className='course-card d-flex flex-column'>
                     <div className='mt-3 mb-4'> Course : {course.courseName} </div>
                     <div className='mt-3 mb-4'> Role : {course.role} </div>
                     <a href={course.path}>

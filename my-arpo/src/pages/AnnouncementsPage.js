@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import GeneralHeader from '../components/GeneralHeader'
-import { CourseAnnouncementsApi } from '../apis/Apis'
+import { CourseAnnouncementPostApi, CourseAnnouncementsApi, CourseAnnouncementsUpdateApi } from '../apis/Apis'
 import Modal from '../components/Modal'
 import { useParams } from 'react-router-dom';
+import AddPost from '../components/AddPost';
+import EditPost from '../components/EditPost';
 
 export default function AnnouncementsPage() {
 
@@ -10,6 +12,7 @@ export default function AnnouncementsPage() {
     const [modalBody, setmodalBody] = useState("")
     const [modalTitle, setmodalTitle] = useState("")
     const [announcements, setannouncements] = useState([])
+    const [ann_uuid, setann_uuid] = useState("")
 
     const toggleShow = () => setBasicModal(!basicModal);
 
@@ -19,14 +22,33 @@ export default function AnnouncementsPage() {
 
         let res = await CourseAnnouncementsApi(courseName);
         console.log(res.data)
-        setannouncements(res.data)
+        setannouncements(res.data.reverse())
     }
 
     useEffect(() => {
         fnGetCourseAnnouncements()
     }, [])
 
-    const { role } = useParams()
+    const { role,course } = useParams()
+
+    const [addPost, setaddPost] = useState(false)
+    const toggleAddPost = ()=> setaddPost(!addPost)
+    const [subject, setsubject] = useState("")
+    const [postBody, setpostBody] = useState("")
+    const fnPostAnnouncement = async ()=>{
+
+        let res = await CourseAnnouncementPostApi(subject,postBody,course)
+        fnGetCourseAnnouncements()
+        console.log(res)
+    }
+
+    const [editPost, seteditPost] = useState(false)
+    const toggleEditPost = () => seteditPost(!editPost)
+
+    const fnUpdateAnnouncement = async () =>{
+        let res = await CourseAnnouncementsUpdateApi(ann_uuid,modalTitle,modalBody,course)
+        console.log("announcement update ",res)
+    }
 
     return (
         <>
@@ -36,7 +58,33 @@ export default function AnnouncementsPage() {
                 toggleShow={toggleShow}
                 modalBody={modalBody}
                 modalTitle={modalTitle}
+                toggleEditPost={toggleEditPost}
             />
+
+            <AddPost 
+                addPost={addPost}
+                setaddPost={setaddPost}
+                toggleAddPost={toggleAddPost}
+                heading="Add Announcement"
+                setsubject={setsubject}
+                setpostBody={setpostBody}
+                subject={subject}
+                postBody={postBody}
+                fnAddPost={fnPostAnnouncement}
+            />
+
+            <EditPost 
+                editPost={editPost}
+                seteditPost={seteditPost}
+                toggleEditPost={toggleEditPost}
+                heading="Edit Announcement"
+                subject={modalTitle}
+                editBody={modalBody}
+                setsubject={setmodalTitle}
+                setpostBody={setmodalBody}
+                fnUpdatePost={fnUpdateAnnouncement}
+            />
+
             <div>
                 <GeneralHeader to='/home' />
             </div>
@@ -57,6 +105,11 @@ export default function AnnouncementsPage() {
                                 type="button" 
                                 className="btn btn-success" 
                                 style={{ marginRight: '10px' }}
+                                onClick={() => {
+                                    setsubject('')
+                                    setpostBody('')
+                                    toggleAddPost()
+                                }}
                             >Add Announcement </button>
                         </div>
                     </div>
@@ -77,6 +130,7 @@ export default function AnnouncementsPage() {
                                     console.log("hello")
                                     setmodalBody(announcement.description)
                                     setmodalTitle(announcement.heading)
+                                    setann_uuid(announcement.uuid)
                                     toggleShow()
                                 }}
                             >Open</button>

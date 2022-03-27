@@ -63,6 +63,7 @@ export default function GeneralForum() {
                 setpostBody={setpostBody}
                 subject={subject}
                 postBody={postBody}
+                fnAddPost={fnPostForum}
             />
 
             <div>

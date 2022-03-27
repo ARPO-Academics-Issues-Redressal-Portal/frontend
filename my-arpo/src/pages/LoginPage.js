@@ -30,7 +30,7 @@ export class LoginPage extends Component {
 
     let profileId = res.data.profile_id
     let isAdmin = res.data.isAdmin;
-    let isTS = res.data.isTS
+    let isTS = res.data.is_ts
     sessionStorage.setItem("profileId",profileId)
 
     if(isAdmin===1)
