@@ -31,7 +31,18 @@ export class LoginPage extends Component {
     let profileId = res.data.profile_id
     let isAdmin = res.data.isAdmin;
     let isTS = res.data.is_ts
+    let email = res.data.email_id
+    let name = res.data.name
+    let phone = res.data.phone_no
+    let department = res.data.department
+    let roll_no = res.data.roll_number
+
     sessionStorage.setItem("profileId",profileId)
+    sessionStorage.setItem("email",email)
+    sessionStorage.setItem("name",name)
+    sessionStorage.setItem("phone",phone)
+    sessionStorage.setItem("department",department)
+    sessionStorage.setItem("roll_no",roll_no)
 
     if(isAdmin===1)
       sessionStorage.setItem("isAdmin",true)

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import GeneralHeader from '../components/GeneralHeader'
-import { ForumsApi } from '../apis/Apis'
+import { ForumPostApi, ForumsApi } from '../apis/Apis'
 import { useParams } from 'react-router-dom';
 import ViewPost from '../components/ViewPost'
 import AddPost from '../components/AddPost';
 import { ForumsResponseApi } from '../apis/Apis';
+import EditPost from '../components/EditPost';
 
 export default function GeneralForum() {
     const [forums, setforums] = useState([])
@@ -22,7 +23,7 @@ export default function GeneralForum() {
         let res = await ForumsApi(course);
         let arr = res.data;
         console.log(res)
-        setforums(arr)
+        setforums(arr.reverse())
     }
 
     const fnGetReplies = async (forumUuid)=>{
@@ -41,7 +42,8 @@ export default function GeneralForum() {
     const [postBody, setpostBody] = useState("")
     const fnPostForum = async ()=>{
 
-        //let res = await 
+        let res = await ForumPostApi(subject,postBody,course)
+        fnGetForums()
     }
 
     return (
@@ -64,6 +66,9 @@ export default function GeneralForum() {
                 subject={subject}
                 postBody={postBody}
                 fnAddPost={fnPostForum}
+            />
+
+            <EditPost 
             />
 
             <div>

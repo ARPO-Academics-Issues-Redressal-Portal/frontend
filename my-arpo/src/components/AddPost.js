@@ -44,6 +44,7 @@ export default function AddPost(props) {
               </MDBBtn>
               <MDBBtn onClick={() => {
                 fnAddPost()
+                toggleAddPost()
               }}>Post</MDBBtn>
             </MDBModalFooter>
           </MDBModalContent>

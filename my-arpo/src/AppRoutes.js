@@ -13,6 +13,7 @@ import CourseHomePage from './pages/CourseHomePage';
 import AnnouncementsPage from './pages/AnnouncementsPage';
 import GeneralForum from './pages/GeneralForum';
 import PrivateQueries from './pages/PrivateQueries';
+import Profile from './pages/Profile';
 
 function setToken() {
   sessionStorage.setItem('token', JSON.stringify(true));
@@ -65,6 +66,10 @@ export default function AppRoutes() {
 
       <Route exact path={"/help"}>
         <HelpDesk />
+      </Route>
+
+      <Route exact path={"/profile"}>
+          <Profile />
       </Route>
 
       <Route exact path={"/courses/:role/:course"}>

@@ -13,6 +13,10 @@ export async function LoginApi(login, password) {
     }
 
     let res = await axios.get(url, { params })
+    if(res.data===''){
+        alert("Invalid Username or password")
+        return
+      }
     return res;
 }
 
@@ -79,6 +83,12 @@ export async function CourseAnnouncementsUpdateApi(uuid,heading,description,cour
         "date_time": date
     }
     let res = await axios.put(url, params)
+    return res;
+}
+
+export async function CourseAnnouncementDeleteApi(uuid) {
+    let url = backEndServer + "announcement/delete/"+uuid    
+    let res = await axios.delete(url)
     return res;
 }
 
