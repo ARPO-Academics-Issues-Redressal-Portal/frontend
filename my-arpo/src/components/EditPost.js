@@ -45,6 +45,7 @@ export default function EditPost(props) {
                 Close
               </MDBBtn>
               <MDBBtn onClick={() => {
+                toggleEditPost()
                 fnUpdatePost()
               }}>Update</MDBBtn>
             </MDBModalFooter>

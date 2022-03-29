@@ -11,6 +11,10 @@ export async function LoginApi(login, password) {
     }
 
     let res = await axios.get(url, { params })
+    if(res.data===''){
+        alert("Invalid Username or password")
+        return
+      }
     return res;
 }
 
@@ -80,6 +84,12 @@ export async function CourseAnnouncementsUpdateApi(uuid,heading,description,cour
     return res;
 }
 
+export async function CourseAnnouncementDeleteApi(uuid) {
+    let url = backEndServer + "announcement/delete/"+uuid    
+    let res = await axios.delete(url)
+    return res;
+}
+
 /* Course Announcement Apis Ends*/
 
 /********************************************/
@@ -95,12 +105,22 @@ export async function ForumsApi(courseName) {
     return res;
 }
 
-export async function ForumPostApi(courseName) {
-    let url = backEndServer + "announcement/add"
+export async function ForumPostApi(title,description,course) {
+    let url = backEndServer + "forum/add"
+    let date = new Date()
+    date = date.toISOString().slice(0, 19).replace('T', ' ');
+
     let params = {
-        courseName: courseName
+        "title":title,
+        "profile_id":sessionStorage.getItem("profileId"), 
+        "description":description,
+        "likes":0,
+        "course":course,
+        "receiver_email_id":sessionStorage.getItem("email"),
+        "post_anonymous":1,
+        "date_time":date
     }
-    let res = await axios.get(url, { params })
+    let res = await axios.post(url, params)
     return res;
 }
 

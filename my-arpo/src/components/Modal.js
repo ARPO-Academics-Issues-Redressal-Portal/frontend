@@ -12,9 +12,9 @@ import {
 import { useParams } from 'react-router-dom';
 
 export default function App(props) {
-  const { basicModal, setBasicModal, toggleShow, 
-          modalBody, modalTitle ,
-          toggleEditPost } = props
+  const { basicModal, setBasicModal, toggleShow,
+    modalBody, modalTitle,
+    toggleEditPost,deleteAnnouncement } = props
 
   const { role } = useParams()
 
@@ -37,12 +37,17 @@ export default function App(props) {
                 (role === "instructor" || role === "ta") && (
                   <>
                     <MDBBtn
-                      onClick={()=>{
+                      onClick={() => {
                         toggleShow()
                         toggleEditPost()
                       }}
                     >Edit</MDBBtn>
-                    <MDBBtn color='danger'>Delete</MDBBtn>
+                    <MDBBtn color='danger'
+                      onClick={() => {
+                        toggleShow()
+                        deleteAnnouncement()
+                      }}
+                    >Delete</MDBBtn>
                   </>
                 )
               }

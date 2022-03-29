@@ -78,24 +78,12 @@ export default class StudentDashboard extends Component {
         return (
 
             <div>
-
-                <nav className="navbar navbar-expand-lg navbar-light bg-light bg-white">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light bg-white flex-nowrap">
                     <div className="navbar-brand">
                         <img src={ARPO} width={150} height={150} />
                     </div>
-                    <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#navbarNav"
-                        aria-controls="navbarNav"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span className="navbar-toggler-icon" />
-                    </button>
-                    <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul className="navbar-nav">
+                    <div className="navbar-collapse d-flex justify-content-end" id="navbarNav">
+                        <ul className="navbar-nav flex-row">
                             <li className="nav-item">
                                 <a className="nav-link header-font" href="/home">
                                     <div className='text-center'>
@@ -168,7 +156,6 @@ export default class StudentDashboard extends Component {
                     </div>
                 </nav>
 
-
                 <div className='d-flex justify-content-around mt-4'>
 
                     <div className="card" style={{ width: "20rem", backgroundColor: "rgb(48 187 176)", borderRadius: '50px' }}>
@@ -233,7 +220,6 @@ export default class StudentDashboard extends Component {
 
                     </div>
                 </div>
-
             </div>
 
         )

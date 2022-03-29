@@ -104,3 +104,17 @@ body{
     box-shadow   : 0 0 30px rgba(0, 0, 0, 0.1);
     padding      : 30px;
 }
+.profile-border{
+  border: 2px solid black;
+  border-radius: 30px;
+  margin: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 10px;
+}
+
+.profile-container{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import GeneralHeader from '../components/GeneralHeader'
-import { CourseAnnouncementPostApi, CourseAnnouncementsApi, CourseAnnouncementsUpdateApi } from '../apis/Apis'
+import { CourseAnnouncementDeleteApi, CourseAnnouncementPostApi, CourseAnnouncementsApi, CourseAnnouncementsUpdateApi } from '../apis/Apis'
 import Modal from '../components/Modal'
 import { useParams } from 'react-router-dom';
 import AddPost from '../components/AddPost';
@@ -48,6 +48,13 @@ export default function AnnouncementsPage() {
     const fnUpdateAnnouncement = async () =>{
         let res = await CourseAnnouncementsUpdateApi(ann_uuid,modalTitle,modalBody,course)
         console.log("announcement update ",res)
+        fnGetCourseAnnouncements()
+    }
+
+    const fnDeleteAnnouncement = async ()=>{
+        let res = await CourseAnnouncementDeleteApi(ann_uuid)
+        console.log(res)
+        fnGetCourseAnnouncements()
     }
 
     return (
@@ -59,6 +66,7 @@ export default function AnnouncementsPage() {
                 modalBody={modalBody}
                 modalTitle={modalTitle}
                 toggleEditPost={toggleEditPost}
+                deleteAnnouncement={fnDeleteAnnouncement}
             />
 
             <AddPost 
