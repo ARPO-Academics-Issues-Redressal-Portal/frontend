@@ -11,7 +11,7 @@ import {
 } from 'mdb-react-ui-kit';
 import { useParams } from 'react-router-dom';
 
-export default function App(props) {
+export default function Modal(props) {
   const { basicModal, setBasicModal, toggleShow,
     modalBody, modalTitle,
     toggleEditPost,deleteAnnouncement } = props
@@ -44,8 +44,8 @@ export default function App(props) {
                     >Edit</MDBBtn>
                     <MDBBtn color='danger'
                       onClick={() => {
-                        toggleShow()
                         deleteAnnouncement()
+                        toggleShow()
                       }}
                     >Delete</MDBBtn>
                   </>

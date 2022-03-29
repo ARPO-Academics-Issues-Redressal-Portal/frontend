@@ -105,7 +105,7 @@ export default function AnnouncementsPage() {
                 (role === "instructor" || role === "ta") && (
                     <div className='forum-border d-flex justify-content-between' style={{ padding: '10px' }}>
                         <div>
-                            <h2 className='text-center m-0 align-self-start'>Queries Dashboard</h2>
+                            <h2 className='text-center m-0 align-self-start'>Announcement Dashboard</h2>
                         </div>
 
                         <div>

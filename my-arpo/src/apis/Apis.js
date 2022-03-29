@@ -107,7 +107,7 @@ export async function ForumsApi(courseName) {
     return res;
 }
 
-export async function AddForumPostApi(forum) {
+export async function ForumPostApi(forum) {
     let url = backEndServer + "forum/add"
     let date = new Date();
 
