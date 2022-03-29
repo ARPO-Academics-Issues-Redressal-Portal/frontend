@@ -55,7 +55,9 @@ export default function ViewPost(props) {
                             <MDBBtn color='secondary' onClick={toggleViewPost}>
                                 Close
                             </MDBBtn>
+                            <MDBBtn>Edit</MDBBtn>
                             <MDBBtn>Reply</MDBBtn>
+                            <MDBBtn>Delete</MDBBtn>
                         </MDBModalFooter>
                     </MDBModalContent>
                 </MDBModalDialog>

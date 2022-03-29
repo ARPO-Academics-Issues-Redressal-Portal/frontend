@@ -4,12 +4,13 @@ import GeneralHeader from '../../components/GeneralHeader'
 import GenQuery from '../../assets/ARPO-logos/general_query.png'
 
 
-import { PrivateQueryByCourseAndProfileIdApi } from '../../apis/Apis';
+import { AddPrivateQueryApi, PrivateQueryByCourseAndProfileIdApi, UpdatePrivateQueryApi } from '../../apis/Apis';
 import { PrivateQueryResponseApi } from '../../apis/Apis';
 import { useParams } from 'react-router-dom';
 
 import ViewPost from '../../components/ViewPost'
 import AddPost from '../../components/AddPost';
+import EditPost from '../../components/EditPost';
 
 function StudentPrivateQueryDasboard() {
     
@@ -17,9 +18,14 @@ function StudentPrivateQueryDasboard() {
     const [queryBody, setQueryBody] = useState("")
     const [queryTitle, setQueryTitle] = useState("")
     const [queryReplies, setQueryReplies] = useState([])
+    const [status, setStatus] = useState("")
 
     const {course} = useParams()
     const profile_id = sessionStorage.getItem("profileId")
+
+    const [editPost, seteditPost] = useState(false)
+    const toggleEditPost = () => seteditPost(!editPost)
+
     
     const fnGetPrivateQueries = async (courseName,profile_id) => {
         let res = await PrivateQueryByCourseAndProfileIdApi(courseName, profile_id);
@@ -35,6 +41,35 @@ function StudentPrivateQueryDasboard() {
         setQueryReplies(res.data)
     }
 
+    const fnAddPrivateQuery = async () => {
+        let query = {};
+        query['title'] = subject;
+        query['description'] = postBody;
+        query['receiver_email_id'] = "test_email";
+        query['category'] = "test_category";
+        query['course'] = course
+        query['status'] = "W"
+
+        let res = await AddPrivateQueryApi(query);
+        console.log("addPost res")
+        console.log(res)
+    }
+
+    const fnUpdatePrivateQuery = async () => {
+        let query = {};
+        query['title'] = subject;
+        query['description'] = postBody;
+        query['receiver_email_id'] = "test_email";
+        query['category'] = "test_category";
+        query['course'] = course
+        query['status'] = status
+
+        let res = await UpdatePrivateQueryApi(query);
+        fnGetPrivateQueries();
+        console.log("updatePost res")
+        console.log(res)
+    }
+
     const [viewPost, setViewPost] = useState(false)
     const toggleViewPost = () => setViewPost(!viewPost)
 
@@ -47,12 +82,6 @@ function StudentPrivateQueryDasboard() {
         fnGetPrivateQueries(course,profile_id)
     }, [])
 
-    
-
-    const fnPostQuery = async ()=>{
-
-        //let res = await 
-    }
 
     return (
         <>
@@ -69,11 +98,24 @@ function StudentPrivateQueryDasboard() {
                 addPost={addPost}
                 setaddPost={setaddPost}
                 toggleAddPost={toggleAddPost}
-                heading={"Add Forum"}
+                heading={"Add Post"}
                 setsubject={setsubject}
                 setpostBody={setpostBody}
                 subject={subject}
                 postBody={postBody}
+                fnAddPost={fnAddPrivateQuery}
+            />
+            
+            <EditPost 
+                editPost={editPost}
+                seteditPost={seteditPost}
+                toggleEditPost={toggleEditPost}
+                heading="Edit Announcement"
+                subject={queryTitle}
+                editBody={queryBody}
+                setsubject={setQueryTitle}
+                setpostBody={setQueryBody}
+                fnUpdatePost={fnUpdatePrivateQuery}
             />
 
             <div>
@@ -85,7 +127,11 @@ function StudentPrivateQueryDasboard() {
                     <h2 className='text-center m-0 align-self-start'>Queries Dashboard</h2>
                 </div>
                 <div>
-                    <button type="button" className="btn btn-success" style={{ marginRight: '10px' }}>Add Query </button>
+                    <button type="button" className="btn btn-success" style={{ marginRight: '10px' }} onClick = { () => {
+                        setQueryTitle('')
+                        setQueryBody('')
+                        toggleAddPost()
+                    }}>Add Query </button>
                 </div>
             </div>
             <div className='forum-border'>
