@@ -41,6 +41,9 @@ body{
   }
 }
 
+.bg-green{
+  background-color: rgb(48 187 176) !important;
+}
 
 .header-font{
   font-size: 20px;

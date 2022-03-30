@@ -26,11 +26,6 @@ export default class InstructorCoursesHomePage extends Component {
                     title: "Participants List",
                     path: "/participantslist"
                 },
-                {
-                    title: "Student's Course View",
-                    path: "/courseView"
-
-                },
             ],
         }
     }
@@ -42,7 +37,7 @@ export default class InstructorCoursesHomePage extends Component {
 
             <div>
 
-                <GeneralHeader to='/instructor' manage={true} />
+                <GeneralHeader to='/home' manage={true} />
 
                 <div className='d-flex justify-content-around mt-4'>
                     {

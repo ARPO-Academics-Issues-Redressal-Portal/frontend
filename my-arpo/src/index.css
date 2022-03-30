@@ -13,7 +13,7 @@ code {
 }
 
 .bg-log{
-  background-color: wheat;
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
   height: 100vh;
 }
 

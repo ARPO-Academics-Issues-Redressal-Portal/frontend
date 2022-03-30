@@ -9,9 +9,7 @@ export default function CourseHomePage() {
     if(role==="student"){
         return <StudentCourseHomePage />
     }
-    else if(role==="instructor"){
+    else{
         return <InstructorCoursesHomePage />
-    }
-  
-
+    }  
 }

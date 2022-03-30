@@ -22,11 +22,6 @@ export default class StudentCourseHomePage extends Component {
                     title: "Private Query",
                     path: "/privateQuery"
                 },
-                {
-                    title: "My Course Profile",
-                    path: "/courseProfile"
-
-                },
             ],
         }
     }
@@ -39,7 +34,7 @@ export default class StudentCourseHomePage extends Component {
 
             <div>
 
-                <GeneralHeader to='/student' />
+                <GeneralHeader to='/home' />
 
 
                 <div className='d-flex justify-content-around mt-4'>

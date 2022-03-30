@@ -78,7 +78,7 @@ export default class StudentDashboard extends Component {
         return (
 
             <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light bg-white flex-nowrap">
+                <nav className="navbar navbar-expand-lg navbar-light   flex-nowrap bg-green">
                     <div className="navbar-brand">
                         <img src={ARPO} width={150} height={150} />
                     </div>
@@ -158,7 +158,7 @@ export default class StudentDashboard extends Component {
 
                 <div className='d-flex justify-content-around mt-4'>
 
-                    <div className="card" style={{ width: "20rem", backgroundColor: "rgb(48 187 176)", borderRadius: '50px' }}>
+                    <div className="card bg-green" style={{ width: "20rem", borderRadius: '50px' ,height:'70vh'}}>
 
                         <div className="card-body p-4 pr-5 pl-5">
 
@@ -167,7 +167,8 @@ export default class StudentDashboard extends Component {
                             {
                                 this.state.notifications.map((notify, index) => (
                                     <div style={{
-                                        border: "2px solid white"
+                                        borderBottom: "2px solid white",
+                                        borderTop: "2px solid white",
                                     }} key={index}>
                                         <h5>{notify.title}</h5>
                                         <p>{notify.desc}</p>
