@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import GeneralHeader from '../components/GeneralHeader'
-import { ForumPostApi, ForumsApi } from '../apis/Apis'
+import { deleteForumApi, ForumPostApi, ForumsApi, UpdateForumPostApi } from '../apis/Apis'
 import { useParams } from 'react-router-dom';
 import ViewPost from '../components/ViewPost'
 import AddPost from '../components/AddPost';
@@ -12,6 +12,8 @@ export default function GeneralForum() {
     const [modalBody, setmodalBody] = useState("")
     const [modalTitle, setmodalTitle] = useState("")
     const [forumReplies, setforumReplies] = useState([])
+    const [postedBy, setpostedBy] = useState("")
+    const [forum_uuid, setforum_uuid] = useState("")
 
     const {course} = useParams()
 
@@ -27,6 +29,7 @@ export default function GeneralForum() {
     }
 
     const fnGetReplies = async (forumUuid)=>{
+        setforumReplies([])
         let res = await ForumsResponseApi(forumUuid)
         console.log("viewPost res")
         console.log(res)
@@ -46,6 +49,27 @@ export default function GeneralForum() {
         fnGetForums()
     }
 
+    const [editPost, seteditPost] = useState(false)
+    const toggleEditPost = () => seteditPost(!editPost)
+
+    const fnUpdateForum = async () =>{
+        let fm = {
+            title : modalTitle,
+            description : modalBody,
+            course:course
+        }
+        
+        let res = await UpdateForumPostApi(forum_uuid,fm)
+        console.log("announcement update ",res)
+        fnGetForums()
+    }
+
+    const fnDeleteForum = async ()=>{
+        let res = await deleteForumApi(forum_uuid)
+        console.log(res)
+        fnGetForums()
+    }
+
     return (
         <>
             <ViewPost
@@ -55,6 +79,9 @@ export default function GeneralForum() {
                 modalBody={modalBody}
                 modalTitle={modalTitle}
                 forumReplies={forumReplies}
+                toggleEditPost={toggleEditPost}
+                deletePost={fnDeleteForum}
+                postedBy={postedBy}
             />
             <AddPost 
                 addPost={addPost}
@@ -68,7 +95,16 @@ export default function GeneralForum() {
                 fnAddPost={fnPostForum}
             />
 
-            <EditPost 
+            <EditPost
+                editPost={editPost}
+                seteditPost={seteditPost}
+                toggleEditPost={toggleEditPost}
+                heading="Edit Forum"
+                subject={modalTitle}
+                editBody={modalBody}
+                setsubject={setmodalTitle}
+                setpostBody={setmodalBody}
+                fnUpdatePost={fnUpdateForum}
             />
 
             <div>
@@ -108,6 +144,8 @@ export default function GeneralForum() {
                                         setmodalBody(forum.description)
                                         setmodalTitle(forum.title)
                                         fnGetReplies(forum.uuid)
+                                        setforum_uuid(forum.uuid)
+                                        setpostedBy(forum.profile_id)
                                         toggleViewPost()
                                     }}
                                 >Open</button>

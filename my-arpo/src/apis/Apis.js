@@ -107,43 +107,44 @@ export async function ForumsApi(courseName) {
     return res;
 }
 
-export async function ForumPostApi(forum) {
+export async function ForumPostApi(subject,description,course) {
     let url = backEndServer + "forum/add"
     let date = new Date();
 
     date = date.toISOString().slice(0, 19).replace('T', ' ');
 
     let params = {
-        "title": forum.title,
-        "profile_id": forum.profile_id,
-        "description": forum.description,
+        "title": subject,
+        "profile_id": sessionStorage.getItem('profileId'),
+        "description": description,
         "likes": 0,
-        "course": forum.course,
-        "receiver_email_id": forum.receiver_email_id,
+        "course": course,
+        "receiver_email_id": sessionStorage.getItem("email"),
         "post_anonymous": false,
         "date_time": date
     }
-    let res = await axios.post(url, { params })
+    console.log(params)
+    let res = await axios.post(url, params)
     return res;
 }
 
 export async function UpdateForumPostApi(uuid,forum) {
-    let url = backEndServer + "forum/add/"+uuid
+    let url = backEndServer + "forum/update/"+uuid
     let date = new Date();
 
     date = date.toISOString().slice(0, 19).replace('T', ' ');
 
     let params = {
         "title": forum.title,
-        "profile_id": forum.profile_id,
+        "profile_id": sessionStorage.getItem('profileId'),
         "description": forum.description,
         "likes": 0,
         "course": forum.course,
-        "receiver_email_id": forum.receiver_email_id,
+        "receiver_email_id": sessionStorage.getItem('email'),
         "post_anonymous": false,
         "date_time": date
     }
-    let res = await axios.put(url, { params })
+    let res = await axios.put(url, params )
     return res;
 }
 

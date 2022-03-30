@@ -14,9 +14,7 @@ import { useParams } from 'react-router-dom';
 export default function Modal(props) {
   const { basicModal, setBasicModal, toggleShow,
     modalBody, modalTitle,
-    toggleEditPost,deleteAnnouncement } = props
-
-  const { role } = useParams()
+    toggleEditPost,deletePost,postedBy } = props
 
   return (
     <>
@@ -30,24 +28,25 @@ export default function Modal(props) {
             <MDBModalBody>{modalBody}</MDBModalBody>
 
             <MDBModalFooter>
-              <MDBBtn color='secondary' onClick={toggleShow}>
+              <button className='btn btn-secondary' onClick={toggleShow}>
                 Close
-              </MDBBtn>
+              </button>
               {
-                (role === "instructor" || role === "ta") && (
+                (postedBy === Number(sessionStorage.getItem('profileId'))) && (
                   <>
-                    <MDBBtn
+                    <button
+                      className='btn btn-primary'
                       onClick={() => {
                         toggleShow()
                         toggleEditPost()
                       }}
-                    >Edit</MDBBtn>
-                    <MDBBtn color='danger'
+                    >Edit</button>
+                    <button className='btn btn-danger'
                       onClick={() => {
-                        deleteAnnouncement()
+                        deletePost()
                         toggleShow()
                       }}
-                    >Delete</MDBBtn>
+                    >Delete</button>
                   </>
                 )
               }
