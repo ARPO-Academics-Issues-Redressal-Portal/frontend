@@ -10,7 +10,9 @@ import {
 } from 'mdb-react-ui-kit';
 
 export default function ViewPost(props) {
-    const { viewPost, setviewPost, toggleViewPost, modalBody, modalTitle, forumReplies } = props
+    const { viewPost, setviewPost, toggleViewPost, modalBody,
+        modalTitle, forumReplies, postedBy, toggleEditPost,
+        deletePost } = props
 
     return (
         <>
@@ -18,12 +20,12 @@ export default function ViewPost(props) {
                 <MDBModalDialog scrollable>
                     <MDBModalContent>
                         <MDBModalHeader>
-                            
-                                <div style={{flex:'1'}}>
-                                    <h4 className='text-center'>{modalTitle}</h4>
-                                    <div className='text-center'>{modalBody}</div>
-                                </div>
-                            
+
+                            <div style={{ flex: '1' }}>
+                                <h4 className='text-center'>{modalTitle}</h4>
+                                <div className='text-center'>{modalBody}</div>
+                            </div>
+
                             <MDBBtn
                                 className='btn-close'
                                 color='none'
@@ -52,12 +54,27 @@ export default function ViewPost(props) {
                             }
                         </MDBModalBody>
                         <MDBModalFooter>
-                            <MDBBtn color='secondary' onClick={toggleViewPost}>
+                            <button className='btn btn-secondary' onClick={toggleViewPost}>
                                 Close
-                            </MDBBtn>
-                            <MDBBtn>Edit</MDBBtn>
-                            <MDBBtn>Reply</MDBBtn>
-                            <MDBBtn>Delete</MDBBtn>
+                            </button>
+                            {
+                                postedBy === Number(sessionStorage.getItem('profileId')) && (
+                                    <>
+                                        <button className='btn btn-success'
+                                            onClick={() => {
+                                                toggleViewPost()
+                                                toggleEditPost()
+                                            }}>Edit</button>
+                                        <button className='btn btn-danger'
+                                            onClick={() => {
+                                                deletePost()
+                                                toggleViewPost()
+                                            }}>Delete</button>
+                                    </>
+                                )
+                            }
+                            <button className='btn btn-warning'>Reply</button>
+
                         </MDBModalFooter>
                     </MDBModalContent>
                 </MDBModalDialog>

@@ -13,6 +13,7 @@ export default function AnnouncementsPage() {
     const [modalTitle, setmodalTitle] = useState("")
     const [announcements, setannouncements] = useState([])
     const [ann_uuid, setann_uuid] = useState("")
+    const [postedBy, setpostedBy] = useState("")
 
     const toggleShow = () => setBasicModal(!basicModal);
 
@@ -66,7 +67,8 @@ export default function AnnouncementsPage() {
                 modalBody={modalBody}
                 modalTitle={modalTitle}
                 toggleEditPost={toggleEditPost}
-                deleteAnnouncement={fnDeleteAnnouncement}
+                deletePost={fnDeleteAnnouncement}
+                postedBy={postedBy}
             />
 
             <AddPost 
@@ -139,6 +141,7 @@ export default function AnnouncementsPage() {
                                     setmodalBody(announcement.description)
                                     setmodalTitle(announcement.heading)
                                     setann_uuid(announcement.uuid)
+                                    setpostedBy(announcement.sender)
                                     toggleShow()
                                 }}
                             >Open</button>

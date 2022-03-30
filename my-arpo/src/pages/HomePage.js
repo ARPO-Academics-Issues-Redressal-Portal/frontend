@@ -160,7 +160,7 @@ export default class StudentDashboard extends Component {
 
                     <div className="card bg-green" style={{ width: "20rem", borderRadius: '50px' ,height:'70vh'}}>
 
-                        <div className="card-body p-4 pr-5 pl-5">
+                        <div className="card-body p-4 pr-5 pl-5 box-shadow">
 
                             <h3 className="card-title text-center">Notifications</h3>
 
@@ -169,7 +169,7 @@ export default class StudentDashboard extends Component {
                                     <div style={{
                                         borderBottom: "2px solid white",
                                         borderTop: "2px solid white",
-                                    }} key={index}>
+                                    }} key={index} className="text-center">
                                         <h5>{notify.title}</h5>
                                         <p>{notify.desc}</p>
                                     </div>
