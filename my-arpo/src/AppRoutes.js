@@ -14,6 +14,8 @@ import AnnouncementsPage from './pages/AnnouncementsPage';
 import GeneralForum from './pages/GeneralForum';
 import PrivateQueries from './pages/PrivateQueries';
 import Profile from './pages/Profile';
+import AdminTSDashboard from './components/AdminTSDashboard'
+
 
 function setToken() {
   sessionStorage.setItem('token', JSON.stringify(true));
@@ -61,7 +63,7 @@ export default function AppRoutes() {
       </Route>
 
       <Route exact path={"/admins"}>
-        <HelpDesk />
+        <AdminTSDashboard />
       </Route>
 
       <Route exact path={"/help"}>

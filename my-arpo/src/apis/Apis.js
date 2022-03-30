@@ -132,7 +132,6 @@ export async function UpdateForumPostApi(uuid,forum) {
     let date = new Date();
 
     date = date.toISOString().slice(0, 19).replace('T', ' ');
-
     let params = {
         "title": forum.title,
         "profile_id": forum.profile_id,
@@ -200,7 +199,7 @@ export async function PrivateQueryResponseApi(queryUuid) {
     let url = backEndServer + "privateQueryResponse/privateQueryResponseByQueryUUID"
     let params = {
         queryUuid: queryUuid
-    }
+    }   
     let res = await axios.get(url, { params })
     return res;
 }
@@ -214,11 +213,15 @@ export async function AddPrivateQueryApi(query) {
         "title": query.title,
         "profile_id": sessionStorage.getItem('profileId'),
         "description": query.description,
-        "course": query.title,
+        "course": query.course,
+        "status":query.status,
         "receiver_email_id":query.receiver_email_id,
         "date_time": date,
         "category":query.category
     }
+    console.log("Calling a private query addition!")
+    console.log(params)
+    console.log(query.course)
     let res = await axios.post(url, params)
     return res;
 }
@@ -233,11 +236,12 @@ export async function UpdatePrivateQueryApi(uuid, query) {
         "title": query.title,
         "profile_id": sessionStorage.getItem('profileId'),
         "description": query.description,
-        "course": query.title,
+        "course": query.course,
         "receiver_email_id":query.receiver_email_id,
         "date_time": date,
         "category":query.category,
-        "status":query.status
+        "status":query.status,
+        "likes":query.likes
     }
     let res = await axios.put(url, params)
     return res;
@@ -322,7 +326,7 @@ export async function addCourseRole(courseRole){
 }
 
 export async function deleteCourseRole(uuid){
-    let url = backEndServer+"courseRoles/delete"+uuid
+    let url = backEndServer+"courseRoles/delete/"+uuid
 
     let res = await axios.delete(url)
     
@@ -330,6 +334,69 @@ export async function deleteCourseRole(uuid){
 }
 
 /* Course Role Ends */
+
+
+/* Other Query APIs starts*/ 
+
+export async function getAdminQueriesApi(){
+    let url = backEndServer+"otherQuery"
+    let res = await axios.get(url)
+    return res
+}
+
+export async function getAdminQueryResponseApi(queryUuid){
+    let url = backEndServer+"otherQueryResponse/"+queryUuid
+    let res = await axios.get(url)
+    return res
+}
+
+export async function addAdminQueryResponseApi(queryUuid,queryResponse){
+    let url = backEndServer+"otherQueryResponse/add"
+
+    let date = new Date()
+    date = date.toISOString().slice(0, 19).replace('T', ' ');
+    
+    let params =  {
+        "query_uuid":queryResponse.query_uuid,
+        "receiver_email_id":queryResponse.receiver_email_id,
+        "responder_email_id" :queryResponse.responder_email_id,
+        "date_time":date,
+        "response_text":queryResponse.response_text
+    }
+    let res = await axios.post(url, params);
+    return res;
+}
+
+/* Other Query APIs end */
+
+
+/* Notifications APIs start */
+
+export async function getAdminNotifsApi(){
+    let url = backEndServer+"notification"
+    
+    let res = await axios.get(url)
+    
+    return res
+}
+
+export async function addAdminNotifApi(notif){
+    let url = backEndServer+"notification/add"
+
+    let date = new Date()
+    date = date.toISOString().slice(0, 19).replace('T', ' ');
+    
+    let params =  {
+        "heading":notif.heading,
+        "description":notif.description,
+        "receiver_email_id" :notif.receiver_email_id,
+        "date_time":date,
+    }
+    let res = await axios.post(url, params);
+    return res;
+}
+/*Notification APIs end */
+
 
 // export async function  NewsApi(courseName){
 //     let url = backEndServer+"announcement/courses"

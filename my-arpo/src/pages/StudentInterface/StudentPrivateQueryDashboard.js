@@ -43,15 +43,16 @@ function StudentPrivateQueryDasboard() {
 
     const fnAddPrivateQuery = async () => {
         let query = {};
-        query['title'] = subject;
-        query['description'] = postBody;
+        
+        query['title'] = toString(subject);
+        query['description'] = toString(postBody);
         query['receiver_email_id'] = "test_email";
         query['category'] = "test_category";
-        query['course'] = course
+        query['course'] = toString(course)
         query['status'] = "W"
-
-        let res = await AddPrivateQueryApi(query);
+        
         console.log("addPost res")
+        let res = await AddPrivateQueryApi(query);
         console.log(res)
     }
 
