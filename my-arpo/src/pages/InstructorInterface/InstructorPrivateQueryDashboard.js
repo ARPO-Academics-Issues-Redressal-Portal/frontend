@@ -14,6 +14,8 @@ function InstructorPrivateQueryDasboard() {
     const [queryBody, setQueryBody] = useState("")
     const [queryTitle, setQueryTitle] = useState("")
     const [queryReplies, setQueryReplies] = useState([])
+    const [queryEmail, setqueryEmail] = useState("")
+    const [timeOfPost, settimeOfPost] = useState("")
 
     const { course } = useParams()
 
@@ -45,6 +47,8 @@ function InstructorPrivateQueryDasboard() {
                 modalBody={queryBody}
                 modalTitle={queryTitle}
                 forumReplies={queryReplies}
+                email={queryEmail}
+                timeOfPost={timeOfPost}
             />
 
             <div>
@@ -74,6 +78,8 @@ function InstructorPrivateQueryDasboard() {
                                     setQueryBody(query.description)
                                     setQueryTitle(query.title)
                                     fnGetQueryResponses(query.uuid)
+                                    setqueryEmail()
+                                    settimeOfPost(query.date_time)
                                     toggleViewPost()
                                 }}
                             >Open</button>
@@ -87,9 +93,6 @@ function InstructorPrivateQueryDasboard() {
                 <div style={{ marginRight: '10px' }}>
                     <button type="button" className="btn btn-secondary">Select All</button>
                 </div>
-                {/* <div>
-                    <button type="button" className="btn btn-info">Add New Post </button>
-                </div> */}
             </div>
         </>
 

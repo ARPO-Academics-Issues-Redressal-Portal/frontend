@@ -14,7 +14,7 @@ import { useParams } from 'react-router-dom';
 export default function Modal(props) {
   const { basicModal, setBasicModal, toggleShow,
     modalBody, modalTitle,
-    toggleEditPost,deletePost,postedBy } = props
+    toggleEditPost, deletePost, postedBy, timeOfPost } = props
 
   return (
     <>
@@ -25,6 +25,9 @@ export default function Modal(props) {
               <MDBModalTitle>{modalTitle}</MDBModalTitle>
               <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
             </MDBModalHeader>
+            <div className='d-flex justify-content-end p-1'>
+              <div>{timeOfPost} </div>
+            </div>
             <MDBModalBody>{modalBody}</MDBModalBody>
 
             <MDBModalFooter>

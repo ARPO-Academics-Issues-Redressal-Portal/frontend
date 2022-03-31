@@ -16,6 +16,7 @@ export default function GeneralForum() {
     const [postedBy, setpostedBy] = useState("")
     const [forum_uuid, setforum_uuid] = useState("")
     const [forum_email, setforum_email] = useState("")
+    const [timeOfPost, settimeOfPost] = useState("")
 
     const { course } = useParams()
 
@@ -96,6 +97,8 @@ export default function GeneralForum() {
                 deletePost={fnDeleteForum}
                 postedBy={postedBy}
                 toggleReplyPost={toggleReplyPost}
+                email={forum_email}
+                timeOfPost={timeOfPost}
             />
 
             <AddPost
@@ -174,6 +177,7 @@ export default function GeneralForum() {
                                         setforum_uuid(forum.uuid)
                                         setforum_email(forum.receiver_email_id)
                                         setpostedBy(forum.profile_id)
+                                        settimeOfPost(forum.date_time)
                                         toggleViewPost()
                                     }}
                                 >Open</button>

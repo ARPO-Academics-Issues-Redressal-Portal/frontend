@@ -28,13 +28,13 @@ export default function ViewPost(props) {
                         <MDBModalHeader>
 
                             <div style={{ flex: '1' }}>
-                                <div className='d-flex justify-content-between'>
+                                <div className='d-flex justify-content-between' style={{borderBottom: '1px solid #dee2e6'}}>
                                     <div>{timeOfPost} </div>
                                     <div>
                                         {email}
                                     </div>
-
                                 </div>
+
                                 <h4 className='text-center'>{modalTitle}</h4>
                                 <div className='text-center'>{modalBody}</div>
                             </div>

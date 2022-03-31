@@ -19,6 +19,7 @@ function StudentPrivateQueryDasboard() {
     const [status, setStatus] = useState("")
     const [postedBy, setpostedBy] = useState("")
     const [query_uuid, setQueryUuid] = useState("")
+    const [timeOfPost, settimeOfPost] = useState("")
 
     const {course} = useParams()
     const profile_id = sessionStorage.getItem("profileId")
@@ -53,21 +54,23 @@ function StudentPrivateQueryDasboard() {
         
         console.log("addPost res")
         let res = await AddPrivateQueryApi(query);
-        fnGetPrivateQueries(course,profile_id);
+        fnGetPrivateQueries();
         console.log(res)
     }
 
     const fnUpdatePrivateQuery = async () => {
         let query = {};
-        query['title'] = subject;
-        query['description'] = postBody;
+        query['title'] = queryTitle;
+        query['description'] = queryBody;
         query['receiver_email_id'] = "test_email";
         query['category'] = "test_category";
         query['course'] = course
         query['status'] = status
 
-        let res = await UpdatePrivateQueryApi(query);
-        fnGetPrivateQueries(course,profile_id);
+        console.log(query)
+
+        let res = await UpdatePrivateQueryApi(query_uuid,query);
+        fnGetPrivateQueries();
         console.log("updatePost res")
         console.log(res)
     }
@@ -103,6 +106,8 @@ function StudentPrivateQueryDasboard() {
                 toggleEditPost={toggleEditPost}
                 deletePost={fnDeletePrivateQuery}
                 postedBy={postedBy}
+                email={sessionStorage.getItem('email')}
+                timeOfPost={timeOfPost}
             />
 
             <AddPost 
@@ -160,6 +165,7 @@ function StudentPrivateQueryDasboard() {
                                     fnGetQueryResponses(query.uuid)
                                     setQueryUuid(query.uuid)
                                     setpostedBy(query.profile_id)
+                                    settimeOfPost(query.date_time)
                                     toggleViewPost()
                                 }}
                             >Open</button>
