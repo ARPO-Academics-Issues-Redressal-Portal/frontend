@@ -101,7 +101,6 @@ export default function ViewPost(props) {
                                     toggleViewPost()
                                 }}
                             >Reply</button>
-
                         </MDBModalFooter>
                     </MDBModalContent>
                 </MDBModalDialog>

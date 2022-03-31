@@ -1,10 +1,19 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
+import AdminTSNotifDashboard from '../pages/AdminTSNotifDashboard'
 
+import AdminTSQueryDashboard from '../pages/AdminTSQueryDashboard'
 
 export default function () {
   return (
     <>
+        <Route exact path={'/ts/manageQueries'}>
+          <AdminTSQueryDashboard />
+        </Route>
+
+        <Route exact path={'/ts/notifications'}>
+          <AdminTSNotifDashboard />
+        </Route>
         {/* <Route exact path={'/technical-staff'}>
           <Adminpage />
         </Route>

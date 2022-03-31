@@ -18,11 +18,9 @@ export default class StudentDashboard extends Component {
         this.state = {
             tiles: ["Notifications",
                 "Important Links",
-                "Institute News",
             ],
             notifications: [],
             links: [],
-            news: []
         }
     }
 
@@ -44,26 +42,7 @@ export default class StudentDashboard extends Component {
         console.log(allNotifications)
         this.setState({ notifications: allNotifications })
     }
-
-    fnGetNew = async () => {
-        let res = await NotificationApi();
-        console.log(res.data)
-
-        let arr = res.data
-        let allNotifications = []
-
-        for (let i = 0; i < arr.length; i++) {
-            let temp = {
-                title: arr[i].heading,
-                desc: arr[i].description
-            }
-
-            allNotifications.push(temp)
-        }
-        this.setState({ notifications: allNotifications })
-
-    }
-
+    
     fnGetLinks = async () => {
 
     }
@@ -198,27 +177,6 @@ export default class StudentDashboard extends Component {
                             }
 
                         </div>
-
-                    </div>
-                    <div className="card" style={{ width: "20rem", backgroundColor: "rgb(48 187 176)", borderRadius: '50px' }}>
-
-                        <div className="card-body p-4 pr-5 pl-5">
-
-                            <h3 className="card-title text-center">Institute News</h3>
-
-                            {
-                                this.state.news.map((notify, index) => (
-                                    <div style={{
-                                        border: "2px solid white"
-                                    }} key={index}>
-                                        <h5>{notify.title}</h5>
-                                        <p>{notify.desc}</p>
-                                    </div>
-                                ))
-                            }
-
-                        </div>
-
                     </div>
                 </div>
             </div>
