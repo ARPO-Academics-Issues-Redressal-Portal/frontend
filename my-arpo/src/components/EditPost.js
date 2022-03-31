@@ -14,8 +14,8 @@ import {
 
 export default function EditPost(props) {
   const { editPost, seteditPost, toggleEditPost,
-        heading,subject,editBody,setsubject,setpostBody,fnUpdatePost
-    } = props
+    heading, subject, editBody, setsubject, setpostBody, fnUpdatePost
+  } = props
 
   return (
     <>
@@ -41,13 +41,14 @@ export default function EditPost(props) {
             </MDBModalBody>
 
             <MDBModalFooter>
-              <MDBBtn color='secondary' onClick={toggleEditPost}>
+              <button className='btn btn-secondary' onClick={toggleEditPost}>
                 Close
-              </MDBBtn>
-              <MDBBtn onClick={() => {
-                toggleEditPost()
-                fnUpdatePost()
-              }}>Update</MDBBtn>
+              </button>
+              <button className='btn btn-primary'
+                onClick={() => {
+                  toggleEditPost()
+                  fnUpdatePost()
+                }}>Update</button>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>

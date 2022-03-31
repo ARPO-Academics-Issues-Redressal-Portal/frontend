@@ -44,7 +44,7 @@ export default class StudentCourseHomePage extends Component {
 
                                 <div className="card-body p-4 pr-5 pl-5">
 
-                                    <h5 className="card-title">{element.title}</h5>                  
+                                    <h3 className="card-title" style={{fontWeight:'bold'}}>{element.title}</h3>                  
                                     <a href={url+element.path}>
                                         <button type="button" className="btn btn-primary">Access</button>
                                     </a>

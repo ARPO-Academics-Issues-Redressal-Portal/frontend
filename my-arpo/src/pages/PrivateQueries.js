@@ -6,16 +6,10 @@ import StudentPrivateQueryDasboard from './StudentInterface/StudentPrivateQueryD
 export default function PrivateQueries() {
     const { role } = useParams()
 
-    if (role === "instructor") {
-        return <InstructorPrivateQueryDasboard />
-    }
-    else if (role === "student") {
+   if (role === "student") {
         return <StudentPrivateQueryDasboard />
     }
-
     return (
-        <div>
-
-        </div>
+         <InstructorPrivateQueryDasboard />
     )
 }

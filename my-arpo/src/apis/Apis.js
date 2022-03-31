@@ -156,6 +156,26 @@ export async function ForumsResponseApi(forumUuid) {
     return res;
 }
 
+export async function ForumsResponseAddReplyApi(forumUuid,description,course,receiver_email) {
+    let url = backEndServer + "forumResponse/add"
+    let date = new Date();
+
+    date = date.toISOString().slice(0, 19).replace('T', ' ');
+    let params = {
+        "forum_uuid":forumUuid,
+        "responder_email_id":sessionStorage.getItem('email'), 
+        "response_text":description,
+        "course":course,
+        "likes":0,
+        "post_anonymous":0,
+        "date_time":date,
+        "receiver_email_id": receiver_email
+    }
+
+    let res = await axios.post(url, params)
+    return res;
+}
+
 export async function deleteForumApi(forumUuid){
     let url = backEndServer+"forum/delete/"+forumUuid
     let res = await axios.delete(url)

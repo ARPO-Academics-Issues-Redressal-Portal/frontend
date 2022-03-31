@@ -13,8 +13,8 @@ import {
 } from 'mdb-react-ui-kit';
 
 export default function AddPost(props) {
-  const { addPost, setaddPost, toggleAddPost, heading, fnAddPost, setsubject, 
-    setpostBody,subject,postBody } = props
+  const { addPost, setaddPost, toggleAddPost, heading, fnAddPost, setsubject,
+    setpostBody, subject, postBody } = props
   return (
     <>
       <MDBModal show={addPost} setShow={setaddPost} tabIndex='-1'>
@@ -39,13 +39,14 @@ export default function AddPost(props) {
             </MDBModalBody>
 
             <MDBModalFooter>
-              <MDBBtn color='secondary' onClick={toggleAddPost}>
+              <button className='btn btn-secondary' onClick={toggleAddPost}>
                 Close
-              </MDBBtn>
-              <MDBBtn onClick={() => {
-                fnAddPost()
-                toggleAddPost()
-              }}>Post</MDBBtn>
+              </button>
+              <button className='btn btn-primary'
+                onClick={() => {
+                  fnAddPost()
+                  toggleAddPost()
+                }}>Post</button>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>

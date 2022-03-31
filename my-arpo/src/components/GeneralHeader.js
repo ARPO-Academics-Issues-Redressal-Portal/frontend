@@ -16,7 +16,7 @@ export default class GeneralHeader extends Component {
     // console.log(this.props)
     return (
       <div>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light bg-white justify-content-between">
+          <nav className="navbar navbar-expand-lg navbar-light justify-content-between bg-header">
               <div className="navbar-brand">
                   <img src={ARPO} width={150} height={150}/>
               </div>

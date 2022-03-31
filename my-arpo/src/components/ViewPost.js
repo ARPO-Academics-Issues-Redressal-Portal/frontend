@@ -8,16 +8,22 @@ import {
     MDBModalBody,
     MDBModalFooter,
 } from 'mdb-react-ui-kit';
+import { deleteForumResponseApi } from '../apis/Apis';
 
 export default function ViewPost(props) {
     const { viewPost, setviewPost, toggleViewPost, modalBody,
         modalTitle, forumReplies, postedBy, toggleEditPost,
-        deletePost } = props
+        deletePost,toggleReplyPost,} = props
+
+    const deleteReply = async (id)=>{
+        let res = await deleteForumResponseApi(id)
+        toggleViewPost()
+    }
 
     return (
         <>
             <MDBModal show={viewPost} setShow={setviewPost} tabIndex='-1'>
-                <MDBModalDialog scrollable>
+                <MDBModalDialog scrollable size="lg">
                     <MDBModalContent>
                         <MDBModalHeader>
 
@@ -49,6 +55,14 @@ export default function ViewPost(props) {
                                         </div>
 
                                         <div>{reply.response_text}</div>
+                                        <div className='text-end'>
+                                            <button 
+                                                className='btn btn-danger'
+                                                onClick={()=>{
+                                                    deleteReply(reply.uuid)
+                                                }}
+                                            >delete</button>
+                                        </div>
                                     </div>
                                 ))
                             }
@@ -73,7 +87,13 @@ export default function ViewPost(props) {
                                     </>
                                 )
                             }
-                            <button className='btn btn-warning'>Reply</button>
+                            <button 
+                                className='btn btn-warning' 
+                                onClick={()=>{
+                                    toggleReplyPost()
+                                    toggleViewPost()
+                                }}
+                            >Reply</button>
 
                         </MDBModalFooter>
                     </MDBModalContent>
