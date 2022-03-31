@@ -241,8 +241,8 @@ export async function AddPrivateQueryApi(query) {
         "category":query.category
     }
     console.log("Calling a private query addition!")
+    console.log(query)
     console.log(params)
-    console.log(query.course)
     let res = await axios.post(url, params)
     return res;
 }
@@ -297,7 +297,6 @@ export async function  ProfilesApi(){
 
 export async function  CourseParticipantsApi(courseName){
     let url = backEndServer+"courseRoles/courses"
-
     let params = {
         "course" : courseName
     }

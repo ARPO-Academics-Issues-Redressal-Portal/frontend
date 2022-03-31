@@ -7,9 +7,10 @@ export default function () {
     <>
 
 
-        <Route exact path={'/instructor/courses/:courseid/participantslist'}>
+        <Route exact path={'/courses/instructor/:course/participantslist'}>
           <Participants />
         </Route>
+
         {/* <Route exact path={'/instructor/courses/:courseid/privatequery'}>
           <QueryView />
         </Route>

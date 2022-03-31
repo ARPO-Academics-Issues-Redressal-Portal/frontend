@@ -44,15 +44,16 @@ function StudentPrivateQueryDasboard() {
     const fnAddPrivateQuery = async () => {
         let query = {};
         
-        query['title'] = toString(subject);
-        query['description'] = toString(postBody);
+        query['title'] = subject;
+        query['description'] = postBody;
         query['receiver_email_id'] = "test_email";
         query['category'] = "test_category";
-        query['course'] = toString(course)
+        query['course'] = course;
         query['status'] = "W"
         
         console.log("addPost res")
         let res = await AddPrivateQueryApi(query);
+        fnGetPrivateQueries(course,profile_id);
         console.log(res)
     }
 
@@ -66,7 +67,7 @@ function StudentPrivateQueryDasboard() {
         query['status'] = status
 
         let res = await UpdatePrivateQueryApi(query);
-        fnGetPrivateQueries();
+        fnGetPrivateQueries(course,profile_id);
         console.log("updatePost res")
         console.log(res)
     }
