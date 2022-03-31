@@ -12,7 +12,7 @@ import {
 export default function ViewPost(props) {
     const { viewPost, setviewPost, toggleViewPost, modalBody,
         modalTitle, forumReplies, postedBy, toggleEditPost,
-        deletePost } = props
+        deletePost, isNotif } = props
 
     return (
         <>
@@ -73,7 +73,9 @@ export default function ViewPost(props) {
                                     </>
                                 )
                             }
-                            <button className='btn btn-warning'>Reply</button>
+                            <button className='btn btn-warning'>
+                                Reply
+                            </button>
 
                         </MDBModalFooter>
                     </MDBModalContent>

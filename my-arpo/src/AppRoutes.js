@@ -14,7 +14,7 @@ import AnnouncementsPage from './pages/AnnouncementsPage';
 import GeneralForum from './pages/GeneralForum';
 import PrivateQueries from './pages/PrivateQueries';
 import Profile from './pages/Profile';
-import AdminTSDashboard from './components/AdminTSDashboard'
+import AdminTsDashboard from './components/AdminTSDashboard'
 
 
 function setToken() {
@@ -63,7 +63,7 @@ export default function AppRoutes() {
       </Route>
 
       <Route exact path={"/admins"}>
-        <AdminTSDashboard />
+        <AdminTsDashboard />
       </Route>
 
       <Route exact path={"/help"}>

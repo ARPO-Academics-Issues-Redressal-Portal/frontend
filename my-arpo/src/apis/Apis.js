@@ -263,13 +263,23 @@ export async function deletePrivateQueryApi(uuid){
 
 /* Course Private Queries Apis End*/
 
+/* Profiles API Start*/
+
+export async function  ProfilesApi(){
+    let url = backEndServer+"profile"
+    let res = await axios.get(url)
+    return res;
+}
+
+/* Profiles API End*/
+
 /* Course Participants API start*/
 
 export async function  CourseParticipantsApi(courseName){
     let url = backEndServer+"courseRoles/courses"
 
     let params = {
-        courseName : courseName
+        "course" : courseName
     }
     let res = await axios.get(url,{params})
     return res;
@@ -346,8 +356,11 @@ export async function getAdminQueriesApi(){
 }
 
 export async function getAdminQueryResponseApi(queryUuid){
-    let url = backEndServer+"otherQueryResponse/"+queryUuid
-    let res = await axios.get(url)
+    let url = backEndServer+"otherQueryResponse/otherQueryResponseByQueryUUID";
+    let params = {
+        "queryUuid" : queryUuid
+    }
+    let res = await axios.get(url, {params})
     return res
 }
 

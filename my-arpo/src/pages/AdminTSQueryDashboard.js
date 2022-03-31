@@ -68,6 +68,7 @@ export default function AdminTSQueryDashboard() {
                                 onClick={() => {
                                     setQueryBody(query.description)
                                     setQueryTitle(query.title)
+                                    // console.log(query.uuid)
                                     fnGetAdminQueryResponses(query.uuid)
                                     toggleViewPost()
                                 }}

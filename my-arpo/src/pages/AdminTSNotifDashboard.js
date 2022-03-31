@@ -38,6 +38,7 @@ export default function AdminTSNotifDashboard() {
                 modalBody={notifBody}
                 modalTitle={notifTitle}
                 forumReplies={[]}
+                isNotif={true}
             />
 
             <div>
@@ -59,13 +60,13 @@ export default function AdminTSNotifDashboard() {
                 {
                     notifs.map((notif, index) => (
                         <div className='query-border d-flex align-items-center' key={index}>
-                            <h4 className='m-0'>{notif.title}</h4>
+                            <h4 className='m-0'>{notif.heading}</h4>
                             <button
                                 className='btn btn-primary'
                                 style={{ marginLeft: 'auto' }}
                                 onClick={() => {
                                     setNotifBody(notif.description)
-                                    setNotifTitle(notif.title)
+                                    setNotifTitle(notif.heading)
                                     toggleViewPost()
                                 }}
                             >Open</button>

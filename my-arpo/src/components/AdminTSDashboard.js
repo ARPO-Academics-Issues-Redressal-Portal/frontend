@@ -4,9 +4,8 @@ import GeneralHeader from '../components/GeneralHeader'
 
 
 
-function AdminTSDashboard(props){
-    const [cards, changeCards] = useState({
-        courseCards: [
+function AdminTsDashboard(props){
+    const [cards, changeCards] = useState([
             {
                 title:"Manage Queries",
                 path:"/manageQueries"
@@ -15,8 +14,7 @@ function AdminTSDashboard(props){
                 title:"Manage Notifications",
                 path:"/notifications"
             }
-        ]
-    });
+    ]);
     let url = window.location.pathname;
 
     return (
@@ -45,4 +43,4 @@ function AdminTSDashboard(props){
     )
 } 
 
-export default AdminTSDashboard
+export default AdminTsDashboard
