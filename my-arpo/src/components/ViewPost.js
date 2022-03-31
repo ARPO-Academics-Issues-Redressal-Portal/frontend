@@ -87,11 +87,6 @@ export default function ViewPost(props) {
                                     </>
                                 )
                             }
-<<<<<<< HEAD
-                            <button className='btn btn-warning'>
-                                Reply
-                            </button>
-=======
                             <button 
                                 className='btn btn-warning' 
                                 onClick={()=>{
@@ -99,8 +94,6 @@ export default function ViewPost(props) {
                                     toggleViewPost()
                                 }}
                             >Reply</button>
->>>>>>> ea26cd88013a5e1f740b811e102973f272814837
-
                         </MDBModalFooter>
                     </MDBModalContent>
                 </MDBModalDialog>
