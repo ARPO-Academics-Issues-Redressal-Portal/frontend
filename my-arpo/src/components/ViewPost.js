@@ -13,9 +13,9 @@ import { deleteForumResponseApi } from '../apis/Apis';
 export default function ViewPost(props) {
     const { viewPost, setviewPost, toggleViewPost, modalBody,
         modalTitle, forumReplies, postedBy, toggleEditPost,
-        deletePost,toggleReplyPost,} = props
+        deletePost, toggleReplyPost, email, timeOfPost} = props
 
-    const deleteReply = async (id)=>{
+    const deleteReply = async (id) => {
         let res = await deleteForumResponseApi(id)
         toggleViewPost()
     }
@@ -28,6 +28,13 @@ export default function ViewPost(props) {
                         <MDBModalHeader>
 
                             <div style={{ flex: '1' }}>
+                                <div className='d-flex justify-content-between'>
+                                    <div>{timeOfPost} </div>
+                                    <div>
+                                        {email}
+                                    </div>
+
+                                </div>
                                 <h4 className='text-center'>{modalTitle}</h4>
                                 <div className='text-center'>{modalBody}</div>
                             </div>
@@ -56,9 +63,9 @@ export default function ViewPost(props) {
 
                                         <div>{reply.response_text}</div>
                                         <div className='text-end'>
-                                            <button 
+                                            <button
                                                 className='btn btn-danger'
-                                                onClick={()=>{
+                                                onClick={() => {
                                                     deleteReply(reply.uuid)
                                                 }}
                                             >delete</button>
@@ -87,9 +94,9 @@ export default function ViewPost(props) {
                                     </>
                                 )
                             }
-                            <button 
-                                className='btn btn-warning' 
-                                onClick={()=>{
+                            <button
+                                className='btn btn-warning'
+                                onClick={() => {
                                     toggleReplyPost()
                                     toggleViewPost()
                                 }}

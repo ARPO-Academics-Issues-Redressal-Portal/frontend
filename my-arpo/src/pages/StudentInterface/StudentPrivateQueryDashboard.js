@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import DashboardForumQuery from '../../components/DashboardForumQuery'
 import GeneralHeader from '../../components/GeneralHeader'
-import GenQuery from '../../assets/ARPO-logos/general_query.png'
 
 
-import { AddPrivateQueryApi, PrivateQueryByCourseAndProfileIdApi, UpdatePrivateQueryApi } from '../../apis/Apis';
+import { AddPrivateQueryApi, deletePrivateQueryApi, PrivateQueryByCourseAndProfileIdApi, UpdatePrivateQueryApi } from '../../apis/Apis';
 import { PrivateQueryResponseApi } from '../../apis/Apis';
 import { useParams } from 'react-router-dom';
 
@@ -19,6 +17,8 @@ function StudentPrivateQueryDasboard() {
     const [queryTitle, setQueryTitle] = useState("")
     const [queryReplies, setQueryReplies] = useState([])
     const [status, setStatus] = useState("")
+    const [postedBy, setpostedBy] = useState("")
+    const [query_uuid, setQueryUuid] = useState("")
 
     const {course} = useParams()
     const profile_id = sessionStorage.getItem("profileId")
@@ -27,11 +27,11 @@ function StudentPrivateQueryDasboard() {
     const toggleEditPost = () => seteditPost(!editPost)
 
     
-    const fnGetPrivateQueries = async (courseName,profile_id) => {
-        let res = await PrivateQueryByCourseAndProfileIdApi(courseName, profile_id);
+    const fnGetPrivateQueries = async () => {
+        let res = await PrivateQueryByCourseAndProfileIdApi(course, profile_id);
         let arr = res.data;
         console.log(res)
-        setPrivateQueries(arr)
+        setPrivateQueries(arr.reverse())
     }
 
     const fnGetQueryResponses = async (forumUuid)=>{
@@ -71,6 +71,12 @@ function StudentPrivateQueryDasboard() {
         console.log(res)
     }
 
+    const fnDeletePrivateQuery = async ()=>{
+        let res = await deletePrivateQueryApi(query_uuid)
+        console.log(res)
+        fnGetPrivateQueries()
+    }
+
     const [viewPost, setViewPost] = useState(false)
     const toggleViewPost = () => setViewPost(!viewPost)
 
@@ -80,7 +86,7 @@ function StudentPrivateQueryDasboard() {
     const [postBody, setpostBody] = useState("")
 
     useEffect(() => {
-        fnGetPrivateQueries(course,profile_id)
+        fnGetPrivateQueries()
     }, [])
 
 
@@ -93,6 +99,9 @@ function StudentPrivateQueryDasboard() {
                 modalBody={queryBody}
                 modalTitle={queryTitle}
                 forumReplies={queryReplies}
+                toggleEditPost={toggleEditPost}
+                deletePost={fnDeletePrivateQuery}
+                postedBy={postedBy}
             />
 
             <AddPost 
@@ -148,6 +157,8 @@ function StudentPrivateQueryDasboard() {
                                     setQueryBody(query.description)
                                     setQueryTitle(query.title)
                                     fnGetQueryResponses(query.uuid)
+                                    setQueryUuid(query.uuid)
+                                    setpostedBy(query.profile_id)
                                     toggleViewPost()
                                 }}
                             >Open</button>

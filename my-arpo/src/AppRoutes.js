@@ -90,11 +90,6 @@ export default function AppRoutes() {
           <PrivateQueries />
       </Route>
 
-      {/* <Route exact path={"/courses/:role/:course/generalforum/:forumId"}>
-          <GeneralForum />
-      </Route> */}
-
-
       <StudentRoutes />
       <InstructorRoutes />
       <AdminsRoutes />

@@ -2,7 +2,7 @@ import axios from 'axios'
 import AnnouncementsPage from '../pages/AnnouncementsPage';
 import StudentPrivateQueryDasboard from '../pages/StudentInterface/StudentPrivateQueryDashboard';
 
-export const backEndServer = 'http://localhost:8080/';
+const backEndServer = 'http://localhost:8080/';
 
 export async function LoginApi(login, password) {
     let url = backEndServer + "profile/profileByLoginAndPassword"
