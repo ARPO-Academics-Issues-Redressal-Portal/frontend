@@ -53,7 +53,7 @@ function InstructorPrivateQueryDasboard() {
 
             <div className='forum-border d-flex justify-content-between' style={{ padding: '10px' }}>
                 <div>
-                    <h2 className='text-center m-0 align-self-start'>Queries Dasboard</h2>
+                    <h2 className='text-center m-0 align-self-start'>Queries Dashboard</h2>
                 </div>
                 <div>
                     <button type="button" className="btn btn-success" style={{ marginRight: '10px' }}>Resolve selected </button>
