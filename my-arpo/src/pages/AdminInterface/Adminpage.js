@@ -68,6 +68,11 @@ export default class Adminpage extends Component {
                                 </a>
                             </li>
                             <li className="nav-item">
+                                <a className="nav-link header-font" href="/admins/addProfile">
+                                    Add Profle
+                                </a>
+                            </li>
+                            <li className="nav-item">
                                 <a className="nav-link header-font" href="/admins/help">
                                     Help
                                 </a>
