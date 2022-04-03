@@ -16,6 +16,8 @@ import PrivateQueries from './pages/PrivateQueries';
 import Profile from './pages/Profile';
 import AdminTsDashboard from './components/AdminTSDashboard'
 import OtherQueryDashboard from './pages/OtherQueryDashboard'
+import AdminTSNotifDashboard from './pages/AdminTSNotifDashboard';
+import AdminTSQueryDashboard from './pages/AdminTSQueryDashboard';
 
 
 function setToken() {
@@ -56,14 +58,14 @@ export default function AppRoutes() {
       </Route>
 
       <Route exact path={"/home"}>
-        <HomePage />        
+        <HomePage />
       </Route>
 
       <Route exact path={"/courses"}>
         <CoursesPage />
       </Route>
 
-      <Route exact path={"/admins"}>
+      <Route exact path={"/manage"}>
         <AdminTsDashboard />
       </Route>
 
@@ -71,24 +73,36 @@ export default function AppRoutes() {
         <HelpDesk />
       </Route>
 
+      <Route exact path={"/admins"}>
+        <HelpDesk />
+      </Route>
+
       <Route exact path={"/profile"}>
-          <Profile />
+        <Profile />
       </Route>
 
       <Route exact path={"/courses/:role/:course"}>
-          <CourseHomePage />
+        <CourseHomePage />
       </Route>
 
       <Route exact path={"/courses/:role/:course/announcements"}>
-          <AnnouncementsPage />
+        <AnnouncementsPage />
       </Route>
 
       <Route exact path={"/courses/:role/:course/generalforum"}>
-          <GeneralForum />
+        <GeneralForum />
       </Route>
 
       <Route exact path={"/courses/:role/:course/privatequery"}>
-          <PrivateQueries />
+        <PrivateQueries />
+      </Route>
+
+      <Route exact path={'/manage/manageQueries'}>
+        <AdminTSQueryDashboard />
+      </Route>
+
+      <Route exact path={'/manage/notifications'}>
+        <AdminTSNotifDashboard />
       </Route>
 
       <Route exact path={"/otherQueries"}>
@@ -100,7 +114,7 @@ export default function AppRoutes() {
       <AdminsRoutes />
       <TA_Routes />
       <TechnicalStaffRoutes />
-      
+
     </Router>
 
   )

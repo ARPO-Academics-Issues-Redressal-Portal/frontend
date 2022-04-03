@@ -19,7 +19,7 @@ function AdminTsDashboard(props){
 
     return (
             <div>
-                <GeneralHeader to='/home' manage={true} />
+                <GeneralHeader to='/home' />
 
                 <div className='d-flex justify-content-around mt-4'>
                     {

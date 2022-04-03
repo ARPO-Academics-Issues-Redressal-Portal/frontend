@@ -8,17 +8,11 @@ import {
     MDBModalBody,
     MDBModalFooter,
 } from 'mdb-react-ui-kit';
-import { deleteForumResponseApi } from '../apis/Apis';
 
 export default function ViewPost(props) {
     const { viewPost, setviewPost, toggleViewPost, modalBody,
         modalTitle, forumReplies, postedBy, toggleEditPost,
-        deletePost, toggleReplyPost, email, timeOfPost} = props
-
-    const deleteReply = async (id) => {
-        let res = await deleteForumResponseApi(id)
-        toggleViewPost()
-    }
+        deletePost, toggleReplyPost, email, timeOfPost, deleteReply } = props
 
     return (
         <>
@@ -28,7 +22,7 @@ export default function ViewPost(props) {
                         <MDBModalHeader>
 
                             <div style={{ flex: '1' }}>
-                                <div className='d-flex justify-content-between' style={{borderBottom: '1px solid #dee2e6'}}>
+                                <div className='d-flex justify-content-between' style={{ borderBottom: '1px solid #dee2e6' }}>
                                     <div>{timeOfPost} </div>
                                     <div>
                                         {email}
@@ -53,23 +47,35 @@ export default function ViewPost(props) {
                                         <div className='d-flex justify-content-between'>
                                             <div>{reply.date_time} </div>
                                             {
-                                                !reply.post_anonymous && (
+                                                !reply.post_anonymous ? (
                                                     <div>
                                                         {reply.responder_email_id}
+                                                    </div>
+                                                )
+                                                :
+                                                (
+                                                    <div>
+                                                        Annonymous
                                                     </div>
                                                 )
                                             }
                                         </div>
 
                                         <div>{reply.response_text}</div>
-                                        <div className='text-end'>
-                                            <button
-                                                className='btn btn-danger'
-                                                onClick={() => {
-                                                    deleteReply(reply.uuid)
-                                                }}
-                                            >delete</button>
-                                        </div>
+                                        {
+                                            reply.responder_email_id === sessionStorage.getItem('email') && (
+                                                <div className='text-end'>
+                                                    <button
+                                                        className='btn btn-danger'
+                                                        onClick={() => {
+                                                            toggleViewPost()
+                                                            deleteReply(reply.uuid)
+                                                        }}
+                                                    >delete</button>
+                                                </div>
+                                            )
+                                        }
+
                                     </div>
                                 ))
                             }
