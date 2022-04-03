@@ -190,6 +190,25 @@ export async function deleteForumResponseApi(forumUuid){
     return res;
 
 }
+
+export async function ResolveQueriesApi(checkedList){
+    let url = backEndServer + "privateQuery/resolveSelected"
+    let params = {
+        "uuid" : checkedList
+    }
+    let res = await axios.put(url, params);
+    return res;
+}
+
+export async function RejectQueriesApi(checkedList){
+    let url = backEndServer + "privateQuery/rejectSelected"
+    let params = {
+        "uuid" : checkedList
+    }
+    let res = await axios.put(url, params);
+    return res;
+}
+
 /* Course Forum Apis End*/
 
 /********************************************/
@@ -400,6 +419,42 @@ export async function addAdminQueryResponseApi(queryUuid,queryResponse){
     return res;
 }
 
+export async function addAdminQueryApi(query){
+    let url = backEndServer+"otherQuery/add"
+
+    let date = new Date()
+    date = date.toISOString().slice(0, 19).replace('T', ' ');
+    
+    let params =  {
+        "title":query.title,
+        "profile_id":sessionStorage.getItem('profileId'),
+        "description" :query.description,
+        "status":query.status,
+        "receiver_email_id":query.receiver_email_id,
+        "date_time":date,
+        "category":"Uncategorized"
+    }
+    let res = await axios.post(url, params);
+    return res;
+}
+
+export async function ResolveOtherQueriesApi(checkedList){
+    let url = backEndServer + "otherQuery/resolveSelected"
+    let params = {
+        "uuid" : checkedList
+    }
+    let res = await axios.put(url, params);
+    return res;
+}
+
+export async function RejectOtherQueriesApi(checkedList){
+    let url = backEndServer + "otherQuery/rejectSelected"
+    let params = {
+        "uuid" : checkedList
+    }
+    let res = await axios.put(url, params);
+    return res;
+}
 /* Other Query APIs end */
 
 

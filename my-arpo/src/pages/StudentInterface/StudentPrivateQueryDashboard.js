@@ -93,6 +93,17 @@ function StudentPrivateQueryDasboard() {
         fnGetPrivateQueries()
     }, [])
 
+    let displayStatus = (status) => {
+        if(status === "W"){
+            return "Waiting";
+        } 
+        else if (status === "R"){
+            return "Resolved";
+        }
+        else {
+            return "Rejected";
+        }
+    }
 
     return (
         <>
@@ -155,7 +166,10 @@ function StudentPrivateQueryDasboard() {
                 {
                     privateQueries.map((query, index) => (
                         <div className='query-border d-flex align-items-center' key={index}>
-                            <h4 className='m-0'>{query.title}</h4>
+                            <h4 className='m-0' style={{ padding: 'px 20px 0px 0px' }}>{query.title}</h4>
+                            <h5 style={{ padding: '8px 20px 0px 0px' }}>
+                                {displayStatus(query.status)}
+                            </h5>
                             <button
                                 className='btn btn-primary'
                                 style={{ marginLeft: 'auto' }}
@@ -166,7 +180,7 @@ function StudentPrivateQueryDasboard() {
                                     setQueryUuid(query.uuid)
                                     setpostedBy(query.profile_id)
                                     settimeOfPost(query.date_time)
-                                    toggleViewPost()
+                                        toggleViewPost()
                                 }}
                             >Open</button>
                         </div>

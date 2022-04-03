@@ -15,6 +15,7 @@ import GeneralForum from './pages/GeneralForum';
 import PrivateQueries from './pages/PrivateQueries';
 import Profile from './pages/Profile';
 import AdminTsDashboard from './components/AdminTSDashboard'
+import OtherQueryDashboard from './pages/OtherQueryDashboard'
 
 
 function setToken() {
@@ -88,6 +89,10 @@ export default function AppRoutes() {
 
       <Route exact path={"/courses/:role/:course/privatequery"}>
           <PrivateQueries />
+      </Route>
+
+      <Route exact path={"/otherQueries"}>
+          <OtherQueryDashboard/>
       </Route>
 
       <StudentRoutes />

@@ -19,15 +19,13 @@ export class LoginPage extends Component {
   checkAuthentication = async () => {
     console.log("Form submit")
     console.log(this.state)
-
-    let res = await LoginApi(this.state.userName, this.state.password)
-    console.log(res.data)
-
-    if (res.data === '') {
-      alert("Invalid Username or password")
-      return
+    let res = {}
+    try {
+      res = await LoginApi(this.state.userName, this.state.password)
     }
-
+    catch (err){
+      alert("Invalid Username or password");
+    }
     let profileId = res.data.profile_id
     let isAdmin = res.data.isAdmin;
     let isTS = res.data.is_ts
