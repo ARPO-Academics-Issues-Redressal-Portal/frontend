@@ -7,6 +7,7 @@ import Admins from '../assets/ARPO-logos/Admins.png'
 import Help from '../assets/ARPO-logos/Help.png'
 import Manage from '../assets/ARPO-logos/Manage.jpg'
 import logOut from '../assets/ARPO-logos/logout-icon.png'
+import AddProdile from '../assets/ARPO-logos/addProfile.png'
 import { NotificationApi } from '../apis/Apis'
 
 
@@ -106,6 +107,16 @@ export default class StudentDashboard extends Component {
                                         <div className='text-center'>
                                             <img src={Manage} width={30} height={30} />
                                             <p className='m-0 text-center' style={{ fontSize: '12px' }}>Manage</p>
+                                        </div>
+                                    </a>
+                                </li>)
+                            }
+                            {
+                                (isAdmin) && (<li className="nav-item">
+                                    <a className="nav-link header-font" href="/admins/AddProfile">
+                                        <div className='text-center'>
+                                            <img src={AddProdile} width={30} height={30} />
+                                            <p className='m-0 text-center' style={{ fontSize: '12px' }}>Add Profile</p>
                                         </div>
                                     </a>
                                 </li>)
