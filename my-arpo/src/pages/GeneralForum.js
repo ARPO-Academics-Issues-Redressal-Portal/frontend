@@ -7,6 +7,7 @@ import AddPost from '../components/AddPost';
 import { ForumsResponseApi } from '../apis/Apis';
 import EditPost from '../components/EditPost';
 import ReplyPost from '../components/ReplyPost';
+import { deleteForumResponseApi } from '../apis/Apis';
 
 export default function GeneralForum() {
     const [forums, setforums] = useState([])
@@ -34,8 +35,12 @@ export default function GeneralForum() {
     const fnGetReplies = async (forumUuid) => {
         setforumReplies([])
         let res = await ForumsResponseApi(forumUuid)
-        console.log("viewPost res")
+
         console.log(res)
+        if(res === "Not Found"){
+            setforumReplies([])
+            return
+        }
         setforumReplies(res.data)
     }
 
@@ -46,10 +51,12 @@ export default function GeneralForum() {
     const toggleAddPost = () => setaddPost(!addPost)
     const [subject, setsubject] = useState("")
     const [postBody, setpostBody] = useState("")
+    const [postAnonumous, setpostAnonumous] = useState(false)
     const fnPostForum = async () => {
 
-        let res = await ForumPostApi(subject, postBody, course)
+        let res = await ForumPostApi(subject, postBody, course,postAnonumous)
         fnGetForums()
+        setpostAnonumous(false)
     }
 
     const [editPost, seteditPost] = useState(false)
@@ -75,14 +82,20 @@ export default function GeneralForum() {
 
     const [replyPost, setreplyPost] = useState(false)
     const [replyBody, setreplyBody] = useState("")
+    const [replyAnnonymous, setreplyAnnonymous] = useState(false)
     const toggleReplyPost = () => setreplyPost(!replyPost)
 
     const fnAddReplyOfForum = async ()=>{
-        let res = await ForumsResponseAddReplyApi(forum_uuid,replyBody,course,forum_email)
+        let res = await ForumsResponseAddReplyApi(forum_uuid,replyBody,course,forum_email,replyAnnonymous)
         fnGetReplies(forum_uuid)
+        setreplyBody('')
         toggleViewPost()
     }
 
+    const deleteForumReply = async (id) => {
+        let res = await deleteForumResponseApi(id)
+        fnGetReplies(forum_uuid)
+    }
 
     return (
         <>
@@ -99,6 +112,7 @@ export default function GeneralForum() {
                 toggleReplyPost={toggleReplyPost}
                 email={forum_email}
                 timeOfPost={timeOfPost}
+                deleteReply={deleteForumReply}
             />
 
             <AddPost
@@ -108,6 +122,8 @@ export default function GeneralForum() {
                 heading={"Add Forum"}
                 setsubject={setsubject}
                 setpostBody={setpostBody}
+                postAnonumous={postAnonumous}
+                setpostAnonumous={setpostAnonumous}
                 subject={subject}
                 postBody={postBody}
                 fnAddPost={fnPostForum}
@@ -121,6 +137,8 @@ export default function GeneralForum() {
                 replyBody={replyBody}
                 setreplyBody={setreplyBody}
                 fnAddReply={fnAddReplyOfForum}
+                replyAnnonymous={replyAnnonymous}
+                setreplyAnnonymous={setreplyAnnonymous}
             />
 
             <EditPost
@@ -175,7 +193,8 @@ export default function GeneralForum() {
                                         setmodalTitle(forum.title)
                                         fnGetReplies(forum.uuid)
                                         setforum_uuid(forum.uuid)
-                                        setforum_email(forum.receiver_email_id)
+                                        if(forum.post_anonymous) setforum_email("Anonymous")
+                                        else setforum_email(forum.receiver_email_id)
                                         setpostedBy(forum.profile_id)
                                         settimeOfPost(forum.date_time)
                                         toggleViewPost()

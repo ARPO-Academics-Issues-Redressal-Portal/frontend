@@ -8,13 +8,7 @@ import AdminTSNotifDashboard from '../pages/AdminTSNotifDashboard'
 export default function () {
   return (
     <>
-        <Route exact path={'/admins/manageQueries'}>
-          <AdminTSQueryDashboard />
-        </Route>
-
-        <Route exact path={'/admins/notifications'}>
-          <AdminTSNotifDashboard />
-        </Route>
+        
     </>
   )
 }

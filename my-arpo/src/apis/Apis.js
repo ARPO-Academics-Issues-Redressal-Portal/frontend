@@ -12,11 +12,14 @@ export async function LoginApi(login, password) {
         password: password
     }
 
+    console.log((await axios.get(url, { params })).status)
+
     let res = await axios.get(url, { params })
-    if(res.data===''){
-        alert("Invalid Username or password")
-        return
-      }
+    console.log(res)
+    // if(res.data===''){
+    //     alert("Invalid Username or password")
+    //     return
+    //   }
     return res;
 }
 
@@ -107,7 +110,7 @@ export async function ForumsApi(courseName) {
     return res;
 }
 
-export async function ForumPostApi(subject,description,course) {
+export async function ForumPostApi(subject,description,course,annonymous) {
     let url = backEndServer + "forum/add"
     let date = new Date();
 
@@ -120,7 +123,7 @@ export async function ForumPostApi(subject,description,course) {
         "likes": 0,
         "course": course,
         "receiver_email_id": sessionStorage.getItem("email"),
-        "post_anonymous": false,
+        "post_anonymous": annonymous,
         "date_time": date
     }
     console.log(params)
@@ -152,11 +155,17 @@ export async function ForumsResponseApi(forumUuid) {
     let params = {
         forumUuid: forumUuid
     }
-    let res = await axios.get(url, { params })
-    return res;
+    try {
+        let res = await axios.get(url, { params })
+        console.log(res)
+        return res;       
+    } catch (error) {
+        console.log(error)
+        return "Not Found"
+    }
 }
 
-export async function ForumsResponseAddReplyApi(forumUuid,description,course,receiver_email) {
+export async function ForumsResponseAddReplyApi(forumUuid,description,course,receiver_email,annonymous) {
     let url = backEndServer + "forumResponse/add"
     let date = new Date();
 
@@ -167,7 +176,7 @@ export async function ForumsResponseAddReplyApi(forumUuid,description,course,rec
         "response_text":description,
         "course":course,
         "likes":0,
-        "post_anonymous":0,
+        "post_anonymous":annonymous,
         "date_time":date,
         "receiver_email_id": receiver_email
     }

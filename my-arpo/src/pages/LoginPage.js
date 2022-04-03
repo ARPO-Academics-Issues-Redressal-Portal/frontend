@@ -21,7 +21,7 @@ export class LoginPage extends Component {
     console.log(this.state)
 
     let res = await LoginApi(this.state.userName, this.state.password)
-    console.log(res.data)
+    console.log(res)
 
     if (res.data === '') {
       alert("Invalid Username or password")

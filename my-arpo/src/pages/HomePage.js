@@ -102,7 +102,7 @@ export default class StudentDashboard extends Component {
                             }
                             {
                                 (isAdmin || isTS) && (<li className="nav-item">
-                                    <a className="nav-link header-font" href="/admins">
+                                    <a className="nav-link header-font" href="/manage">
                                         <div className='text-center'>
                                             <img src={Manage} width={30} height={30} />
                                             <p className='m-0 text-center' style={{ fontSize: '12px' }}>Manage</p>
