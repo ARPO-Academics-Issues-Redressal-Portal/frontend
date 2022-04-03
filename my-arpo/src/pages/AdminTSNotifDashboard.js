@@ -39,6 +39,7 @@ export default function AdminTSNotifDashboard() {
                 modalTitle={notifTitle}
                 forumReplies={[]}
                 isNotif={true}
+                shouldReply={false}
             />
 
             <div>

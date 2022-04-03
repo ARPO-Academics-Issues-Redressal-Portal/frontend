@@ -12,7 +12,11 @@ import {
 export default function ViewPost(props) {
     const { viewPost, setviewPost, toggleViewPost, modalBody,
         modalTitle, forumReplies, postedBy, toggleEditPost,
-        deletePost, toggleReplyPost, email, timeOfPost, deleteReply } = props
+        deletePost, toggleReplyPost, email, timeOfPost, deleteReply, shouldReply } = props
+    let canReply = true
+    if (props.shouldReply === false){
+        canReply = false;
+    }
 
     return (
         <>
@@ -100,13 +104,13 @@ export default function ViewPost(props) {
                                     </>
                                 )
                             }
-                            <button
+                            {canReply && <button
                                 className='btn btn-warning'
                                 onClick={() => {
                                     toggleReplyPost()
                                     toggleViewPost()
                                 }}
-                            >Reply</button>
+                            >Reply</button>}
                         </MDBModalFooter>
                     </MDBModalContent>
                 </MDBModalDialog>
