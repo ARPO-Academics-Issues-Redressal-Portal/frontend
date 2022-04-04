@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import GeneralHeader from '../../components/GeneralHeader'
 
 
-import { AddPrivateQueryApi, deletePrivateQueryApi, PrivateQueryByCourseAndProfileIdApi, UpdatePrivateQueryApi } from '../../apis/Apis';
+import { AddPrivateQueryApi, deletePrivateQueryApi, PrivateQueryADDResponseApi, PrivateQueryByCourseAndProfileIdApi, PrivateQueryDeleteResponseApi, UpdatePrivateQueryApi } from '../../apis/Apis';
 import { PrivateQueryResponseApi } from '../../apis/Apis';
 import { useParams } from 'react-router-dom';
 
 import ViewPost from '../../components/ViewPost'
 import AddPost from '../../components/AddPost';
 import EditPost from '../../components/EditPost';
+import ReplyPost from '../../components/ReplyPost';
 
 function StudentPrivateQueryDasboard() {
     
@@ -19,6 +20,7 @@ function StudentPrivateQueryDasboard() {
     const [status, setStatus] = useState("")
     const [postedBy, setpostedBy] = useState("")
     const [query_uuid, setQueryUuid] = useState("")
+    const [queryEmail, setQueryEmail] = useState("")
     const [timeOfPost, settimeOfPost] = useState("")
 
     const {course} = useParams()
@@ -37,8 +39,7 @@ function StudentPrivateQueryDasboard() {
 
     const fnGetQueryResponses = async (forumUuid)=>{
         let res = await PrivateQueryResponseApi(forumUuid)
-        console.log("viewPost res")
-        console.log(res)
+        if(res.data.error)return;
         setQueryReplies(res.data)
     }
 
@@ -47,13 +48,13 @@ function StudentPrivateQueryDasboard() {
         
         query['title'] = subject;
         query['description'] = postBody;
-        query['receiver_email_id'] = "test_email";
+        query['receiver_email_id'] = "isaha@iitk.ac.in";
         query['category'] = "test_category";
         query['course'] = course;
         query['status'] = "W"
         
-        console.log("addPost res")
         let res = await AddPrivateQueryApi(query);
+        alert(res.data.message)
         fnGetPrivateQueries();
         console.log(res)
     }
@@ -62,17 +63,13 @@ function StudentPrivateQueryDasboard() {
         let query = {};
         query['title'] = queryTitle;
         query['description'] = queryBody;
-        query['receiver_email_id'] = "test_email";
+        query['receiver_email_id'] = queryEmail;
         query['category'] = "test_category";
         query['course'] = course
-        query['status'] = status
-
-        console.log(query)
+        query['status'] = "W"
 
         let res = await UpdatePrivateQueryApi(query_uuid,query);
         fnGetPrivateQueries();
-        console.log("updatePost res")
-        console.log(res)
     }
 
     const fnDeletePrivateQuery = async ()=>{
@@ -105,6 +102,25 @@ function StudentPrivateQueryDasboard() {
         }
     }
 
+    const [replyPost, setreplyPost] = useState(false)
+    const [replyBody, setreplyBody] = useState("")
+    const toggleReplyPost = () => setreplyPost(!replyPost)
+
+    const fnAddReplyToQuery = async ()=>{
+        let res = await PrivateQueryADDResponseApi(query_uuid,replyBody,course,queryEmail)
+        alert(res.data.message)
+        
+        fnGetQueryResponses(query_uuid)
+        setreplyBody('')
+        toggleViewPost()
+    }
+
+    const deleteQueryReply = async (id) => {
+        let res = await PrivateQueryDeleteResponseApi(id)
+        alert(res.data.message)
+        fnGetQueryResponses(query_uuid)
+    }
+
     return (
         <>
             <ViewPost
@@ -119,13 +135,15 @@ function StudentPrivateQueryDasboard() {
                 postedBy={postedBy}
                 email={sessionStorage.getItem('email')}
                 timeOfPost={timeOfPost}
+                toggleReplyPost={toggleReplyPost}
+                deleteReply={deleteQueryReply}
             />
 
             <AddPost 
                 addPost={addPost}
                 setaddPost={setaddPost}
                 toggleAddPost={toggleAddPost}
-                heading={"Add Post"}
+                heading={"Add Query"}
                 setsubject={setsubject}
                 setpostBody={setpostBody}
                 subject={subject}
@@ -137,12 +155,22 @@ function StudentPrivateQueryDasboard() {
                 editPost={editPost}
                 seteditPost={seteditPost}
                 toggleEditPost={toggleEditPost}
-                heading="Edit Announcement"
+                heading="Edit Query"
                 subject={queryTitle}
                 editBody={queryBody}
                 setsubject={setQueryTitle}
                 setpostBody={setQueryBody}
                 fnUpdatePost={fnUpdatePrivateQuery}
+            />
+
+            <ReplyPost 
+                replyPost={replyPost}
+                setreplyPost={setreplyPost}
+                toggleReplyPost={toggleReplyPost}
+                heading={"Reply Query"}
+                replyBody={replyBody}
+                setreplyBody={setreplyBody}
+                fnAddReply={fnAddReplyToQuery}
             />
 
             <div>
@@ -155,8 +183,8 @@ function StudentPrivateQueryDasboard() {
                 </div>
                 <div>
                     <button type="button" className="btn btn-success" style={{ marginRight: '10px' }} onClick = { () => {
-                        setQueryTitle('')
-                        setQueryBody('')
+                        setsubject('')
+                        setpostBody('')
                         toggleAddPost()
                     }}>Add Query </button>
                 </div>
@@ -166,13 +194,12 @@ function StudentPrivateQueryDasboard() {
                 {
                     privateQueries.map((query, index) => (
                         <div className='query-border d-flex align-items-center' key={index}>
-                            <h4 className='m-0' style={{ padding: 'px 20px 0px 0px' }}>{query.title}</h4>
-                            <h5 style={{ padding: '8px 20px 0px 0px' }}>
-                                {displayStatus(query.status)}
-                            </h5>
+                            <h4 className='m-0'>{query.title}</h4>
+                            <div style={{ marginLeft: 'auto',marginRight:'20px' }}>
+                                Status : {displayStatus(query.status)}
+                            </div>
                             <button
                                 className='btn btn-primary'
-                                style={{ marginLeft: 'auto' }}
                                 onClick={() => {                                
                                     setQueryBody(query.description)
                                     setQueryTitle(query.title)
@@ -180,7 +207,8 @@ function StudentPrivateQueryDasboard() {
                                     setQueryUuid(query.uuid)
                                     setpostedBy(query.profile_id)
                                     settimeOfPost(query.date_time)
-                                        toggleViewPost()
+                                    setQueryEmail(query.receiver_email_id)
+                                    toggleViewPost()
                                 }}
                             >Open</button>
                         </div>

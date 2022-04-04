@@ -15,7 +15,7 @@ import {
 export default function AddPost(props) {
   const { addPost, setaddPost, toggleAddPost, heading, fnAddPost, setsubject,
     setpostBody, subject, postBody,
-    postAnonumous,setpostAnonumous } = props
+    postAnonumous, setpostAnonumous } = props
   return (
     <>
       <MDBModal show={addPost} setShow={setaddPost} tabIndex='-1'>
@@ -40,27 +40,31 @@ export default function AddPost(props) {
             </MDBModalBody>
 
             <MDBModalFooter>
-              <div className="form-check m-0 p-0 d-flex align-items-center">
-                <input
-                  id='anonymous'
-                  className="form-check-input"
-                  type="checkbox"
-                  value={postAnonumous}
-                  style={{
-                    width: '25px',
-                    height: '25px',
-                    marginRight: '5px'
-                  }}
-                  onClick={()=>{
-                    setpostAnonumous(!postAnonumous)
-                  }}
-                />
-                <button className='btn btn-info'>
-                  <label className="form-check-label mr-2" htmlFor="anonymous">
-                    Anonymous
-                  </label>
-                </button>
-              </div>
+              {
+                heading === "Add Forum" && (
+                  <div className="form-check m-0 p-0 d-flex align-items-center">
+                    <input
+                      id='anonymous'
+                      className="form-check-input"
+                      type="checkbox"
+                      value={postAnonumous}
+                      style={{
+                        width: '25px',
+                        height: '25px',
+                        marginRight: '5px'
+                      }}
+                      onClick={() => {
+                        setpostAnonumous(!postAnonumous)
+                      }}
+                    />
+                    <button className='btn btn-info'>
+                      <label className="form-check-label mr-2" htmlFor="anonymous">
+                        Anonymous
+                      </label>
+                    </button>
+                  </div>
+                )
+              }
 
 
               <button className='btn btn-secondary' onClick={toggleAddPost}>
@@ -68,6 +72,10 @@ export default function AddPost(props) {
               </button>
               <button className='btn btn-success'
                 onClick={() => {
+                  if(subject==="" || postBody === ""){
+                    alert("Subject and Message body both should not be empty")
+                    return
+                  }
                   fnAddPost()
                   toggleAddPost()
                 }}>Post</button>

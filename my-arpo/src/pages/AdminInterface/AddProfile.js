@@ -29,10 +29,10 @@ export default function AddProfile(props) {
         if(showAddProfileAlert){
             return(
                 <>
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <div className="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>Profile</strong>
                         <p>{message}</p>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=> {changeShowAddProfileAlert(false)}}>
+                    <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={()=> {changeShowAddProfileAlert(false)}}>
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
@@ -42,10 +42,10 @@ export default function AddProfile(props) {
         if(showAddCourseRoleAlert){
             return(
                 <>
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <div className="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>Course Role :</strong>
                         <p>{message}</p>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={()=> {changeShowAddCourseRoleAlert(false)}}>
+                    <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={()=> {changeShowAddCourseRoleAlert(false)}}>
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
@@ -74,67 +74,67 @@ export default function AddProfile(props) {
             <GeneralHeader to="/home" />
             <br></br>
             <br></br>
-            <div class="container">
+            <div className="container">
                 <form>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="name">Name</label>
-                        <input onChange = {(e) => {changeProfile({...profile, "name": e.target.value})}} type="name" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name" required/>
+                        <input onChange = {(e) => {changeProfile({...profile, "name": e.target.value})}} type="name" className="form-control" id="name" aria-describedby="name" placeholder="Enter Name" required/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="department">Department</label>
-                        <input onChange = {(e) => {changeProfile({...profile, "department": e.target.value})}} type="department" class="form-control" id="department" placeholder="Enter Department" required/>
+                        <input onChange = {(e) => {changeProfile({...profile, "department": e.target.value})}} type="department" className="form-control" id="department" placeholder="Enter Department" required/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="profile_id">Profile ID</label>
-                        <input onChange = {(e) => {changeProfile({...profile, "profile_id": parseInt(e.target.value)})}} type="profile_id" class="form-control" id="profile_id" placeholder="Enter Profile ID" required/>
+                        <input onChange = {(e) => {changeProfile({...profile, "profile_id": parseInt(e.target.value)})}} type="profile_id" className="form-control" id="profile_id" placeholder="Enter Profile ID" required/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="phone_number">Phone Number</label>
-                        <input onChange = {(e) => {changeProfile({...profile, "phone_no": e.target.value})}} type="phone_number" class="form-control" id="phone_number" placeholder="Enter Phone Number" required/>
+                        <input onChange = {(e) => {changeProfile({...profile, "phone_no": e.target.value})}} type="phone_number" className="form-control" id="phone_number" placeholder="Enter Phone Number" required/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="email_id">Email ID</label>
-                        <input onChange = {(e) => {changeProfile({...profile, "email_id": e.target.value})}} type="email_id" class="form-control" id="email_id" placeholder="Enter Email ID" required/>
+                        <input onChange = {(e) => {changeProfile({...profile, "email_id": e.target.value})}} type="email_id" className="form-control" id="email_id" placeholder="Enter Email ID" required/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="roll_no">Roll No</label>
-                        <input onChange = {(e) => {changeProfile({...profile, "roll_number": e.target.value})}} type="roll_no" class="form-control" id="roll_no" placeholder="Enter Roll No" required/>
+                        <input onChange = {(e) => {changeProfile({...profile, "roll_number": e.target.value})}} type="roll_no" className="form-control" id="roll_no" placeholder="Enter Roll No" required/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="login_id">Login ID</label>
-                        <input onChange = {(e) => {changeProfile({...profile, "login_id": e.target.value})}} type="login_id" class="form-control" id="login_id" placeholder="Enter Login ID" required/>
+                        <input onChange = {(e) => {changeProfile({...profile, "login_id": e.target.value})}} type="login_id" className="form-control" id="login_id" placeholder="Enter Login ID" required/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="password">Password</label>
-                        <input onChange = {(e) => {changeProfile({...profile, "password": e.target.value})}} type="password" class="form-control" id="password" placeholder="Enter Password" required/>
+                        <input onChange = {(e) => {changeProfile({...profile, "password": e.target.value})}} type="password" className="form-control" id="password" placeholder="Enter Password" required/>
                     </div>
-                    <div class="form-group form-check">
-                        <input onChange = {(e) => {changeProfile({...profile, "is_ts": e.target.checked?1:0})}} type="checkbox" class="form-check-input" id="is_ts" />
-                        <label class="form-check-label" for="is_ts">Is Technical Staff </label>
+                    <div className="form-group form-check">
+                        <input onChange = {(e) => {changeProfile({...profile, "is_ts": e.target.checked?1:0})}} type="checkbox" className="form-check-input" id="is_ts" />
+                        <label className="form-check-label" for="is_ts">Is Technical Staff </label>
                     </div>
-                    <div class="form-group form-check">
-                        <input onChange = {(e) => {changeProfile({...profile, "isAdmin": e.target.checked?1:0})}} type="checkbox" class="form-check-input" id="is_admin" />
-                        <label class="form-check-label" for="is_admin">Is Admin </label>
+                    <div className="form-group form-check">
+                        <input onChange = {(e) => {changeProfile({...profile, "isAdmin": e.target.checked?1:0})}} type="checkbox" className="form-check-input" id="is_admin" />
+                        <label className="form-check-label" for="is_admin">Is Admin </label>
                     </div>
                     <br></br>
-                    <button onClick = {fnAddProfile} type="submit" class="btn btn-primary">Submit</button>
+                    <button onClick = {fnAddProfile} type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
             <br></br>
             <br></br>
-            <div class="container">
+            <div className="container">
                 <form>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="course">Course</label>
-                        <input onChange = {(e) => {changeCourseRole({...courseRole, "course": e.target.value})}} type="course" class="form-control" id="course" aria-describedby="course" placeholder="Enter Course Name" required/>
+                        <input onChange = {(e) => {changeCourseRole({...courseRole, "course": e.target.value})}} type="course" className="form-control" id="course" aria-describedby="course" placeholder="Enter Course Name" required/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="profile_id">Profile ID</label>
-                        <input onChange = {(e) => {changeCourseRole({...courseRole, "profile_id": parseInt(e.target.value)})}} type="profile_id" class="form-control" id="profile_id" aria-describedby="name" placeholder="Enter Profile ID" required/>
+                        <input onChange = {(e) => {changeCourseRole({...courseRole, "profile_id": parseInt(e.target.value)})}} type="profile_id" className="form-control" id="profile_id" aria-describedby="name" placeholder="Enter Profile ID" required/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="profile_id">Role</label>
-                        <select onChange = {(e) => {changeCourseRole({...courseRole, "role": e.target.value})}} class="form-select" aria-label="role" required>
+                        <select onChange = {(e) => {changeCourseRole({...courseRole, "role": e.target.value})}} className="form-select" aria-label="role" required>
                             <option selected>Open this select menu</option>
                             <option value="Student">Student</option>
                             <option value="Instructor">Instructor</option>
@@ -143,7 +143,7 @@ export default function AddProfile(props) {
                     </div>
                     <br></br>
                     <button 
-                    onClick = {fnAddCourseRole} type="submit" class="btn btn-primary">Submit</button>
+                    onClick = {fnAddCourseRole} type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
             <br></br>

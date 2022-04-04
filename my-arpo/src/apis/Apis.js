@@ -253,6 +253,29 @@ export async function PrivateQueryResponseApi(queryUuid) {
     return res;
 }
 
+export async function PrivateQueryADDResponseApi(queryUuid,replyBody,course,queryEmail) {
+    let url = backEndServer + "privateQueryResponse/add"
+    let date = new Date()
+    date = date.toISOString().slice(0, 19).replace('T', ' ');
+
+    let params = {
+        "query_uuid": queryUuid,
+        "receiver_email_id": queryEmail,
+        "responder_email_id": sessionStorage.getItem('email'),
+        "course": course,
+        "date_time": date,
+        "response_text": replyBody
+    }   
+    let res = await axios.post(url, params )
+    return res;
+}
+
+export async function PrivateQueryDeleteResponseApi(queryUuid) {
+    let url = backEndServer + "privateQueryResponse/delete/"+queryUuid
+    let res = await axios.delete(url)
+    return res;
+}
+
 export async function AddPrivateQueryApi(query) {
     let url = backEndServer + "privateQuery/add"
     let date = new Date()
@@ -290,7 +313,7 @@ export async function UpdatePrivateQueryApi(uuid, query) {
         "date_time": date,
         "category":query.category,
         "status":query.status,
-        "likes":query.likes
+        "likes":0
     }
     let res = await axios.put(url, params)
     return res;

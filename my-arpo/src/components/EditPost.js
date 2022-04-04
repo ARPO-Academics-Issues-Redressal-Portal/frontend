@@ -46,6 +46,10 @@ export default function EditPost(props) {
               </button>
               <button className='btn btn-primary'
                 onClick={() => {
+                  if(subject === "" || editBody === ""){
+                    alert("Subject and Message body both should not be empty")
+                    return
+                  }
                   toggleEditPost()
                   fnUpdatePost()
                 }}>Update</button>

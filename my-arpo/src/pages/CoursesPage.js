@@ -66,10 +66,10 @@ componentDidMount(){
       <div>
           <GeneralHeader to="/home"/>
 
-          <div className='row justify-content-center'>
+          <div className='d-flex justify-content-around flex-wrap'>
             {
               this.state.courses.map((course,id)=>(
-                  <div key={course.courseName+id} className='course-card d-flex flex-column col-2 m-5 text-center' style={{height:'50vh'}}>
+                  <div key={course.courseName+id} className='course-card d-flex flex-column m-5 col-2 text-center' style={{height:'50vh'}}>
                     <h3 className='mt-3 mb-4' style={{fontWeight:'bold'}}> Course : {course.courseName} </h3>
                     <h4 className='mt-3 mb-4'> Role : {course.role} </h4>
                     <a href={course.path} >

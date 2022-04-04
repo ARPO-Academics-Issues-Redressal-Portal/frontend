@@ -51,14 +51,14 @@ export default class InstructorForumDasboard extends Component {
                     
                     {/* add button */}
                     
-                        <button type="button" class="btn btn-primary justify-content-end mr-3">Resolve selected </button> &nbsp;
+                        <button type="button" className="btn btn-primary justify-content-end mr-3">Resolve selected </button> &nbsp;
                         {/* add button */}
-                        <button type="button" class="btn btn-primary justify-content-end">Reject selected </button>
+                        <button type="button" className="btn btn-primary justify-content-end">Reject selected </button>
 
                     <DashboardForumQuery data={this.state.forum}/>
-                    <button type="button" class="btn btn-primary">Select All</button>
+                    <button type="button" className="btn btn-primary">Select All</button>
                     &nbsp;
-                    <button type="button" class="btn btn-primary">Add New Post</button>
+                    <button type="button" className="btn btn-primary">Add New Post</button>
                 </div>
             </>
             )

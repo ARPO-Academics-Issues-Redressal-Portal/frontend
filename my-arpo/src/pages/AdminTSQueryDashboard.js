@@ -126,8 +126,8 @@ export default function AdminTSQueryDashboard() {
                     queries.map((query, index) => (
                         <div className='query-border'>
                             <div className='d-flex align-items-center' key={index}>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="flexCheckDefault" onChange={(e) => { setCheckedList(e.target.checked, query.uuid) }} />
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="flexCheckDefault" onChange={(e) => { setCheckedList(e.target.checked, query.uuid) }} />
                                 </div>
                                 <h4 className='m-0' style={{ padding: '0px 20px 0px 0px' }}>{query.title}</h4>
 

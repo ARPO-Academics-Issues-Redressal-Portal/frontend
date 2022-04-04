@@ -85,7 +85,7 @@ export default function GeneralForum() {
     const [replyAnnonymous, setreplyAnnonymous] = useState(false)
     const toggleReplyPost = () => setreplyPost(!replyPost)
 
-    const fnAddReplyOfForum = async ()=>{
+    const fnAddReplyToForum = async ()=>{
         let res = await ForumsResponseAddReplyApi(forum_uuid,replyBody,course,forum_email,replyAnnonymous)
         fnGetReplies(forum_uuid)
         setreplyBody('')
@@ -136,7 +136,7 @@ export default function GeneralForum() {
                 heading={"Reply Forum"}
                 replyBody={replyBody}
                 setreplyBody={setreplyBody}
-                fnAddReply={fnAddReplyOfForum}
+                fnAddReply={fnAddReplyToForum}
                 replyAnnonymous={replyAnnonymous}
                 setreplyAnnonymous={setreplyAnnonymous}
             />
