@@ -12,14 +12,7 @@ export async function LoginApi(login, password) {
         password: password
     }
 
-    console.log((await axios.get(url, { params })).status)
-
     let res = await axios.get(url, { params })
-    console.log(res)
-    // if(res.data===''){
-    //     alert("Invalid Username or password")
-    //     return
-    //   }
     return res;
 }
 
