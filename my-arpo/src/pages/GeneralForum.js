@@ -90,6 +90,7 @@ export default function GeneralForum() {
         fnGetReplies(forum_uuid)
         setreplyBody('')
         toggleViewPost()
+        setreplyAnnonymous(false)
     }
 
     const deleteForumReply = async (id) => {

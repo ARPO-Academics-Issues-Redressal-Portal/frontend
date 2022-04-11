@@ -44,7 +44,7 @@ export default function AddPost(props) {
                 heading === "Add Forum" && (
                   <div className="form-check m-0 p-0 d-flex align-items-center">
                     <input
-                      id='anonymous'
+                      id='addanonymous'
                       className="form-check-input"
                       type="checkbox"
                       value={postAnonumous}
@@ -58,7 +58,7 @@ export default function AddPost(props) {
                       }}
                     />
                     <button className='btn btn-info'>
-                      <label className="form-check-label mr-2" htmlFor="anonymous">
+                      <label className="form-check-label mr-2" htmlFor="addanonymous">
                         Anonymous
                       </label>
                     </button>
