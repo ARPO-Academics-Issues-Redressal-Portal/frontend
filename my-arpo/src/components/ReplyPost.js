@@ -75,7 +75,7 @@ export default function ReplyPost(props) {
                 }
                 fnAddReply()
                 toggleReplyPost()
-              }}>Post Reply</button>
+              }} >Post Reply</button>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>

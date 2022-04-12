@@ -57,6 +57,7 @@ export default function GeneralForum() {
         let res = await ForumPostApi(subject, postBody, course,postAnonumous)
         fnGetForums()
         setpostAnonumous(false)
+    
     }
 
     const [editPost, seteditPost] = useState(false)

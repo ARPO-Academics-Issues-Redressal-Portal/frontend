@@ -2,8 +2,9 @@ import React,{useState,useEffect} from 'react'
 import ViewPost from '../components/ViewPost'
 import GeneralHeader from '../components/GeneralHeader'
 
-import { getAdminQueriesApi } from '../apis/Apis'
+import { addAdminQueryResponseApi, deleteAdminQueryResponseApi, getAdminQueriesApi } from '../apis/Apis'
 import { getAdminQueryResponseApi } from '../apis/Apis'
+import ReplyPost from '../components/ReplyPost';
 
 import { ProfilesApi, ResolveOtherQueriesApi, RejectOtherQueriesApi } from '../apis/Apis'
 export default function AdminTSQueryDashboard() {
@@ -11,6 +12,9 @@ export default function AdminTSQueryDashboard() {
     const [queryBody, setQueryBody] = useState("")
     const [queryTitle, setQueryTitle] = useState("")
     const [queryReplies, setQueryReplies] = useState([])
+
+    const[givenProfileId, changeProfileId] = useState("");
+    const[queryUuid, changeQueryUuid] = useState("")
 
     const [viewPost, setViewPost] = useState(false)
     const toggleViewPost = () => setViewPost(!viewPost)
@@ -90,10 +94,37 @@ export default function AdminTSQueryDashboard() {
         setQueryReplies(res.data)
     }
 
+    const fnAddReplyToQuery = async () => {
+        let queryResponse = {}
+        queryResponse['query_uuid'] = queryUuid
+        let email = ""
+        if(findEmailOfSender(givenProfileId) === null){
+            email = "user@iitk.ac.in"
+        }
+        queryResponse['receiver_email_id'] = findEmailOfSender(givenProfileId)
+        queryResponse['responder_email_id'] = "admin@iitk.ac.in"
+        queryResponse['response_text'] = replyBody
+        let res = await addAdminQueryResponseApi(queryUuid,queryResponse)
+        alert("Sent the reply!")
+        fnGetAdminQueryResponses(queryUuid)
+        setreplyBody('')
+        toggleViewPost()
+
+    }
+
+    const fnDeleteQueryReply = async(id) => {
+        let res = await deleteAdminQueryResponseApi(id)
+        alert("Deleted the reply!")
+        return res
+    }
+
     useEffect(() => {
         fnGetAdminQueries()
     }, [queries])
 
+    const [replyPost, setreplyPost] = useState(false)
+    const [replyBody, setreplyBody] = useState("")
+    const toggleReplyPost = () => setreplyPost(!replyPost)
 
     return (
         <>
@@ -104,6 +135,18 @@ export default function AdminTSQueryDashboard() {
                 modalBody={queryBody}
                 modalTitle={queryTitle}
                 forumReplies={queryReplies}
+                toggleReplyPost={toggleReplyPost}
+                deleteReply={fnDeleteQueryReply}
+            />
+
+            <ReplyPost
+                replyPost={replyPost}
+                setreplyPost={setreplyPost}
+                toggleReplyPost={toggleReplyPost}
+                heading={"Reply Technical Query"}
+                replyBody={replyBody}
+                setreplyBody={setreplyBody}
+                fnAddReply={fnAddReplyToQuery}
             />
 
             <div>
@@ -140,9 +183,12 @@ export default function AdminTSQueryDashboard() {
                                     onClick={() => {
                                         setQueryBody(query.description)
                                         setQueryTitle(query.title)
+                                        changeQueryUuid(query.uuid)
                                         // console.log(query.uuid)
                                         fnGetAdminQueryResponses(query.uuid)
                                         toggleViewPost()
+                                        changeProfileId(query.profile_id)
+
                                     }}
                                 >Open</button>
                                 </div>

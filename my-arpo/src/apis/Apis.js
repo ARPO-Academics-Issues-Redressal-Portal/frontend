@@ -418,6 +418,12 @@ export async function getAdminQueriesApi(){
     return res
 }
 
+export async function deleteAdminQueryResponseApi(queryUuid){
+    let url = backEndServer+"otherQueryResponse/delete/"+ queryUuid
+    let res = await axios.delete(url)
+    return res
+}
+
 export async function getAdminQueryResponseApi(queryUuid){
     let url = backEndServer+"otherQueryResponse/otherQueryResponseByQueryUUID";
     let params = {
