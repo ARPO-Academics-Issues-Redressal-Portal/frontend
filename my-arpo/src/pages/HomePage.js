@@ -21,7 +21,22 @@ export default class StudentDashboard extends Component {
                 "Important Links",
             ],
             notifications: [],
-            links: [],
+            links: [{
+                title:"Pingala",
+                link:"https://pingala.iitk.ac.in/IITK-0/login",
+                desc:"Pingala is the site for users to work with institute services."
+            },
+            {
+                title:"IIT Kanpur",
+                link:"https://www.iitk.ac.in",
+                desc:"Institute Site."
+            },
+            {
+                title:"DOAA IIT Kanpur",
+                link:"https://www.iitk.ac.in/doaa",
+                desc:"IIT Kanpur DOAA Site."
+            }
+            ],
         }
     }
 
@@ -179,9 +194,10 @@ export default class StudentDashboard extends Component {
                             {
                                 this.state.links.map((notify, index) => (
                                     <div style={{
-                                        border: "2px solid white"
-                                    }} key={index}>
-                                        <h5>{notify.title}</h5>
+                                        borderBottom: "2px solid white",
+                                        borderTop: "2px solid white",
+                                    }} key={index} className="text-center">
+                                        <h5><a href={notify.link}>{notify.title}</a></h5>
                                         <p>{notify.desc}</p>
                                     </div>
                                 ))
