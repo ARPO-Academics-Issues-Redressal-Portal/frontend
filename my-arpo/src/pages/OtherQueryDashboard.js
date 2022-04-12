@@ -96,7 +96,7 @@ export default function AdminTSQueryDashboard() {
         // console.log(findEmailOfSender(viewQuery.profile_id))
         queryResponse['responder_email_id'] = findEmailOfSender(viewQuery.profile_id)
         queryResponse['response_text'] = replyBody
-        console.log(queryResponse)
+        // console.log(queryResponse)
         let res = await addAdminQueryResponseApi(viewQuery.uuid,queryResponse)
         alert("Sent the reply!")
         fnGetAdminQueryResponses(viewQuery.uuid)

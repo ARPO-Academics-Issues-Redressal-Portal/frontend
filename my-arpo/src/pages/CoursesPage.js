@@ -8,33 +8,7 @@ export default class StudentCourses extends Component {
     super(props)
   
     this.state = {
-       courses:[
-         {
-           courseName : 'CS253',
-           path : '/CS253',
-           role:  "student"
-         },
-         {
-           courseName : 'ESC101',
-           path : '/ESC101',
-           role:  "student"            
-         },
-         {
-           courseName : 'MTH101',
-           path : '/MTH101',
-           role:  "instructor"            
-         },
-         {
-           courseName : 'PHY101',
-           path : '/PHY101',
-           role:  "TA"           
-         },
-         {
-           courseName : 'HSS101',
-           path : '/HSS101',
-           role:  "student"            
-         },
-        ]
+       courses:[]
     }
   }
 

@@ -2,7 +2,7 @@ import { React, useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import GeneralHeader from '../../components/GeneralHeader'
 import { addCourseRole, addProfile } from '../../apis/Apis'
-
+import { ProfilesApi } from '../../apis/Apis'
 export default function AddProfile(props) {
     const [profile, changeProfile] = useState({
         "login_id": "",
@@ -53,13 +53,75 @@ export default function AddProfile(props) {
             )
         }
     }
-    
+    const [profileList, changeProfileList] = useState([])
+    useEffect(() => {
+        fnProfileList();
+    },[]);
+
+    const fnProfileList = async () => {
+        let res = await ProfilesApi();
+        let arr = [];
+        res.data.map((profile) => {
+            let temp = {};
+            temp['profile_id'] = profile.profile_id;
+            temp['name'] = profile.name;
+            temp['email_id'] = profile.email_id;
+            arr.push(temp);
+            changeProfileList(arr);
+        });
+    }
+    let checkIfPresent = () => {
+        for(let i = 0;i<profileList.length;i++){
+            if(profile.profile_id === "" || profileList[i].profile_id === profile.profile_id){
+                alert("Empty or User with same profile id already present")
+                return true
+            }
+            if(profile.login_id === "" || profileList[i].login_id === profile.login_id){
+                alert("Empty or User with same login id already present")
+                return true
+            }
+        }    
+        return false
+    }
+
+    let checkIfNull = () => {
+        if(profile.password === ""){
+            alert("Empty password not allowed")
+            return true
+        }
+        if(profile.name === ""){
+            alert("Empty name not allowed")
+            return true
+        }
+        if(profile.department === ""){
+            alert("Empty department not allowed")
+            return true
+        }
+        if(profile.roll_no === ""){
+            alert("Empty roll no not allowed")
+            return true
+        }
+        if(profile.email_id === ""){
+            alert("Empty email id not allowed")
+            return true
+        }
+        return false
+    }
+
     let fnAddProfile = async() => {
-        console.log(profile)
+        if (checkIfNull() == true) {
+            console.log("Entered here 1")
+            return
+        }
+        if(checkIfPresent() == true){
+            console.log("Entered here 2")
+            return
+        }
         console.log("Add Profile Called")
         let res = await addProfile(profile);
         changeMessage("Profile : " + res.data)
         changeShowAddProfileAlert(true)
+        alert()
     }
 
     let fnAddCourseRole = async() => {
