@@ -7,6 +7,7 @@ import { getAdminQueryResponseApi } from '../apis/Apis'
 import ReplyPost from '../components/ReplyPost';
 
 import { ProfilesApi, ResolveOtherQueriesApi, RejectOtherQueriesApi } from '../apis/Apis'
+
 export default function AdminTSQueryDashboard() {
     const [queries, setQueries] = useState([])
     const [queryBody, setQueryBody] = useState("")
