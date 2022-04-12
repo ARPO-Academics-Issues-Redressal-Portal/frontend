@@ -16,6 +16,7 @@ export default function Participants() {
     let res = await CourseParticipantsApi(course)
     let arr = res.data;
     setParticipants(arr)
+    console.log(arr)
   }
 
   const fnGetProfiles = async () => {
@@ -27,7 +28,7 @@ export default function Participants() {
   const createMapping = () => {
     let newObj = [];
     participants.forEach(element => {
-        if(element.role != "Instructor"){
+        if(element.role !== "Instructor" && element.course === course){
         let buff = {}
         buff['profile_id'] = element.profile_id;
         buff['role'] = element.role;
@@ -47,7 +48,7 @@ export default function Participants() {
     fnGetProfiles();
     fnGetParticipants(course);
     setMapping(createMapping());
-  }, [])
+  }, [profiles])
 
   return (
     <>
@@ -69,7 +70,7 @@ export default function Participants() {
         {
           mapping.map((element, index) => (
             <tr>
-              <th scope="row">1</th>
+              <th scope="row">{index}</th>
               <td>{element.profile_id}</td>
               <td>{element.name}</td>
               <td>{element.roll_number}</td>

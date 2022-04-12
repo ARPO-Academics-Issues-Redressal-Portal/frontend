@@ -70,7 +70,8 @@ export default function AddProfile(props) {
         changeShowAddCourseRoleAlert(true)
     }
     return (
-        <>  {showAlert()}
+        <>  
+            {showAlert()}
             <GeneralHeader to="/home" />
             <br></br>
             <br></br>

@@ -26,6 +26,10 @@ export default class InstructorCoursesHomePage extends Component {
                     title: "Participants List",
                     path: "/participantslist"
                 },
+                {
+                    title: "Add User To Course",
+                    path: "/addUser"
+                }
             ],
         }
     }
