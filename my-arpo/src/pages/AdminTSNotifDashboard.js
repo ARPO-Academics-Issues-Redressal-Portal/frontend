@@ -6,7 +6,8 @@ import GeneralHeader from '../components/GeneralHeader'
 // import { useParams } from 'react-router-dom';
 
 import ViewPost from '../components/ViewPost'
-import { getAdminNotifsApi } from '../apis/Apis'
+import { addAdminNotifApi, getAdminNotifsApi } from '../apis/Apis'
+import AddPost from '../components/AddPost'
 
 
 export default function AdminTSNotifDashboard() {
@@ -28,6 +29,20 @@ export default function AdminTSNotifDashboard() {
         fnGetAdminNotifs()
     }, [])
 
+    const [addPost, setaddPost] = useState(false)
+    const toggleAddPost = () => setaddPost(!addPost)
+    const [subject, setsubject] = useState("")
+    const [postBody, setpostBody] = useState("")
+    const fnPostNotification = async () => {
+        let params = {
+            "heading": subject,
+            "description": postBody,
+            "receiver_email_id": sessionStorage.getItem("email")
+        }
+        let res = await addAdminNotifApi(params)
+        fnGetAdminNotifs()
+    }
+
 
     return (
         <>
@@ -42,6 +57,18 @@ export default function AdminTSNotifDashboard() {
                 shouldReply={false}
             />
 
+            <AddPost
+                addPost={addPost}
+                setaddPost={setaddPost}
+                toggleAddPost={toggleAddPost}
+                heading={"Add Notification"}
+                setsubject={setsubject}
+                setpostBody={setpostBody}
+                subject={subject}
+                postBody={postBody}
+                fnAddPost={fnPostNotification}
+            />
+
             <div>
                 <GeneralHeader to="/home" />
             </div>
@@ -49,6 +76,19 @@ export default function AdminTSNotifDashboard() {
             <div className='forum-border d-flex justify-content-between' style={{ padding: '10px' }}>
                 <div>
                     <h2 className='text-center m-0 align-self-start'>Notifications Dasboard</h2>
+                </div>
+
+                <div>
+                    <button
+                        type="button"
+                        className="btn btn-success"
+                        onClick={() => {
+                            setsubject('')
+                            setpostBody('')
+                            toggleAddPost()
+                        }}
+                        style={{ marginRight: '10px' }}
+                    >Add Notification </button>
                 </div>
             </div>
 
@@ -72,15 +112,6 @@ export default function AdminTSNotifDashboard() {
                 }
 
             </div>
-
-            {/* <div className='d-flex justify-content-between' style={{ padding: '10px' }}>
-                <div style={{ marginRight: '10px' }}>
-                    <button type="button" className="btn btn-secondary">Select All</button>
-                </div>
-                {/* <div>
-                    <button type="button" className="btn btn-info">Add New Post </button>
-                </div> */}
-            {/* </div> */}  
         </>
 
     )

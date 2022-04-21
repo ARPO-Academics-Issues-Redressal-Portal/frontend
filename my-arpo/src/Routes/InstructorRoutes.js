@@ -12,17 +12,6 @@ export default function () {
           <Participants />
         </Route>
 
-        {/* <Route exact path={'/instructor/courses/:courseid/privatequery'}>
-          <QueryView />
-        </Route>
-
-        <Route exact path={'/instructor/courses/:courseid/participantslist'}>
-          <Participants />
-        </Route>
-
-        <Route exact path={'/instructor/courses/:courseid/courseView'}>
-          <CourseHomePage />
-        </Route> */}
         <Route exact path={'/courses/instructor/:course/addUser'}>
           <InstructorAddProfile />
         </Route>
