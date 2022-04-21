@@ -102,8 +102,9 @@ export default function AdminTSQueryDashboard() {
         if(findEmailOfSender(givenProfileId) === null){
             email = "user@iitk.ac.in"
         }
+
         queryResponse['receiver_email_id'] = findEmailOfSender(givenProfileId)
-        queryResponse['responder_email_id'] = "admin@iitk.ac.in"
+        queryResponse['responder_email_id'] = sessionStorage.getItem("email")
         queryResponse['response_text'] = replyBody
         let res = await addAdminQueryResponseApi(queryUuid,queryResponse)
         alert("Sent the reply!")
